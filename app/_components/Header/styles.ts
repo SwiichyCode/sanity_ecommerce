@@ -3,6 +3,7 @@ import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const HeaderWrapper = styled.header`
   position: fixed;
+  z-index: 9999;
   width: 100%;
   height: 8rem;
   display: flex;
