@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const HeaderWrapper = styled.header`
+  position: fixed;
   width: 100%;
   height: 8rem;
   display: flex;

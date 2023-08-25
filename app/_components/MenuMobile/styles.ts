@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MenuMobileWrapper = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isMenuOpen"].includes(prop),
 })<{ isMenuOpen: boolean }>`
-  position: absolute;
+  position: fixed;
   top: 80px;
   left: 0;
   z-index: 9999;
@@ -15,6 +15,7 @@ export const MenuMobileWrapper = styled.div.withConfig({
   background-color: var(--color-blue);
   transition: width 0.3s ease-in;
   overflow: hidden;
+  padding: 2.4rem 0;
 `;
 
 export const NavigationWrapper = styled.div`
