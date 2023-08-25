@@ -7,7 +7,7 @@ export const MenuMobileWrapper = styled.div.withConfig({
   top: 80px;
   left: 0;
   z-index: 9999;
-  width: ${({ isMenuOpen }) => (isMenuOpen ? "30rem" : "0")};
+  width: ${({ isMenuOpen }) => (isMenuOpen ? "100%" : "0")};
   height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
