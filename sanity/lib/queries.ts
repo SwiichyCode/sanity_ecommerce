@@ -18,7 +18,7 @@ export const recentProductQuery = groq`*[_type == "product"] | order(_createdAt 
     id, name, description, price, images
   }[0...3]`;
 
-export const recentProductFishQuery = groq`*[_type == "product" && category->category == "poisson"] | order(_createdAt desc){
+export const recentProductFishQuery = groq`*[_type == "product" && category->category == "poisson"] | order(date desc){
     id, name, description, price, images, stars, stock, category -> {
       category
     }
