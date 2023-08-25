@@ -11,4 +11,8 @@ export const LogoText = styled.span`
   text-transform: uppercase;
   font-size: 2.4rem;
   font-weight: 700;
+
+  @media (max-width: ${breakpoints.md}) {
+    display: none;
+  }
 `;

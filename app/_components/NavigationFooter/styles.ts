@@ -7,6 +7,7 @@ export const NavigationFooterWrapper = styled.footer``;
 export const NavigationFooterList = styled.ul`
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 2.4rem;
 
   @media (max-width: ${breakpoints.lg}) {

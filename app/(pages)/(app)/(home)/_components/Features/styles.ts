@@ -1,12 +1,17 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const FeaturesWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 9rem 8.8rem;
+  padding: 9rem 0;
+
+  @media (max-width: ${breakpoints.lg}) {
+    align-items: flex-start;
+  }
 `;
 
 export const FeaturesTitle = styled.h2`
@@ -22,6 +27,11 @@ export const FeaturesSubtitle = styled.p`
   font-size: 1.8rem;
   line-height: 2.5rem;
   margin-bottom: 14.6rem;
+
+  @media (max-width: ${breakpoints.lg}) {
+    width: 100%;
+    text-align: left;
+  }
 `;
 
 export const FeaturesList = styled.ul`

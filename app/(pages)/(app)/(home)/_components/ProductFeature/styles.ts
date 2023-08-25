@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const ProductFeatureWrapper = styled.section`
   display: flex;
   justify-content: center;
-  padding: 9rem 8.8rem;
+  padding: 9rem 0;
 `;
 
 export const ProductFeatureImage = styled.div`
@@ -19,6 +20,7 @@ export const ProductFeatureHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   margin-bottom: 14.6rem;
 `;
 
@@ -41,4 +43,9 @@ export const ProductFeatureList = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 4.8rem;
+
+  @media (max-width: ${breakpoints.lg}) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
