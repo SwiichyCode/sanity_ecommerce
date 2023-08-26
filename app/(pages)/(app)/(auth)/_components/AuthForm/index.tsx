@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
+
+import Link from "next/link";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { useAuth } from "../../_hooks/useAuth";
 import TextField from "@/app/_components/TextField";
 import Button from "@/app/_components/Button";
 import * as S from "./styles";
-// import AuthConfirm from "../AuthConfirm";
 
 interface Inputs {
   email: string;
@@ -13,18 +13,16 @@ interface Inputs {
   confirmPassword?: string;
 }
 
-export default function AuthForm() {
-  const [isSignUp, setIsSignUp] = useState(false);
-  const { status, handleAuth, openConfirmation, errorMessage } = useAuth(
-    isSignUp,
-    setIsSignUp
-  );
+type Props = {
+  isSignUp: boolean;
+};
+
+export default function AuthForm({ isSignUp }: Props) {
+  const { handleAuth } = useAuth(isSignUp);
   const methods = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     handleAuth(data);
-
-    console.log(data);
   };
 
   return (
@@ -79,10 +77,12 @@ export default function AuthForm() {
       </S.FormWrapper>
       <S.FormFooter>
         <S.FormFooterText>
-          {isSignUp ? "Déjà inscrit ?" : "Pas encore inscrit ?"}{" "}
+          {isSignUp ? "Déjà inscrit ?" : "Pas encore inscrit ?"}
         </S.FormFooterText>
-        <S.FormFooterLink onClick={() => setIsSignUp(!isSignUp)}>
-          {isSignUp ? "Se connecter" : "S'inscrire"}
+        <S.FormFooterLink>
+          <Link href={isSignUp ? "/signin" : "/signup"}>
+            {isSignUp ? "Se connecter" : "S'inscrire"}
+          </Link>
         </S.FormFooterLink>
       </S.FormFooter>
     </FormProvider>

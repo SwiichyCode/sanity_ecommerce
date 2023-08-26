@@ -55,4 +55,9 @@ export const FormFooterLink = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  & > a {
+    color: var(--color-blue);
+    text-decoration: none;
+  }
 `;

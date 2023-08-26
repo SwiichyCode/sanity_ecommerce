@@ -15,6 +15,11 @@ export const Button = styled.button`
   transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 
+  & > a {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
   &:hover {
     background-color: #2f70af;
   }

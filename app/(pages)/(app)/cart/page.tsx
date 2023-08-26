@@ -1,7 +1,14 @@
+"use client";
+
+import CartTable from "./_components/CartTable";
+import { useCartStore } from "./_stores/store";
+
 export default function CartPage() {
+  const { cart } = useCartStore();
+
   return (
-    <div>
-      <h1>Cart</h1>
-    </div>
+    <>
+      <CartTable cart={cart} />
+    </>
   );
 }

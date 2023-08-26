@@ -5,6 +5,7 @@ import { useMenuMobileStore } from "@/app/_stores/useMenuMobileStore";
 import { NavigationItems } from "./data";
 import Button from "../Button";
 import * as S from "./styles";
+import Link from "next/link";
 
 interface Props {
   isAuth?: boolean;
@@ -22,13 +23,15 @@ export default function Navigation({ isAuth = false }: Props) {
             <S.NavigationItem isAuth={isAuth}>
               <S.NavigationLink
                 href={"/auth"}
-                isActive={pathname === "/auth" ? true : false}
+                isActive={pathname === "/signin" ? true : false}
               >
                 Se connecter
               </S.NavigationLink>
             </S.NavigationItem>
 
-            <Button text={"S'inscrire"} />
+            <Button>
+              <Link href="/signup">S'inscrire</Link>
+            </Button>
           </>
         ) : (
           NavigationItems.map(({ id, path, name }) => (

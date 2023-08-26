@@ -16,8 +16,8 @@ interface AuthResult {
 }
 
 export function useAuth(
-  isSignUp: boolean,
-  setIsSignUp: (isSignUp: boolean) => void
+  isSignUp: boolean
+  // setIsSignUp: (isSignUp: boolean) => void
 ): AuthResult {
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [openConfirmation, setOpenConfirmation] = useState(false);
@@ -49,7 +49,8 @@ export function useAuth(
     setTimeout(() => {
       setOpenConfirmation(false);
       if (isSignUp) {
-        setIsSignUp(!isSignUp);
+        router.push("/signin");
+        router.refresh();
       } else {
         router.push("/");
         router.refresh();
