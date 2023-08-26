@@ -30,7 +30,7 @@ export default function Navigation({ isAuth = false }: Props) {
             </S.NavigationItem>
 
             <Button>
-              <Link href="/signup">S'inscrire</Link>
+              <Link href="/signup">S&apos;inscrire</Link>
             </Button>
           </>
         ) : (

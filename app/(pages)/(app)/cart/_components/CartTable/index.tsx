@@ -17,19 +17,15 @@ export default function CartTable({ cart }: Props) {
       </S.CartTableHead>
       <S.CartTableBody>
         {cart.map((item: any) => (
-          <S.CartTableBodyWrapper>
-            <S.CartTableBodyItem key={item.id}>
+          <S.CartTableBodyWrapper key={item.id}>
+            <S.CartTableBodyItem>
               <S.CartTableBodyItemImg src={item.images} />
               <S.CartTableBodyItemTitle>{item.name}</S.CartTableBodyItemTitle>
             </S.CartTableBodyItem>
 
-            <S.CartTableBodyItem key={item.id}>
-              {item.cost}€
-            </S.CartTableBodyItem>
-            <S.CartTableBodyItem key={item.id}>
-              {item.quantity}
-            </S.CartTableBodyItem>
-            <S.CartTableBodyItem key={item.id}>
+            <S.CartTableBodyItem>{item.cost}€</S.CartTableBodyItem>
+            <S.CartTableBodyItem>{item.quantity}</S.CartTableBodyItem>
+            <S.CartTableBodyItem>
               {item.cost * item.quantity}
             </S.CartTableBodyItem>
           </S.CartTableBodyWrapper>
