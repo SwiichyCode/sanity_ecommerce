@@ -7,7 +7,7 @@ export const HeroWrapper = styled.div`
   height: calc(100vh - 8rem);
   display: flex;
   align-items: center;
-  background-image: url("/home_bg.png");
+  background-image: url("/discus_hero_right.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -21,31 +21,7 @@ export const HeroWrapper = styled.div`
 
   @media (max-width: ${breakpoints.lg}) {
     padding: 0 2.4rem;
-  }
-`;
-
-export const DiscusPatern = styled.div`
-  width: 400px;
-  height: 300px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background-image: url("/discus_hero.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-
-  @media (max-width: ${breakpoints.xl}) {
-    top: 30%;
-  }
-
-  @media (max-width: ${breakpoints.md}) {
-    width: 300px;
-    height: 200px;
-    top: initial;
-    bottom: 5%;
-    transform: translateY(0);
+    background-image: url("/home_bg.png");
   }
 `;
 
@@ -66,6 +42,15 @@ export const HeroTitle = styled.h1`
   span {
     font-size: 5.75rem;
     font-weight: 700;
+  }
+
+  @media (max-width: ${breakpoints.md}) {
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+
+    span {
+      font-size: 4.5rem;
+    }
   }
 `;
 

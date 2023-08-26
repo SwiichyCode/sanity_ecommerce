@@ -20,6 +20,7 @@ export const MenuMobileWrapper = styled.div.withConfig({
 
   @media (max-width: ${breakpoints.sm}) {
     width: ${({ isMenuOpen }) => (isMenuOpen ? "100%" : "0")};
+    padding: 4.8rem 0;
   }
 `;
 
