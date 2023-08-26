@@ -37,6 +37,7 @@ export default function ProductFeature({
                     .auto("format")
                     .fit("max")
                     .url()}
+                  id={product.id}
                   name={product.name}
                   description={product.description}
                   stars={product.stars}

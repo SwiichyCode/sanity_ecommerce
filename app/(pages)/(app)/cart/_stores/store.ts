@@ -16,7 +16,7 @@ interface Store {
   totalCost: (cart: Product[]) => number;
 }
 
-export const useStore = create<Store>()(
+export const useCartStore = create<Store>()(
   persist(
     (set) => ({
       product: {
@@ -56,10 +56,7 @@ export const useStore = create<Store>()(
         })),
 
       totalCost: (cart) =>
-        cart.reduce(
-          (acc, { cost, quantity = 0 }) => acc + (cost * quantity) / 100,
-          0
-        ),
+        cart.reduce((acc, { cost, quantity = 0 }) => acc + cost * quantity, 0),
 
       clearCart: () => set({ cart: [] }),
     }),

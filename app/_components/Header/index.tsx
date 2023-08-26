@@ -8,6 +8,7 @@ import Navigation from "@/app/_components/Navigation";
 import Hamburger from "@/app/_components/Hamburger";
 import MenuMobile from "@/app/_components/MenuMobile";
 import * as S from "./styles";
+import MenuCart from "../MenuCart";
 
 export default function Header() {
   const { closeMenu } = useMenuMobileStore();
@@ -36,7 +37,10 @@ export default function Header() {
       {width > 1024 && (
         <>
           <Navigation />
-          <Navigation isAuth />
+          <S.RightSide>
+            <Navigation isAuth />
+            <MenuCart />
+          </S.RightSide>
         </>
       )}
     </S.HeaderWrapper>

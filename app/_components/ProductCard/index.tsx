@@ -1,24 +1,41 @@
-import * as S from "./styles";
 import Image from "next/image";
+import { useCartStore } from "@/app/(pages)/(app)/cart/_stores/store";
 import Button from "@/app/_components/Button";
+import * as S from "./styles";
 
 type Props = {
   imageURL: string;
-  name?: string;
-  description?: string;
-  stars?: number;
-  stock?: number;
-  price?: number;
+  id: string;
+  name: string;
+  description: string;
+  stars: number;
+  stock: number;
+  price: number;
 };
 
 export default function ProductCard({
   imageURL,
+  id,
   name,
   description,
   stars,
   stock,
   price,
 }: Props) {
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = () => {
+    addToCart(
+      {
+        name: name,
+        description: description,
+        id: id,
+        cost: price,
+        images: imageURL as any,
+      },
+      1
+    );
+  };
   return (
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
@@ -32,7 +49,7 @@ export default function ProductCard({
               alt=""
             />
           </S.ProductCardActionButton>
-          <S.ProductCardActionButton>
+          <S.ProductCardActionButton onClick={handleAddToCart}>
             <S.ProductCartActionIcon
               src="/cart.svg"
               width={24}

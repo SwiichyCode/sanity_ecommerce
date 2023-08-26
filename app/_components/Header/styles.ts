@@ -24,3 +24,9 @@ export const HeaderWrapper = styled.header.withConfig({
     padding: 0 2.4rem;
   }
 `;
+
+export const RightSide = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+`;

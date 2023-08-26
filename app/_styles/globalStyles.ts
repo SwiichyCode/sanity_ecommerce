@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
         --rounded-xl: 1.2rem;
         --rounded-2xl: 1.6rem;
         --shadow: 0px 32px 64px -12px rgba(85, 105, 135, 0.08);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         --bg-radial: radial-gradient(
         50% 50% at 50% 50%,
         rgba(247, 248, 249, 0) 0%,
