@@ -2,24 +2,50 @@ import styled from "styled-components";
 import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const HeroWrapper = styled.div`
+  position: relative;
   width: 100%;
   height: calc(100vh - 8rem);
   display: flex;
   align-items: center;
-  background-image: url("/home_mobile_patern.png");
+  background-image: url("/home_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: right;
   color: var(--color-white);
   padding: 0 8.8rem;
+  margin-top: 8rem;
 
   @media (max-width: ${breakpoints.xl}) {
     padding: 0 4.8rem;
   }
 
   @media (max-width: ${breakpoints.lg}) {
-    /* justify-content: center; */
     padding: 0 2.4rem;
+  }
+`;
+
+export const DiscusPatern = styled.div`
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("/discus_hero.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  @media (max-width: ${breakpoints.xl}) {
+    top: 30%;
+  }
+
+  @media (max-width: ${breakpoints.md}) {
+    width: 300px;
+    height: 200px;
+    top: initial;
+    bottom: 5%;
+    transform: translateY(0);
   }
 `;
 

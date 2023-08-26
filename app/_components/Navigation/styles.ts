@@ -25,6 +25,12 @@ export const NavigationList = styled.ul.withConfig({
       width: 100%;
     }
   }
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    & > button {
+      max-width: 25.2rem;
+    }
+  }
 `;
 
 export const NavigationItem = styled.li.withConfig({
@@ -37,6 +43,10 @@ export const NavigationItem = styled.li.withConfig({
     text-align: ${({ isAuth }) => isAuth && "center"};
     transition: background-color 0.2s ease-in-out;
     padding: 1.6rem 1.6rem;
+  }
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    max-width: 25.2rem;
   }
 `;
 

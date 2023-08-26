@@ -6,6 +6,7 @@ import PreviewProvider from "@/app/_providers/PreviewProvider";
 import Features from "./_components/Features";
 import Hero from "./_components/Hero";
 import ProductFeature from "./_components/ProductFeature";
+import Testimonials from "./_components/Testimonials";
 
 export default async function HomePage() {
   const productFeature = await sanityFetch<SanityDocument[]>({
@@ -20,6 +21,7 @@ export default async function HomePage() {
         <Hero />
         <Features />
         <ProductFeature productFeature={productFeature} />
+        {/* <Testimonials /> */}
       </PreviewProvider>
     );
   }
@@ -29,6 +31,7 @@ export default async function HomePage() {
       <Hero />
       <Features />
       <ProductFeature productFeature={productFeature} />
+      {/* <Testimonials /> */}
     </>
   );
 }

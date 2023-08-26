@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const MenuMobileWrapper = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isMenuOpen"].includes(prop),
@@ -7,7 +8,7 @@ export const MenuMobileWrapper = styled.div.withConfig({
   top: 80px;
   left: 0;
   z-index: 9999;
-  width: ${({ isMenuOpen }) => (isMenuOpen ? "100%" : "0")};
+  width: ${({ isMenuOpen }) => (isMenuOpen ? "30rem" : "0")};
   height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
@@ -16,6 +17,10 @@ export const MenuMobileWrapper = styled.div.withConfig({
   transition: width 0.3s ease-in;
   overflow: hidden;
   padding: 2.4rem 0;
+
+  @media (max-width: ${breakpoints.sm}) {
+    width: ${({ isMenuOpen }) => (isMenuOpen ? "100%" : "0")};
+  }
 `;
 
 export const NavigationWrapper = styled.div`
@@ -23,6 +28,7 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const Backdrop = styled.div<{ isMenuOpen: boolean }>`
+  display: ${({ isMenuOpen }) => (isMenuOpen ? "block" : "none")};
   position: fixed;
   top: 0;
   left: 0;

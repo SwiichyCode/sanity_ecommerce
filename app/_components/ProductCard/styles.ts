@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import Image from "next/image";
+
 export const ProductCardWrapper = styled.article`
   width: 100%;
   max-width: 330px;
+  border: 1px solid var(--color-grey-200);
+  border-radius: var(--rounded-lg);
+  box-shadow: var(--shadow);
+  padding: 2.4rem;
 `;
 
 export const ProductCardHeader = styled.div`
@@ -102,6 +107,7 @@ export const ProductCardImage = styled.div.withConfig({
   position: relative;
   width: 100%;
   height: 249px;
+  border-radius: var(--rounded-lg);
   background-image: url(${(props) => props.imageURL});
   background-size: cover;
   background-position: center;

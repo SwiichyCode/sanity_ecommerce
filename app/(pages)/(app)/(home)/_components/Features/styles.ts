@@ -11,6 +11,7 @@ export const FeaturesWrapper = styled.section`
 
   @media (max-width: ${breakpoints.lg}) {
     align-items: flex-start;
+    padding: 4.8rem 0;
   }
 `;
 
@@ -31,6 +32,8 @@ export const FeaturesSubtitle = styled.p`
   @media (max-width: ${breakpoints.lg}) {
     width: 100%;
     text-align: left;
+
+    margin-bottom: 7.3rem;
   }
 `;
 

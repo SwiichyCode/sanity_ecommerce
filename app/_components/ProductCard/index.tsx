@@ -1,7 +1,6 @@
 import * as S from "./styles";
 import Image from "next/image";
 import Button from "@/app/_components/Button";
-import product from "@/sanity/schemas/product";
 
 type Props = {
   imageURL: string;

@@ -5,6 +5,7 @@ import * as S from "./styles";
 export default function Hero() {
   return (
     <S.HeroWrapper>
+      <S.DiscusPatern></S.DiscusPatern>
       <S.HeroContainer>
         <S.HeroTitle>
           Bienvenue sur <br />

@@ -16,6 +16,7 @@ export default function MenuMobile() {
       return;
     }
 
+    document.body.classList.remove("no-scroll");
     closeMenu();
   };
 

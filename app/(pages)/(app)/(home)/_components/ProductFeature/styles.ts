@@ -5,6 +5,10 @@ export const ProductFeatureWrapper = styled.section`
   display: flex;
   justify-content: center;
   padding: 9rem 0;
+
+  @media (max-width: ${breakpoints.lg}) {
+    padding: 4.8rem 0;
+  }
 `;
 
 export const ProductFeatureImage = styled.div`
@@ -22,6 +26,10 @@ export const ProductFeatureHeader = styled.div`
   align-items: center;
   text-align: center;
   margin-bottom: 14.6rem;
+
+  @media (max-width: ${breakpoints.lg}) {
+    margin-bottom: 7.3rem;
+  }
 `;
 
 export const ProductFeatureTitle = styled.h2`

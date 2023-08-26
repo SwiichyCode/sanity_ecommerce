@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useWindowSize } from "usehooks-ts";
 import { useMenuMobileStore } from "@/app/_stores/useMenuMobileStore";
 import Logo from "@/app/_components/Logo";
@@ -11,6 +12,9 @@ import * as S from "./styles";
 export default function Header() {
   const { closeMenu } = useMenuMobileStore();
   const { width } = useWindowSize();
+  const pathname = usePathname();
+
+  console.log(pathname);
 
   useEffect(() => {
     if (width >= 1024) {
@@ -19,7 +23,7 @@ export default function Header() {
   }, [width]);
 
   return (
-    <S.HeaderWrapper>
+    <S.HeaderWrapper pathname={pathname}>
       {width < 1024 && (
         <>
           <Hamburger />
