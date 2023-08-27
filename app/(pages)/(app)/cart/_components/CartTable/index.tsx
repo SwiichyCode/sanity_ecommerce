@@ -10,7 +10,7 @@ export default function CartTable({ cart }: Props) {
   return (
     <S.CartTableWrapper>
       <S.CartTableHead>
-        <S.CartTableHeadItem>Product</S.CartTableHeadItem>
+        <S.CartTableHeadItem>Article</S.CartTableHeadItem>
         <S.CartTableHeadItem>Prix</S.CartTableHeadItem>
         <S.CartTableHeadItem>Quantité</S.CartTableHeadItem>
         <S.CartTableHeadItem>Total</S.CartTableHeadItem>
