@@ -7,6 +7,8 @@ type Props = {
   children: React.ReactNode;
 };
 
+export const dynamic = "force-dynamic";
+
 export default function AppLayout({ children }: Props) {
   return (
     <AppLayoutWrapper>
