@@ -11,6 +11,10 @@ export const CheckoutDetailsWrapper = styled.div`
   border-radius: var(--rounded-lg);
   padding: 5.4rem 4.8rem;
   gap: 5.4rem;
+
+  @media (max-width: ${breakpoints.lg}) {
+    margin-top: -8.8rem;
+  }
 `;
 
 export const CheckoutDetailsTitle = styled.h2`
@@ -23,6 +27,13 @@ export const CheckoutDetailsFormWrapper = styled.form`
   display: flex;
   justify-content: center;
   gap: 5.4rem;
+
+  @media (max-width: ${breakpoints.lg}) {
+    max-width: 55.4rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.4rem;
+  }
 `;
 
 export const CheckoutDetailsFormGroup = styled.div`
@@ -40,5 +51,6 @@ export const CheckoutDetailsFormGroupTitle = styled.h3`
 export const TextFieldWrapper = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 1.6rem;
 `;

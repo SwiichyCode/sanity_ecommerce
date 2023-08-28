@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const CheckoutDetailsWrapper = styled.div`
   width: 100%;
@@ -14,6 +15,7 @@ export const CheckoutDetailsWrapper = styled.div`
 
 export const CheckoutDetailsTitle = styled.h2`
   font-size: 2.4rem;
+  line-height: 2.8rem;
   text-transform: uppercase;
 `;
 
@@ -39,5 +41,10 @@ export const CheckoutDetailsFormGroupTitle = styled.h3`
 export const TextFieldWrapper = styled.div`
   width: 100%;
   display: flex;
+  /* flex-wrap: wrap; */
   gap: 1.6rem;
+
+  @media (max-width: ${breakpoints.lg}) {
+    flex-direction: column;
+  }
 `;
