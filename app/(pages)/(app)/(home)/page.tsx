@@ -7,21 +7,21 @@ import Features from "./_components/Features";
 import Hero from "./_components/Hero";
 import ProductFeature from "./_components/ProductFeature";
 import Testimonials from "./_components/Testimonials";
+import { getCachedClient } from "@/sanity/lib/getClient";
 
 export default async function HomePage() {
-  const productFeature = await sanityFetch<SanityDocument[]>({
-    query: recentProductFishQuery,
-  });
+  const preview = draftMode().isEnabled
+    ? { token: process.env.NEXT_PUBLIC_SANITY_API_READ_TOKEN }
+    : undefined;
 
-  const isDraftMode = draftMode().isEnabled;
+  const productFeature = await getCachedClient(preview)(recentProductFishQuery);
 
-  if (isDraftMode && token) {
+  if (preview && preview.token) {
     return (
-      <PreviewProvider token={token}>
+      <PreviewProvider token={preview.token}>
         <Hero />
         <Features />
         <ProductFeature productFeature={productFeature} />
-        {/* <Testimonials /> */}
       </PreviewProvider>
     );
   }
@@ -31,7 +31,6 @@ export default async function HomePage() {
       <Hero />
       <Features />
       <ProductFeature productFeature={productFeature} />
-      {/* <Testimonials /> */}
     </>
   );
 }
