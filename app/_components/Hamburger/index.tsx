@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import IconHamburger from "@/public/hamburger.svg";
 import { HamburgerWrapper } from "./styles";

@@ -24,7 +24,7 @@ export const useCartStore = create<Store>()(
         description: "",
         id: "",
         cost: 0,
-        images: [],
+        images: "",
         quantity: 0,
       },
       setProduct: (product) => set({ product }),

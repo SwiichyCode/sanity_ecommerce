@@ -15,10 +15,12 @@ interface Inputs {
 
 type Props = {
   isSignUp: boolean;
+  isCheckout?: boolean;
+  setIsSignUp?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function AuthForm({ isSignUp }: Props) {
-  const { handleAuth } = useAuth(isSignUp);
+export default function AuthForm({ isSignUp, isCheckout, setIsSignUp }: Props) {
+  const { handleAuth } = useAuth(isSignUp, isCheckout);
   const methods = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -79,11 +81,18 @@ export default function AuthForm({ isSignUp }: Props) {
         <S.FormFooterText>
           {isSignUp ? "Déjà inscrit ?" : "Pas encore inscrit ?"}
         </S.FormFooterText>
-        <S.FormFooterLink>
-          <Link href={isSignUp ? "/signin" : "/signup"}>
+
+        {isCheckout && setIsSignUp ? (
+          <S.FormFooterLink onClick={() => setIsSignUp(!isSignUp)}>
             {isSignUp ? "Se connecter" : "S'inscrire"}
-          </Link>
-        </S.FormFooterLink>
+          </S.FormFooterLink>
+        ) : (
+          <S.FormFooterLink>
+            <Link href={isSignUp ? "/signin" : "/signup"}>
+              {isSignUp ? "Se connecter" : "S'inscrire"}
+            </Link>
+          </S.FormFooterLink>
+        )}
       </S.FormFooter>
     </FormProvider>
   );

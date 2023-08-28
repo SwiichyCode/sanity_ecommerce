@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-size: 1.4rem; /* base font-size is equivalent "14px" */
+        font-size: 1.4rem; 
         font-family: 'Poppins', sans-serif;
         color: var(--color-text);
     }
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
         --color-white: #FFFFFF;
         --color-blue: #042862;
         --color-blue-600: #03204A;
-        /* --color-blue: #03204A; */
+        --color-red: #ef4444;
         --color-purple: #4500b6;
         --color-green: #22C55E;
         --color-grey-200: #D5DAE1;

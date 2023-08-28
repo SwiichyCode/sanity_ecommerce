@@ -17,6 +17,11 @@ export const FormWrapper = styled.form`
   justify-content: center;
   flex-direction: column;
   gap: 2.4rem;
+  margin: 0 auto;
+
+  & > button {
+    width: 100%;
+  }
 `;
 
 export const PasswordWrapper = styled.div`

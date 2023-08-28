@@ -9,6 +9,7 @@ export const NavigationList = styled.ul.withConfig({
 })<{ isAuth: boolean }>`
   display: flex;
   align-items: center;
+
   gap: ${({ isAuth }) => (isAuth ? "2.4rem" : "4.8rem")};
 
   @media screen and (max-width: ${breakpoints.xl}) {
@@ -52,7 +53,7 @@ export const NavigationItem = styled.li.withConfig({
 
 export const NavigationLink = styled(Link).withConfig({
   shouldForwardProp: (prop) => !["isActive"].includes(prop),
-})<{ isActive: boolean }>`
+})<{ isActive?: boolean }>`
   font-size: 1.6rem;
   text-decoration: none;
   color: ${({ isActive }) =>

@@ -1,4 +1,7 @@
+import MenuCartImage from "../MenuCartImage";
+import MenuCartInformations from "../MenuCartInformations";
 import MenuCartQuantity from "../MenuCartQuantity";
+import MenuCartTotalPrice from "../MenuCartTotalPrice";
 import * as S from "./styles";
 
 type Props = {
@@ -19,15 +22,8 @@ export default function MenuCartList({
       {cart.map((product: any) => (
         <S.MenuCartItem key={product.id}>
           <S.MenuCartItemWrapper>
-            <S.MenuCartImage imageURL={product.images} />
-            <S.MenuCartInfo>
-              <S.MenuCartName>{product.name}</S.MenuCartName>
-              <S.MenuCartPriceWrapper>
-                <S.MenuCartPrice>
-                  {product.cost * product.quantity}€
-                </S.MenuCartPrice>
-              </S.MenuCartPriceWrapper>
-            </S.MenuCartInfo>
+            <MenuCartImage imageURL={product.images} />
+            <MenuCartInformations product={product} />
           </S.MenuCartItemWrapper>
           <MenuCartQuantity
             product={product}
@@ -37,12 +33,7 @@ export default function MenuCartList({
         </S.MenuCartItem>
       ))}
       {cart.length > 0 && (
-        <S.MenuCartTotalWrapper>
-          <S.MenuCartTotalTitle>Total</S.MenuCartTotalTitle>
-          <S.MenuCartTotalPrice>
-            {Math.round((totalCost(cart) * 100) / 100)}€
-          </S.MenuCartTotalPrice>
-        </S.MenuCartTotalWrapper>
+        <MenuCartTotalPrice totalCost={totalCost} cart={cart} />
       )}
     </S.MenuCartList>
   );

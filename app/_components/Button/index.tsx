@@ -3,6 +3,7 @@ import * as S from "./styles";
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   text?: string;
   type?: "button" | "submit" | "reset" | undefined;
+  disabled?: boolean;
   children?: React.ReactNode;
 }
 

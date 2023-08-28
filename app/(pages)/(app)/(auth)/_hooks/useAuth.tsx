@@ -15,10 +15,7 @@ interface AuthResult {
   errorMessage: string | null;
 }
 
-export function useAuth(
-  isSignUp: boolean
-  // setIsSignUp: (isSignUp: boolean) => void
-): AuthResult {
+export function useAuth(isSignUp: boolean, isCheckout?: boolean): AuthResult {
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [openConfirmation, setOpenConfirmation] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -52,10 +49,11 @@ export function useAuth(
         router.push("/signin");
         router.refresh();
       } else {
-        router.push("/");
+        isCheckout ? null : router.push("/");
+
         router.refresh();
       }
-    }, 3000);
+    }, 1000);
   };
 
   return { status, handleAuth, openConfirmation, errorMessage };

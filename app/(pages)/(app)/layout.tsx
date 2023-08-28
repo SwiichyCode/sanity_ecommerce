@@ -1,28 +1,18 @@
-"use client";
-import Footer from "@/app/_components/Footer/_index";
+import AppLayoutWrapper from "@/app/_components/AppLayoutWrapper";
+import MainLayoutWrapper from "@/app/_components/MainLayoutWrapper";
 import Header from "@/app/_components/Header";
-import styled from "styled-components";
+import Footer from "@/app/_components/Footer/_index";
 
 type Props = {
   children: React.ReactNode;
 };
 
-const AppWrapper = styled.div`
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const MainWrapper = styled.main`
-  flex: 1;
-`;
-
 export default function AppLayout({ children }: Props) {
   return (
-    <AppWrapper>
+    <AppLayoutWrapper>
       <Header />
-      <MainWrapper>{children}</MainWrapper>
+      <MainLayoutWrapper>{children}</MainLayoutWrapper>
       <Footer />
-    </AppWrapper>
+    </AppLayoutWrapper>
   );
 }

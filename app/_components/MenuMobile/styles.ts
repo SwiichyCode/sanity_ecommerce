@@ -10,13 +10,17 @@ export const MenuMobileWrapper = styled.div.withConfig({
   z-index: 9999;
   width: ${({ isMenuOpen }) => (isMenuOpen ? "30rem" : "0")};
   height: calc(100vh - 80px);
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--color-blue);
   transition: width 0.3s ease-in;
   overflow: hidden;
   padding: 2.4rem 0;
+
+  @media (max-width: ${breakpoints.lg}) {
+    display: flex;
+  }
 
   @media (max-width: ${breakpoints.sm}) {
     width: ${({ isMenuOpen }) => (isMenuOpen ? "100%" : "0")};

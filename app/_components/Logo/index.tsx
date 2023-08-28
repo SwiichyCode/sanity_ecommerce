@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Logo_ from "@/public/logo.svg";
 import { LogoWrapper, LogoText } from "./styles";

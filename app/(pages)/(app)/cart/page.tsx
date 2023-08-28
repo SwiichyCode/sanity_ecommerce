@@ -1,14 +1,19 @@
-"use client";
+import { cookies } from "next/headers";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import CheckoutDetails from "./_components/CheckoutDetails";
+import CheckoutAuth from "./_components/CheckoutAuth";
+import Summary from "./_components/Summary";
 
-import CartTable from "./_components/CartTable";
-import { useCartStore } from "./_stores/store";
+export default async function CartPage() {
+  const supabase = createServerComponentClient({ cookies });
+  const { data: user } = await supabase.auth.getUser();
+  const userIsLoggedIn = user && user.user;
 
-export default function CartPage() {
-  const { cart } = useCartStore();
-
-  return (
+  return userIsLoggedIn ? (
+    <CheckoutDetails user={user} />
+  ) : (
     <>
-      <CartTable cart={cart} />
+      <CheckoutAuth isCheckout /> <Summary user={userIsLoggedIn} />
     </>
   );
 }

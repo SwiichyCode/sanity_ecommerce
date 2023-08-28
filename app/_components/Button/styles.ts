@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const Button = styled.button`
   width: max-content;
@@ -13,6 +12,7 @@ export const Button = styled.button`
   border: none;
   padding: 1.2rem 1.8rem;
   transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
   cursor: pointer;
 
   & > a {
@@ -22,5 +22,10 @@ export const Button = styled.button`
 
   &:hover {
     background-color: #2f70af;
+  }
+
+  &:disabled {
+    background-color: #b3b3b3;
+    cursor: not-allowed;
   }
 `;
