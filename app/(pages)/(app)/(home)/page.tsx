@@ -1,7 +1,5 @@
 import { draftMode } from "next/headers";
 import { recentProductFishQuery } from "@/sanity/lib/queries";
-import { sanityFetch, token } from "@/sanity/lib/fetch";
-import { SanityDocument } from "next-sanity";
 import PreviewProvider from "@/app/_providers/PreviewProvider";
 import Features from "./_components/Features";
 import Hero from "./_components/Hero";

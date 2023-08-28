@@ -3,6 +3,7 @@ import MenuCartImage from "@/app/_components/MenuCart/MenuCartImage";
 import { useCartStore } from "../../_stores/store";
 import MenuCartInformations from "@/app/_components/MenuCart/MenuCartInformations";
 import MenuCartTotalPrice from "@/app/_components/MenuCart/MenuCartTotalPrice";
+import MenuCartEmpty from "@/app/_components/MenuCart/MenuCartEmpty";
 import Button from "@/app/_components/Button";
 import * as S from "./styles";
 
@@ -19,29 +20,35 @@ export default function Summary({ user }: Props) {
         <S.SummaryTitle>Résumé</S.SummaryTitle>
       </S.SummaryHeader>
 
-      <S.SummaryList>
-        {cart.map((product, index) => (
-          <S.SummaryItem key={index}>
-            <S.SummaryItemWrapper>
-              <MenuCartImage imageURL={product.images} />
-              <MenuCartInformations product={product} />
-            </S.SummaryItemWrapper>
-            <S.SummaryItemQuantity>x{product.quantity}</S.SummaryItemQuantity>
-          </S.SummaryItem>
-        ))}
+      <S.SummaryList cartLength={cart.length}>
+        {cart.length === 0 ? (
+          <MenuCartEmpty />
+        ) : (
+          cart.map((product, index) => (
+            <S.SummaryItem key={index}>
+              <S.SummaryItemWrapper>
+                <MenuCartImage imageURL={product.images} />
+                <MenuCartInformations product={product} />
+              </S.SummaryItemWrapper>
+              <S.SummaryItemQuantity>x{product.quantity}</S.SummaryItemQuantity>
+            </S.SummaryItem>
+          ))
+        )}
       </S.SummaryList>
 
-      <S.SummaryFooter>
-        <MenuCartTotalPrice totalCost={totalCost} cart={cart} />
-        {!user && (
-          <S.SummaryAlert>
-            Veuillez vous connecter pour procéder au paiement
-          </S.SummaryAlert>
-        )}
-        <Button type="submit" disabled={user ? false : true}>
-          Continuer
-        </Button>
-      </S.SummaryFooter>
+      {cart.length > 0 && (
+        <S.SummaryFooter>
+          <MenuCartTotalPrice totalCost={totalCost} cart={cart} />
+          {!user && (
+            <S.SummaryAlert>
+              Veuillez vous connecter pour procéder au paiement
+            </S.SummaryAlert>
+          )}
+          <Button type="submit" disabled={user ? false : true}>
+            Continuer
+          </Button>
+        </S.SummaryFooter>
+      )}
     </S.SummaryWrapper>
   );
 }

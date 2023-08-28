@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const CheckoutDetailsWrapper = styled.div`
   width: 100%;

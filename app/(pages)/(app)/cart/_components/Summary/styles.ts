@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const SummaryWrapper = styled.div`
   width: 100%;
@@ -9,6 +10,10 @@ export const SummaryWrapper = styled.div`
   background-color: var(--color-white);
   border-radius: var(--rounded-lg);
   padding: 3.2rem;
+
+  @media (max-width: ${breakpoints.lg}) {
+    max-width: 55.4rem;
+  }
 `;
 
 export const SummaryHeader = styled.div`
@@ -20,11 +25,15 @@ export const SummaryTitle = styled.h2`
   text-transform: uppercase;
 `;
 
-export const SummaryList = styled.ul`
+export const SummaryList = styled.ul.withConfig({
+  shouldForwardProp: (prop) => !["cartLength"].includes(prop),
+})<{ cartLength: number }>`
   flex: 1;
   min-height: 20rem;
   display: flex;
   flex-direction: column;
+  justify-content: ${({ cartLength }) =>
+    cartLength > 0 ? "flex-start" : "center"};
   gap: 2.4rem;
 `;
 

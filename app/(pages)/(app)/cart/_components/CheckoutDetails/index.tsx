@@ -1,13 +1,15 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
-import CheckoutDetailForm from "../CheckoutDetailsForm";
-import Summary from "../Summary";
+import { useCartStore } from "../../_stores/store";
 import { useEffect } from "react";
 import { useProfile } from "../../../profil/_hooks/useProfile";
 import {
   ProfileType,
   ProfileFormType,
 } from "../../../profil/_types/profile.type";
+import CheckoutDetailForm from "../CheckoutDetailsForm";
+import Summary from "../Summary";
 import * as S from "./styles";
 
 type Inputs = Partial<ProfileType>;
@@ -17,24 +19,59 @@ type Props = {
 };
 
 export default function CheckoutDetails({ user }: Props) {
+  const { cart } = useCartStore();
   const { user: User, profile, createProfile, updateProfile } = useProfile();
   const methods = useForm<Inputs>();
   const { reset } = methods;
+  const router = useRouter();
 
   useEffect(() => {
     reset(profile);
   }, [profile]);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data);
+    try {
+      if (!profile?.lastname) {
+        createProfile({
+          id: User?.id,
+          ...(data as ProfileFormType),
+        });
+      } else {
+        updateProfile(data as ProfileType);
+      }
 
-    if (!profile?.lastname) {
-      createProfile({
-        id: User?.id,
-        ...(data as ProfileFormType),
+      const lineItems = cart?.map(
+        ({ cost, quantity, name, description, images }) => ({
+          price_data: {
+            product_data: {
+              name: name,
+              description: description,
+              images: [images],
+            },
+            currency: "eur",
+            unit_amount: cost * 100,
+          },
+          quantity: quantity,
+        })
+      );
+
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ lineItems }),
       });
-    } else {
-      updateProfile(data as ProfileType);
+
+      const checkoutSession = await res.json();
+
+      if (checkoutSession.statusCode === 500) {
+        throw new Error(checkoutSession.message);
+      }
+
+      router.push(checkoutSession.session.url);
+    } catch (error) {
+      console.log(error);
     }
   };
 
