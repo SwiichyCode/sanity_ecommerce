@@ -20,8 +20,8 @@ export default function Summary({ user }: Props) {
       </S.SummaryHeader>
 
       <S.SummaryList>
-        {cart.map((product) => (
-          <S.SummaryItem>
+        {cart.map((product, index) => (
+          <S.SummaryItem key={index}>
             <S.SummaryItemWrapper>
               <MenuCartImage imageURL={product.images} />
               <MenuCartInformations product={product} />

@@ -50,7 +50,7 @@ export default function CheckoutDetailForm({ user, profile }: Props) {
       </S.CheckoutDetailsFormGroup>
       <S.CheckoutDetailsFormGroup>
         <S.CheckoutDetailsFormGroupTitle>
-          Informations d'expédition
+          Informations d&apos;expédition
         </S.CheckoutDetailsFormGroupTitle>
         <TextField
           labeltext="Adresse de livraison"
