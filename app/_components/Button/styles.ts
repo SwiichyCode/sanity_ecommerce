@@ -21,7 +21,7 @@ export const Button = styled.button`
   }
 
   &:hover {
-    background-color: #2f70af;
+    background-color: var(--color-blue-hover);
   }
 
   &:disabled {

@@ -20,7 +20,11 @@ export default function MenuMobile({ user }: Props) {
   const handleClickOutside = (e: any) => {
     const target = e.target;
 
-    if (target.className.includes("hamburger")) {
+    if (
+      target.className &&
+      typeof target.className.includes !== "undefined" &&
+      target.className.includes("hamburger")
+    ) {
       return;
     }
 

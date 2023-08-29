@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
         --color-white: #FFFFFF;
         --color-blue: #042862;
         --color-blue-600: #03204A;
+        --color-blue-hover: #2f70af;
         --color-red: #ef4444;
         --color-purple: #4500b6;
         --color-green: #22C55E;
