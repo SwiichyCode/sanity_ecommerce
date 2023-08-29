@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { buffer } from "node:stream/consumers";
-import stripe from "@/app/_services/stripe/client";
-import { handlePaymentSuccessWebhook } from "@/app/_services/stripe/handlePaymentSuccesWebhook";
 import { Stripe } from "stripe";
+import stripe from "@/app/_services/stripe/client";
+import { updateProductStock } from "@/sanity/lib/updateProductStock";
 
 const webhookSecret = process.env.NEXT_PUBLIC_STRIPE_WEBHOOK_SECRET!;
 
@@ -15,7 +14,26 @@ export async function POST(req: any) {
   try {
     event = stripe.webhooks.constructEvent(payload, signature!, webhookSecret);
 
-    console.log(event);
+    const paymentIntent = event.data.object as any;
+
+    if (paymentIntent.status === "complete") {
+      const result = await updateProductStock(
+        JSON.parse(paymentIntent.metadata.product)
+      );
+
+      if (!result) {
+        throw new Error(
+          "Erreur lors de la mise à jour du stock:",
+          paymentIntent.metadata
+        );
+      } else {
+        console.log("Stock mis à jour avec succès.");
+      }
+    } else {
+      console.log(
+        "Le paiement n'est pas en statut réussi, aucune action nécessaire."
+      );
+    }
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
@@ -23,32 +41,4 @@ export async function POST(req: any) {
     }
   }
   return NextResponse.json({ received: true });
-
-  // try {
-  //   event = stripe.webhooks.constructEvent(
-  //     rawBody,
-  //     req.headers["stripe-signature"] as string,
-  //     process.env.NEXT_PUBLIC_STRIPE_WEBHOOK_SECRET as string
-  //   );
-
-  //   console.log(event);
-  // } catch (err) {
-  //   console.log(err);
-  //   return NextResponse.json(
-  //     {
-  //       message: "Webhook signature verification failed",
-  //     },
-  //     {
-  //       status: 400,
-  //     }
-  //   );
-  // }
-
-  // handlePaymentSuccessWebhook(event);
-  // // have to return response promptly, ie without waiting for back-end process or stripe will potentially flag your account
-  // // handleWebhook(event);
-  // return NextResponse.json(
-  //   { message: "successfully received" },
-  //   { status: 200 }
-  // );
 }
