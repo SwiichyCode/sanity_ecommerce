@@ -10,13 +10,12 @@ export async function POST(req: any) {
   const payload = await req.text();
   const signature = req.headers.get("Stripe-Signature");
 
-  console.log("payload", payload);
-
   let event: Stripe.Event | null = null;
+
   try {
     event = stripe.webhooks.constructEvent(payload, signature!, webhookSecret);
 
-    // console.log(event);
+    console.log(event);
   } catch (err) {
     if (err instanceof Error) {
       console.error(err.message);
