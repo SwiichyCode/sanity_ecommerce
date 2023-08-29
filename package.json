@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/stripe"
   },
   "dependencies": {
     "@sanity/client": "^6.4.9",
@@ -37,5 +38,8 @@
     "typescript": "5.1.6",
     "usehooks-ts": "^2.9.1",
     "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "stripe-cli": "^0.1.0"
   }
 }

@@ -19,15 +19,21 @@ export async function POST(req: any) {
       success_url: "http://localhost:3000/success",
       cancel_url: "http://localhost:3000/cart",
       line_items: body.lineItems,
-      payment_intent_data: {
-        metadata: {
-          userId: body.userId,
-        },
-      },
+
       mode: "payment",
       shipping_address_collection: {
         allowed_countries: ["FR"],
       },
+      metadata: {
+        id: "test",
+        // productId: body.lineItems.map((item: any) => {
+        //   return item.price_data.product_data.metadata.productId;
+        // }),
+        // quantity: body.lineItems.map((item: any) => {
+        //   return item.quantity;
+        // }),
+      },
+
       shipping_options: [
         {
           shipping_rate: "shr_1NcWgbJSkUmCv6RblV8PrBLR",
