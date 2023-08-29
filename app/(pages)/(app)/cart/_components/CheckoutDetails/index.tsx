@@ -41,12 +41,15 @@ export default function CheckoutDetails({ user }: Props) {
       }
 
       const lineItems = cart?.map(
-        ({ cost, quantity, name, description, images }) => ({
+        ({ cost, quantity, name, description, images, id }) => ({
           price_data: {
             product_data: {
               name: name,
               description: description,
               images: [images],
+              metadata: {
+                productId: id,
+              },
             },
             currency: "eur",
             unit_amount: cost * 100,
