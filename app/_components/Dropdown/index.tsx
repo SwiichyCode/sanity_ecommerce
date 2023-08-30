@@ -54,7 +54,10 @@ export default function Dropdown({
         )}
 
         {category.map((category: any, index: any) => (
-          <S.DropdownItem onClick={() => handleSelectCategory(category.name)}>
+          <S.DropdownItem
+            key={index}
+            onClick={() => handleSelectCategory(category.name)}
+          >
             {category.name}
           </S.DropdownItem>
         ))}
