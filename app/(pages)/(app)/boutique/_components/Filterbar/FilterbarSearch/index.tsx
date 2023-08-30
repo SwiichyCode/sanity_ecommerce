@@ -1,16 +1,41 @@
+import { useState } from "react";
 import * as S from "./styles";
 
 type Props = {
-  filter: string;
-  setFilter: (filter: string) => void;
+  searchQuery: string;
+  setSearchQuery: (filter: string) => void;
 };
 
-export default function FilterbarSearch({ filter, setFilter }: Props) {
+export default function FilterbarSearch({
+  searchQuery,
+  setSearchQuery,
+}: Props) {
+  const [searchTimeout, setSearchTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+
+    if (searchTimeout) {
+      clearTimeout(searchTimeout);
+    }
+
+    setSearchTimeout(
+      setTimeout(() => {
+        setSearchQuery(value);
+      }, 300)
+    );
+  };
+
   return (
-    <S.SearchBar
-      placeholder="Search"
-      value={filter}
-      onChange={(event) => setFilter(event.target.value)}
-    />
+    <S.SearchBarWrapper>
+      <S.SearchIcon />
+      <S.SearchBar
+        placeholder="Search"
+        value={searchQuery}
+        onChange={(e) => handleSearchChange(e.target.value)}
+      />
+    </S.SearchBarWrapper>
   );
 }

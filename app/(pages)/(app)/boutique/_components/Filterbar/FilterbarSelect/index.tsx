@@ -1,24 +1,21 @@
-import * as S from "./styles";
+import Dropdown from "@/app/_components/Dropdown";
 
 type Props = {
   categories: any[];
   selectedCategory: string;
-  handleCategoryChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  setSelectedCategory: (category: string) => void;
 };
 
 export default function FilterbarSelect({
   categories,
   selectedCategory,
-  handleCategoryChange,
+  setSelectedCategory,
 }: Props) {
   return (
-    <S.CategorySelect value={selectedCategory} onChange={handleCategoryChange}>
-      <option value="">All Categories</option>
-      {categories.map((category, index) => (
-        <option key={index} value={category.name}>
-          {category.name}
-        </option>
-      ))}
-    </S.CategorySelect>
+    <Dropdown
+      category={categories}
+      selectedCategory={selectedCategory}
+      setSelectedCategory={setSelectedCategory}
+    />
   );
 }

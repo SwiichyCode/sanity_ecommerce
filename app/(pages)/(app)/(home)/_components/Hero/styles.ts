@@ -12,15 +12,9 @@ export const HeroWrapper = styled.div`
   background-size: cover;
   background-position: right;
   color: var(--color-white);
-  padding: 0 8.8rem;
   margin-top: 8rem;
 
-  @media (max-width: ${breakpoints.xl}) {
-    padding: 0 4.8rem;
-  }
-
   @media (max-width: ${breakpoints.lg}) {
-    padding: 0 2.4rem;
     background-image: url("/home_bg.png");
   }
 `;

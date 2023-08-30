@@ -18,7 +18,7 @@ export const MenuMobileWrapper = styled.div.withConfig({
   overflow: hidden;
   padding: 2.4rem 0;
 
-  @media (max-width: ${breakpoints.lg}) {
+  @media (max-width: ${breakpoints.xl}) {
     display: flex;
   }
 

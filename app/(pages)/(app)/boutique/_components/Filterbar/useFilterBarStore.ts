@@ -20,8 +20,8 @@ const categories = [
 ];
 
 interface FilterBarStore {
-  filter: string;
-  setFilter: (filter: string) => void;
+  searchQuery: string;
+  setSearchQuery: (searchQuery: string) => void;
   categories: typeof categories;
   selectedCategory: string;
   setSelectedCategory: (categories: string) => void;
@@ -30,12 +30,12 @@ interface FilterBarStore {
 }
 
 export const useFilterBarStore = create<FilterBarStore>((set) => ({
-  filter: "",
+  searchQuery: "",
   position: "grid",
   categories,
   selectedCategory: "",
 
-  setFilter: (filter) => set({ filter }),
+  setSearchQuery: (searchQuery) => set({ searchQuery }),
   setPosition: (position) => set({ position }),
   setSelectedCategory: (selectedCategory) => set({ selectedCategory }),
 }));

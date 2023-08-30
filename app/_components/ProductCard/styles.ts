@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const ProductCardWrapper = styled.article`
   width: 100%;
-  max-width: 330px;
+  max-width: var(--product-card-width);
   border: 1px solid var(--color-grey-200);
   border-radius: var(--rounded-lg);
   box-shadow: var(--shadow);

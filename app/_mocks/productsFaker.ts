@@ -7,11 +7,11 @@ export function generateFakeProducts(count: number) {
 
   for (let i = 0; i < count; i++) {
     const product = {
-      id: faker.datatype.uuid(),
+      id: faker.string.uuid(),
       name: faker.commerce.productName(),
       description: faker.commerce.productDescription(),
-      stars: faker.datatype.number({ min: 0, max: 5 }),
-      stock: faker.datatype.number({ min: 0, max: 100 }),
+      stars: faker.number.int({ min: 0, max: 5 }),
+      stock: faker.number.int({ min: 0, max: 100 }),
       price: faker.commerce.price(),
       images: faker.image.urlLoremFlickr({ category: "business" }),
       category: category[Math.floor(Math.random() * category.length)],

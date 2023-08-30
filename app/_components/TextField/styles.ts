@@ -14,7 +14,7 @@ export const TextFieldLabel = styled.label`
 
 export const TextField = styled.input`
   font-size: 1.6rem;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
   border: 1px solid var(--color-grey-200);
   padding: 1rem 1.4rem;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);

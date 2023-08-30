@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
@@ -46,6 +47,20 @@ const GlobalStyle = createGlobalStyle`
         rgba(247, 248, 249, 0) 0%,
         #f7f8f9 100%
         );
+
+        --product-card-width: 330px;
+    }
+
+    .responsive-padding {
+        padding: 0 8.8rem;
+
+        @media (max-width: ${breakpoints.xl}) {
+        padding: 0 4.8rem;
+        }
+
+        @media (max-width: ${breakpoints.lg}) {
+        padding: 0 2.4rem;
+        }
     }
         
 `;

@@ -3,6 +3,7 @@ import AuthServices from "@/app/(pages)/(app)/(auth)/_services/auth.service";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useMenuMobileStore } from "@/app/_stores/useMenuMobileStore";
+import { useWindowSize } from "usehooks-ts";
 import { NavigationItems } from "./data";
 import Button from "../Button";
 import Link from "next/link";
@@ -15,6 +16,7 @@ interface Props {
 
 export default function Navigation({ isAuth = false, user }: Props) {
   const { closeMenu } = useMenuMobileStore();
+  const { width } = useWindowSize();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -42,7 +44,11 @@ export default function Navigation({ isAuth = false, user }: Props) {
                   <S.NavigationLink href="/profil">Mon compte</S.NavigationLink>
                 </S.NavigationItem>
 
-                <Button text="Se déconnecter" onClick={handleLogout} />
+                {width > 1536 ? (
+                  <Button text="Se déconnecter" onClick={handleLogout} />
+                ) : (
+                  <S.NavigationIconLogout onClick={handleLogout} />
+                )}
               </>
             ) : (
               <>

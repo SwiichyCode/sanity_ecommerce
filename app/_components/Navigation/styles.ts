@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
+import { BiLogOut, BiLogInCircle } from "react-icons/bi";
 import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const NavigationWrapper = styled.nav``;
@@ -67,4 +68,22 @@ export const NavigationLink = styled(Link).withConfig({
   &:hover {
     color: var(--color-white);
   }
+`;
+
+const NavigationIcon = css`
+  font-size: 2.6rem;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-blue-hover);
+  }
+`;
+
+export const NavigationIconLogout = styled(BiLogOut)`
+  ${NavigationIcon}
+`;
+
+export const NavigationIconLogin = styled(BiLogInCircle)`
+  ${NavigationIcon}
 `;

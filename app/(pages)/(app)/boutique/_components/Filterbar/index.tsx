@@ -1,19 +1,15 @@
 "use client";
 import FilterbarHeader from "./FilterbarHeader";
 import { useFilterBarStore } from "./useFilterBarStore";
-import * as S from "./styles";
 import FilterbarPosition from "./FilterbarPosition";
 import FilterbarSearch from "./FilterbarSearch";
 import FilterbarSelect from "./FilterbarSelect";
+import * as S from "./styles";
 
-type Props = {
-  products?: any;
-};
-
-export default function FilterBar({ products }: Props) {
+export default function FilterBar() {
   const {
-    filter,
-    setFilter,
+    searchQuery,
+    setSearchQuery,
     categories,
     selectedCategory,
     setSelectedCategory,
@@ -21,21 +17,18 @@ export default function FilterBar({ products }: Props) {
     setPosition,
   } = useFilterBarStore();
 
-  const handleCategoryChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    setSelectedCategory(event.target.value);
-  };
-
   return (
-    <S.FilterBarWrapper>
+    <S.FilterBarWrapper className="responsive-padding">
       <FilterbarHeader />
       <FilterbarPosition position={position} setPosition={setPosition} />
-      <FilterbarSearch filter={filter} setFilter={setFilter} />
+      <FilterbarSearch
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <FilterbarSelect
         categories={categories}
         selectedCategory={selectedCategory}
-        handleCategoryChange={handleCategoryChange}
+        setSelectedCategory={setSelectedCategory}
       />
     </S.FilterBarWrapper>
   );

@@ -4,7 +4,7 @@ import * as S from "./styles";
 
 export default function Hero() {
   return (
-    <S.HeroWrapper>
+    <S.HeroWrapper className="responsive-padding">
       <S.HeroContainer>
         <S.HeroTitle>
           Bienvenue sur <br />

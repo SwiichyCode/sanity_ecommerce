@@ -13,16 +13,7 @@ export const HeaderWrapper = styled.header.withConfig({
   justify-content: space-between;
   color: var(--color-white);
   background-color: var(--color-blue);
-  padding: 0 8.8rem;
-
-  @media (max-width: ${breakpoints.xl}) {
-    padding: 0 4.8rem;
-  }
-
-  @media (max-width: ${breakpoints.lg}) {
-    justify-content: center;
-    padding: 0 2.4rem;
-  }
+  overflow: hidden;
 `;
 
 export const RightSide = styled.div`

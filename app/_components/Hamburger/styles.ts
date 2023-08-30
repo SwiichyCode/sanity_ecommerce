@@ -3,8 +3,8 @@ import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const HamburgerWrapper = styled.button`
   display: none;
-  position: absolute;
-  left: 2.4rem;
+  /* position: absolute;
+  left: 2.4rem; */
   border: none;
   background-color: #00457e;
   border-radius: var(--rounded-md);
@@ -12,7 +12,7 @@ export const HamburgerWrapper = styled.button`
   transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 
-  @media (max-width: ${breakpoints.lg}) {
+  @media (max-width: ${breakpoints.xl}) {
     display: block;
   }
 

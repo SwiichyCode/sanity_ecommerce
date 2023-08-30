@@ -5,6 +5,7 @@ import { getCachedClient } from "@/sanity/lib/getClient";
 import Banner from "./_components/Banner";
 import FilterBar from "./_components/Filterbar";
 import ProductsList from "./_components/ProductsList";
+import { generateFakeProducts } from "@/app/_mocks/productsFaker";
 
 export default async function BoutiquePage() {
   const preview = draftMode().isEnabled
@@ -12,6 +13,8 @@ export default async function BoutiquePage() {
     : undefined;
 
   const products = await getCachedClient(preview)(productQuery);
+
+  // const products = generateFakeProducts(100);
 
   if (preview && preview.token) {
     return (
