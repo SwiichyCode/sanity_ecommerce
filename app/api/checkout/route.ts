@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
-import stripe from "@/app/_services/stripe/client";
+import stripe from "@/app/_lib/stripe/client";
 
 export async function POST(req: any) {
   const body = await req.json();
-
-  console.log(body);
 
   if (body.lineItems.length === 0) {
     return new Response(JSON.stringify({ message: "No items in cart" }), {

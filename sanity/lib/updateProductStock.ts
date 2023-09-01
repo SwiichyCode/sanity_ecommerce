@@ -4,6 +4,8 @@ import { dataset, projectId } from "../env";
 export async function updateProductStock(products: any) {
   const token = process.env.NEXT_PUBLIC_SANITY_API_READ_TOKEN;
 
+  console.log("products", typeof products);
+
   const getDocumentsID = await client.fetch(
     '*[_type == "product" && id in $ids] {_id, id}',
     { ids: products.map((product: any) => product.id) }
