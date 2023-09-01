@@ -1,7 +1,12 @@
+"use client";
+import ContactHeader from "./_components/ContactHeader";
+import ContactBody from "./_components/ContactBody";
+
 export default function ContactPage() {
   return (
-    <div>
-      <h1>Contact Page</h1>
-    </div>
+    <>
+      <ContactHeader />
+      <ContactBody />
+    </>
   );
 }

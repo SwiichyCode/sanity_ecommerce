@@ -41,7 +41,6 @@ export const CheckoutDetailsFormGroupTitle = styled.h3`
 export const TextFieldWrapper = styled.div`
   width: 100%;
   display: flex;
-  /* flex-wrap: wrap; */
   gap: 1.6rem;
 
   @media (max-width: ${breakpoints.lg}) {

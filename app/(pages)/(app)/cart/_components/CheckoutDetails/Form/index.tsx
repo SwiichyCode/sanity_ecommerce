@@ -1,6 +1,6 @@
 import TextField from "@/app/_components/TextField";
+import { ProfileType } from "../../../../profil/_types/profile.type";
 import * as S from "./styles";
-import { ProfileType } from "../../../profil/_types/profile.type";
 
 type Props = {
   user: any;

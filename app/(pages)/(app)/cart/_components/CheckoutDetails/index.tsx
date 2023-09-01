@@ -8,7 +8,7 @@ import {
   ProfileType,
   ProfileFormType,
 } from "../../../profil/_types/profile.type";
-import CheckoutDetailForm from "../CheckoutDetailsForm";
+import CheckoutDetailForm from "./Form";
 import Summary from "../Summary";
 import * as S from "./styles";
 

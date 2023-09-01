@@ -44,11 +44,7 @@ export default function Navigation({ isAuth = false, user }: Props) {
                   <S.NavigationLink href="/profil">Mon compte</S.NavigationLink>
                 </S.NavigationItem>
 
-                {width > 1536 ? (
-                  <Button text="Se déconnecter" onClick={handleLogout} />
-                ) : (
-                  <S.NavigationIconLogout onClick={handleLogout} />
-                )}
+                <Button text="Se déconnecter" onClick={handleLogout} />
               </>
             ) : (
               <>
