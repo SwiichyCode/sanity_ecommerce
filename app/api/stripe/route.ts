@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { Stripe } from "stripe";
 import stripe from "@/app/_services/stripe/client";
 import { updateProductStock } from "@/sanity/lib/updateProductStock";
+import ProfileService from "@/app/(pages)/(app)/profil/_services/profile.service";
 
 const webhookSecret = process.env.NEXT_PUBLIC_STRIPE_WEBHOOK_SECRET!;
 
@@ -21,7 +22,9 @@ export async function POST(req: any) {
         JSON.parse(paymentIntent.metadata.product)
       );
 
-      console.log(paymentIntent.metadata.userId);
+      const { error } = await ProfileService.createOrder({
+        id: paymentIntent.metadata.userId,
+      });
 
       if (!result) {
         throw new Error(
