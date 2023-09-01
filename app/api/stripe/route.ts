@@ -21,6 +21,8 @@ export async function POST(req: any) {
         JSON.parse(paymentIntent.metadata.product)
       );
 
+      console.log(paymentIntent.metadata.userId);
+
       if (!result) {
         throw new Error(
           "Erreur lors de la mise à jour du stock:",

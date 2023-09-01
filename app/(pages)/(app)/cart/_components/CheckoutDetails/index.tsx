@@ -63,7 +63,7 @@ export default function CheckoutDetails({ user }: Props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ lineItems }),
+        body: JSON.stringify({ lineItems, userId: User?.id }),
       });
 
       const checkoutSession = await res.json();

@@ -4,6 +4,8 @@ import stripe from "@/app/_services/stripe/client";
 export async function POST(req: any) {
   const body = await req.json();
 
+  console.log(body);
+
   if (body.lineItems.length === 0) {
     return new Response(JSON.stringify({ message: "No items in cart" }), {
       status: 500,
@@ -32,6 +34,7 @@ export async function POST(req: any) {
             };
           })
         ),
+        userId: body.userId,
       },
 
       shipping_options: [
