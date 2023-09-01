@@ -14,9 +14,9 @@ export default function HeaderMobile({ user }: Props) {
   return (
     <>
       <Hamburger />
-      {width < 1280 && <Logo />}
+      {width < 1024 && <Logo />}
       <MenuMobile user={user} />
-      {width < 1280 && <MenuCart />}
+      {width < 1024 && <MenuCart />}
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import Logo from "../Logo";
-import NavigationFooter from "../NavigationFooter";
+import NavigationFooter from "../Navigation/NavigationFooter";
 import * as S from "./styles";
 
 export default function Footer() {

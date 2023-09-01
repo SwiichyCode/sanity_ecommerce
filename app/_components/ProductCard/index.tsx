@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useCartStore } from "@/app/(pages)/(app)/cart/_stores/store";
+import ProductCardStock from "./ProductCardStock";
 import Button from "@/app/_components/Button";
 import * as S from "./styles";
 
@@ -78,10 +79,7 @@ export default function ProductCard({
 
         <S.ProductCardDescription>{description}</S.ProductCardDescription>
 
-        <S.ProductCardStock>
-          <Image src="/stocks.svg" width={16} height={16} alt="" />
-          <span>{stock} en stock</span>
-        </S.ProductCardStock>
+        <ProductCardStock stock={stock} />
 
         <S.ProductCardPrice>${price}</S.ProductCardPrice>
 

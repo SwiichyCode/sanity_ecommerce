@@ -86,15 +86,6 @@ export const ProductCardDescription = styled.p`
   line-height: 2.4rem;
 `;
 
-export const ProductCardStock = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 1.4rem;
-  color: #252b42;
-  font-weight: 700;
-`;
-
 export const ProductCardPrice = styled.span`
   font-size: 1.8rem;
   font-weight: 700;

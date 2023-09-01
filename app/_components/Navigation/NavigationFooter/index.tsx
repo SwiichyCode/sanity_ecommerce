@@ -1,4 +1,4 @@
-import { NavigationItems, NavigationSocialItems } from "../Navigation/data";
+import { NavigationItems, NavigationSocialItems } from "../data";
 import * as S from "./styles";
 
 type Props = {

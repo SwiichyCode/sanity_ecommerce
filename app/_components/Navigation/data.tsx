@@ -11,11 +11,11 @@ export const NavigationItems = [
     name: "Boutique",
     path: "/boutique",
   },
-  {
-    id: 3,
-    name: "Blog",
-    path: "/blog",
-  },
+  // {
+  //   id: 3,
+  //   name: "Blog",
+  //   path: "/blog",
+  // },
   {
     id: 4,
     name: "Contact",

@@ -21,7 +21,7 @@ type Props = {
 export default function HeaderDesktop({ user }: Props) {
   const { width } = useWindowSize();
   return (
-    width > 1280 && (
+    width > 1024 && (
       <>
         <HeaderLeftSide>
           <Logo />

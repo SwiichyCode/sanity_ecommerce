@@ -1,4 +1,4 @@
-import NavigationFooter from "../NavigationFooter";
+import NavigationFooter from "../Navigation/NavigationFooter";
 import * as S from "./styles";
 
 export default function SocialNav() {

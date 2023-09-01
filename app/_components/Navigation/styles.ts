@@ -10,10 +10,12 @@ export const NavigationList = styled.ul.withConfig({
 })<{ isAuth: boolean }>`
   display: flex;
   align-items: center;
+  flex-direction: row;
 
   gap: ${({ isAuth }) => (isAuth ? "2.4rem" : "4.8rem")};
 
   @media screen and (max-width: ${breakpoints.xl}) {
+    /* flex-direction: row-reverse; */
     gap: 2.4rem;
   }
 
