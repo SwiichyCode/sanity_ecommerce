@@ -9,12 +9,6 @@ async function createProfile(profile: ProfileType) {
   return { error };
 }
 
-async function createOrder(order: any) {
-  const { error } = await supabaseClient.from("order").insert(order);
-
-  return { error };
-}
-
 async function getProfile(id: string) {
   const { data, error } = await supabaseClient
     .from("profile")
@@ -35,7 +29,6 @@ async function updateProfile(id: string, profile: Partial<ProfileType>) {
 
 const ProfileService = {
   createProfile,
-  createOrder,
   getProfile,
   updateProfile,
 };

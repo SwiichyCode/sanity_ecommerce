@@ -1,5 +1,5 @@
 import TextField from "@/app/_components/_atoms/TextField";
-import { ProfileType } from "../../../../../../_modules/auth/_types/profile.type";
+import { ProfileType } from "@/app/_modules/auth/_types/profile.type";
 import * as S from "./styles";
 
 type Props = {
