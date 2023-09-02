@@ -7,41 +7,38 @@ import { getProductById } from "@/sanity/lib/getProductById";
 export default function OrderDetail() {
   const { clearCart } = useCartStore();
   const [lastOrder, setLastOrder] = useState<any>(null);
-  const [orderQuantity, setOrderQuantity] = useState<any>(null); // [1, 2, 3
   const [productDetail, setProductDetail] = useState<any>(null);
 
-  const handleFetchLastOrder = async () => {
-    const { data, error } = await OrderService.getLastOrder(
-      "1343cff3-5751-4fbf-9314-9c1d77db3430"
-    );
-
-    setLastOrder(data);
-  };
-
-  const handleFetchProductDetail = async () => {
-    if (lastOrder) {
-      const item = lastOrder.map((item: any) => {
-        return item?.product.map(async (item: any) => {
-          const product = await getProductById(item.id);
-
-          return setProductDetail(product);
-        });
-      });
+  const fetchLastOrder = async () => {
+    try {
+      const { data } = await OrderService.getLastOrder(
+        "1343cff3-5751-4fbf-9314-9c1d77db3430"
+      );
+      setLastOrder(data);
+    } catch (error) {
+      console.error("Failed to fetch last order:", error);
     }
   };
 
-  const handleOrderQuantity = () => {
-    if (lastOrder) {
-      const item = lastOrder.map((item: any) => {
-        return item?.product.map(async (item: any) => {
-          return setOrderQuantity(item.quantity);
-        });
-      });
+  const fetchProductDetail = async () => {
+    if (!lastOrder) return;
+
+    const promises = lastOrder.map(async (item: any) => {
+      const productIds = item.product.map((product: any) => product.id);
+      const products = await Promise.all(productIds.map(getProductById));
+      return products;
+    });
+
+    try {
+      const productDetails = await Promise.all(promises);
+      setProductDetail(productDetails);
+    } catch (error) {
+      console.error("Failed to fetch product details:", error);
     }
   };
 
   useEffect(() => {
-    handleFetchLastOrder();
+    fetchLastOrder();
     clearCart();
 
     return () => {
@@ -50,18 +47,22 @@ export default function OrderDetail() {
   }, []);
 
   useEffect(() => {
-    handleFetchProductDetail();
-    handleOrderQuantity();
+    fetchProductDetail();
   }, [lastOrder]);
 
   return (
     <div>
       {productDetail &&
-        productDetail.map((item: any, index: number) => (
+        productDetail.map((orderProducts: any, index: number) => (
           <div key={index}>
-            <div>{item.name}</div>
-            <div>{item.description}</div>
-            <div>{item.price * [orderQuantity][index]}</div>
+            {orderProducts.map((item: any, productIndex: number) => (
+              <div key={productIndex}>
+                <h1>{item.name}</h1>
+                <p>
+                  {item.price * lastOrder[index].product[productIndex].quantity}
+                </p>
+              </div>
+            ))}
           </div>
         ))}
     </div>
