@@ -24,7 +24,7 @@ export async function POST(req: any) {
 
       const { error } = await OrderService.createOrder({
         profile_id: paymentIntent.metadata.userId,
-        product: paymentIntent.metadata.product,
+        product: JSON.parse(paymentIntent.metadata.product),
       });
 
       console.log("OrderService.createOrder", error);
