@@ -58,7 +58,7 @@ export default function OrderDetail() {
     <div>
       {productDetail &&
         productDetail.map((item: any, index: number) => (
-          <div>
+          <div key={index}>
             <div>{item.name}</div>
             <div>{item.description}</div>
             <div>{item.price * [orderQuantity][index]}</div>
