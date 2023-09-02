@@ -23,11 +23,8 @@ export async function POST(req: any) {
       );
 
       const { error } = await OrderService.createOrder({
-        profile_id: "1343cff3-5751-4fbf-9314-9c1d77db3430",
-        product: {
-          id: "3",
-          name: "test2",
-        },
+        profile_id: paymentIntent.metadata.userId,
+        product: paymentIntent.metadata.product,
       });
 
       console.log("OrderService.createOrder", error);
