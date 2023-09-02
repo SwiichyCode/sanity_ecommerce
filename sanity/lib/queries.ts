@@ -8,7 +8,10 @@ const productFields = `
 
 export const productQuery = groq`*[_type == "product"] | order(_createdAt desc){
   ${productFields}
-    
+  }`;
+
+export const getProductQuery = groq`*[_type == "product" && id == $id] | order(_createdAt desc){
+  ${productFields}
   }`;
 
 export const recentProductQuery = groq`*[_type == "product"] | order(_createdAt desc){
