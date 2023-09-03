@@ -52,6 +52,7 @@ export default function ProductsList({ products }: Props) {
             // imageURL={product.images}
             id={product.id}
             name={product.name}
+            slug={product.slug}
             description={product.description}
             stars={product.stars}
             stock={product.stock}

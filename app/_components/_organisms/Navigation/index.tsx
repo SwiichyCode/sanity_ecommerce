@@ -1,6 +1,5 @@
 "use client";
 import AuthServices from "@/app/_modules/auth/auth.service";
-import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useMenuMobileStore } from "@/app/_components/_organisms/MenuMobile/useMenuMobile";
 import { NavigationItems } from "./data";
@@ -16,7 +15,6 @@ interface Props {
 export default function Navigation({ isAuth = false, user }: Props) {
   const { closeMenu } = useMenuMobileStore();
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleCloseMenu = () => {
     setTimeout(() => {
@@ -26,7 +24,7 @@ export default function Navigation({ isAuth = false, user }: Props) {
 
   const handleLogout = async () => {
     await AuthServices.signOut();
-    router.refresh();
+    window.location.reload();
 
     handleCloseMenu();
   };
@@ -36,7 +34,7 @@ export default function Navigation({ isAuth = false, user }: Props) {
       <S.NavigationList isAuth={isAuth}>
         {isAuth ? (
           <>
-            {user && user.user ? (
+            {user && user ? (
               <>
                 <S.NavigationItem isAuth={isAuth}>
                   <S.NavigationLink href="/profil">Mon compte</S.NavigationLink>

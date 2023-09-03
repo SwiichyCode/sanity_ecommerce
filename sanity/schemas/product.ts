@@ -11,6 +11,14 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "name",
+      },
+    }),
+    defineField({
       name: "name",
       title: "Name",
       type: "string",
@@ -24,6 +32,13 @@ export default defineType({
       name: "price",
       title: "Price",
       type: "number",
+    }),
+    defineField({
+      name: "sizes",
+      title: "Fish Sizes",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "fishSize" }] }],
+      description: "Select the sizes available for this product.",
     }),
     defineField({
       name: "images",

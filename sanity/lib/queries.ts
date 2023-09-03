@@ -1,12 +1,19 @@
 import { groq } from "next-sanity";
 
 const productFields = `
-  id, name, description, price, images, stars, stock, category -> {
-    category
+  id, name, slug, description, price, images, stars, stock, 
+  "sizes": sizes[]-> {
+    size,
+    price,
+    "fishSpecies": fishSpecies-> {
+      name
+    }
+  },
+  category -> { category, 
   }
 `;
 
-export const productQuery = groq`*[_type == "product"] | order(_createdAt desc){
+export const productsQuery = groq`*[_type == "product"] | order(_createdAt desc){
   ${productFields}
   }`;
 
@@ -21,3 +28,11 @@ export const recentProductQuery = groq`*[_type == "product"] | order(_createdAt 
 export const recentProductFishQuery = groq`*[_type == "product" && category->category == "poisson"] | order(date desc){
     ${productFields}
   }[0...3]`;
+
+export const productQuery = groq`*[_type == "product" && slug.current == $slug][0]{
+  ${productFields}
+  }`;
+
+export const productPathsQuery = groq`*[_type == "product" && defined(slug.current)][]{
+  "params": { "slug": slug.current }
+}`;

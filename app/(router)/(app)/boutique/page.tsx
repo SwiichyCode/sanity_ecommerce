@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 import PreviewProvider from "@/sanity/providers/PreviewProvider";
-import { productQuery } from "@/sanity/lib/queries";
+import { productsQuery } from "@/sanity/lib/queries";
 import { getCachedClient } from "@/sanity/lib/getClient";
 import Banner from "../../../_components/_organisms/Banner";
 import FilterBar from "@/app/_components/_organisms/Filterbar";
@@ -12,7 +12,7 @@ export default async function BoutiquePage() {
     ? { token: process.env.NEXT_PUBLIC_SANITY_API_READ_TOKEN }
     : undefined;
 
-  const products = await getCachedClient(preview)(productQuery);
+  const products = await getCachedClient(preview)(productsQuery);
 
   // const products = generateFakeProducts(100);
 

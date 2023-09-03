@@ -5,11 +5,9 @@ export async function getProductById(id: string) {
     `*[_type == "product" && id == $id] {
       id,
       name,
-      price,
       description,
-      slug,
-      "image": image.asset->url,
-      "stock": stock
+      price,
+      images,
     }`,
     { id }
   );

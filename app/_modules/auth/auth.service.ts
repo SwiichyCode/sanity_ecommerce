@@ -15,12 +15,16 @@ async function signUp(email: string, password: string) {
 }
 
 async function signIn(email: string, password: string) {
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
   });
 
-  return { error };
+  if (data) {
+    localStorage.setItem("user", JSON.stringify(data.user));
+  }
+
+  return { data, error };
 }
 
 async function resetPassword(email: string) {
@@ -33,6 +37,8 @@ async function resetPassword(email: string) {
 
 async function signOut() {
   await supabase.auth.signOut();
+
+  localStorage.removeItem("user");
 }
 
 const AuthServices = {

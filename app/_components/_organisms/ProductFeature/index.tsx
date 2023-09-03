@@ -39,6 +39,7 @@ export default function ProductFeature({
                     .url()}
                   id={product.id}
                   name={product.name}
+                  slug={product.slug}
                   description={product.description}
                   stars={product.stars}
                   stock={product.stock}

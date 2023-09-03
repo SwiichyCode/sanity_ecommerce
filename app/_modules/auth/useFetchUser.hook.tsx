@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export function useFetchUser() {
-  const [user, setUser] = useState<any>();
   const supabase = createClientComponentClient();
 
   const fetchUser = async () => {
@@ -10,14 +8,10 @@ export function useFetchUser() {
       data: { user },
     } = await supabase.auth.getUser();
 
-    user && user.aud === "authenticated" ? setUser(user) : setUser(false);
+    return user && user.aud === "authenticated" ? user : null;
   };
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
   return {
-    user,
+    fetchUser,
   };
 }

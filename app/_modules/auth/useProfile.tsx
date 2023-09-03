@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { useFetchUser } from "./useFetchUser.hook";
 import { ProfileType } from "./_types/profile.type";
 import * as C from "./_constants/profile.constant";
+import { useProfileStore } from "./profile.store";
 
 export function useProfile() {
-  const { user } = useFetchUser();
-  const [profile, setProfile] = useState<ProfileType>();
+  const { fetchUser } = useFetchUser();
+  const { profile, setProfile } = useProfileStore();
+  const [user, setUser] = useState<any>(null);
 
   const createProfile = async (profileData: ProfileType) => {
     try {
@@ -25,20 +27,30 @@ export function useProfile() {
     }
   };
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const { data } = await ProfileService.getProfile(user.id);
-      console.log(data);
-      // Ajoutez ici d'autres appels pour récupérer d'autres données parallèlement
+  const fetchProfile = async (userId: string) => {
+    try {
+      const { data } = await ProfileService.getProfile(userId);
+      // Ajoutez ici la logique pour traiter les données du profil
       if (data) {
         setProfile(data[0]);
       }
+    } catch (error) {
+      console.error("Failed to fetch profile:", error);
+    }
+  };
+
+  useEffect(() => {
+    const loadUserProfile = async () => {
+      const user = await fetchUser();
+
+      setUser(user);
+      if (user) {
+        await fetchProfile(user.id);
+      }
     };
 
-    if (user) {
-      fetchProfile();
-    }
-  }, [user]);
+    loadUserProfile();
+  }, []);
 
   const updateProfile = async (updatedData: Partial<ProfileType>) => {
     if (!profile) {

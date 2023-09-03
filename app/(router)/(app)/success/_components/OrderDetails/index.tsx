@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import OrderService from "@/app/_modules/shop/order.service";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
 import { getProductById } from "@/sanity/lib/getProductById";
+import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/image";
+import OrderCard from "../OrderCard";
 
 export default function OrderDetail() {
   const { clearCart } = useCartStore();
@@ -51,20 +54,28 @@ export default function OrderDetail() {
   }, [lastOrder]);
 
   return (
-    <div>
-      {productDetail &&
-        productDetail.map((orderProducts: any, index: number) => (
-          <div key={index}>
-            {orderProducts.map((item: any, productIndex: number) => (
-              <div key={productIndex}>
-                <h1>{item.name}</h1>
-                <p>
-                  {item.price * lastOrder[index].product[productIndex].quantity}
-                </p>
-              </div>
-            ))}
-          </div>
-        ))}
-    </div>
+    // <div>
+    //   {productDetail &&
+    //     productDetail.map((orderProducts: any, index: number) => (
+    //       <div key={index}>
+    //         {orderProducts.map((item: any, productIndex: number) => (
+    //           <div key={productIndex}>
+    //             <h1>{item.name}</h1>
+    //             <p>{item.description}</p>
+    //             <p>
+    //               {item.price * lastOrder[index].product[productIndex].quantity}
+    //             </p>
+    //             <Image
+    //               src={urlForImage(item.images[0]).url()}
+    //               width={32}
+    //               height={32}
+    //               alt=""
+    //             />
+    //           </div>
+    //         ))}
+    //       </div>
+    //     ))}
+    // </div>
+    <OrderCard order={productDetail} />
   );
 }

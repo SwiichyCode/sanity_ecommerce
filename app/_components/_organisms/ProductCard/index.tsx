@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
 import ProductCardStock from "./ProductCardStock";
 import Button from "@/app/_components/_atoms/Button";
@@ -8,6 +9,9 @@ type Props = {
   imageURL: string;
   id: string;
   name: string;
+  slug: {
+    current: string;
+  };
   description: string;
   stars: number;
   stock: number;
@@ -18,6 +22,7 @@ export default function ProductCard({
   imageURL,
   id,
   name,
+  slug,
   description,
   stars,
   stock,
@@ -37,6 +42,7 @@ export default function ProductCard({
       1
     );
   };
+
   return (
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
@@ -83,7 +89,9 @@ export default function ProductCard({
 
         <S.ProductCardPrice>${price}</S.ProductCardPrice>
 
-        <Button text="Plus d'info..." />
+        <Button>
+          <Link href={`/boutique/${slug.current}`}>View Product</Link>
+        </Button>
       </S.ProductCardBody>
     </S.ProductCardWrapper>
   );
