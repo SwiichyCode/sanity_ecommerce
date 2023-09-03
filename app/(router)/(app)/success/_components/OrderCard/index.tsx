@@ -13,7 +13,7 @@ export default function OrderCard({ order }: Props) {
       <S.OrderCardHeader>
         <S.OrderCardTitle>Merci pour votre commande</S.OrderCardTitle>
         <S.OrderCardSubtitle>
-          Vous recevrez un email de confirmation à l'adresse suivante :{" "}
+          Vous recevrez un email de confirmation à l&apos;adresse suivante :{" "}
           <span>{profile?.email}</span>
         </S.OrderCardSubtitle>
       </S.OrderCardHeader>
