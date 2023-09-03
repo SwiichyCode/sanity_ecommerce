@@ -49,7 +49,7 @@ export function useAuth(isSignUp: boolean, isCheckout?: boolean): AuthResult {
         router.push("/signin");
         router.refresh();
       } else {
-        isCheckout ? null : router.push("/");
+        isCheckout ? window.location.reload() : router.push("/");
 
         router.refresh();
       }
