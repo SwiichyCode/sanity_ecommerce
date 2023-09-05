@@ -1,4 +1,5 @@
 import { BsFillGridFill, BsLayoutThreeColumns } from "react-icons/bs";
+import { AiOutlineBars, AiOutlineAppstore } from "react-icons/ai";
 import * as S from "./styles";
 
 type Props = {
@@ -19,13 +20,13 @@ export default function FilterbarPosition({ position, setPosition }: Props) {
         onClick={() => handleIconClick("grid")}
         active={position === "grid"}
       >
-        <BsFillGridFill />
+        <AiOutlineAppstore />
       </S.FilterBarIcon>
       <S.FilterBarIcon
         onClick={() => handleIconClick("column")}
         active={position === "column"}
       >
-        <BsLayoutThreeColumns />
+        <AiOutlineBars />
       </S.FilterBarIcon>
 
       <S.Line />

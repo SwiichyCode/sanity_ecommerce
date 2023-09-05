@@ -5,7 +5,9 @@ export const ProductsListWrapper = styled.div`
   margin: 3.2rem 0;
 `;
 
-export const ProductsListGrid = styled.div`
+export const ProductsListGrid = styled.div.withConfig({
+  shouldForwardProp: (prop) => !["products"].includes(prop),
+})<{ products: number }>`
   display: grid;
   grid-template-columns: repeat(
     auto-fit,

@@ -28,10 +28,10 @@ export const AuthCardWrapper = styled.div`
 
 export const AuthCardLogoWrapper = styled.div`
   position: absolute;
-  top: -3.3rem;
+  top: -5.3rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--color-blue);
+  /* background-color: var(--color-blue); */
   border-radius: var(--rounded-2xl);
   padding: 1.2rem;
 `;

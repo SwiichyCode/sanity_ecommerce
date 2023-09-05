@@ -15,17 +15,9 @@ export default function ProductsList({ products }: Props) {
   const { page, indexOfFirstProduct, indexOfLastProduct } =
     usePaginationStore();
 
-  const renderList = ({ children }: { children: React.ReactNode }) => {
-    return position === "grid" ? (
-      <S.ProductsListGrid>{children}</S.ProductsListGrid>
-    ) : (
-      <S.ProductsListColumn>{children}</S.ProductsListColumn>
-    );
-  };
-
   const filteredProducts = products.filter((product: any) => {
     const isMatchingCategory =
-      selectedCategory === "" || product.category === selectedCategory;
+      selectedCategory === "" || product.category.category === selectedCategory;
 
     const isMatchingSearch = product.name
       .toLowerCase()
@@ -38,6 +30,14 @@ export default function ProductsList({ products }: Props) {
     indexOfFirstProduct(page),
     indexOfLastProduct(page)
   );
+
+  const renderList = ({ children }: { children: React.ReactNode }) => {
+    return position === "grid" ? (
+      <S.ProductsListGrid products={products}>{children}</S.ProductsListGrid>
+    ) : (
+      <S.ProductsListColumn>{children}</S.ProductsListColumn>
+    );
+  };
 
   return (
     <S.ProductsListWrapper className="responsive-padding">
@@ -57,6 +57,7 @@ export default function ProductsList({ products }: Props) {
             stars={product.stars}
             stock={product.stock}
             price={product.price}
+            category={product.category.category}
           />
         )),
       })}

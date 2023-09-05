@@ -43,7 +43,7 @@ export const ProductCardActionButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #2f70af;
+    background-color: #00457e;
   }
 `;
 
@@ -72,7 +72,7 @@ export const ProductCardTitleWrapper = styled.div`
 `;
 
 export const ProductCardTitle = styled.h3`
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.54px;
 `;
@@ -105,8 +105,10 @@ export const ProductCardImage = styled.div.withConfig({
   background-repeat: no-repeat;
   transition: filter 0.3s ease-in-out;
   cursor: pointer;
+`;
 
-  &:hover {
-    filter: blur(3px);
-  }
+export const ProductCardFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FilterBarIconWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 2.4rem;
+  gap: 1.8rem;
 `;
 
 export const FilterBarIcon = styled.div.withConfig({
@@ -15,7 +15,7 @@ export const FilterBarIcon = styled.div.withConfig({
   align-items: center;
   justify-content: center;
   color: ${({ active }) =>
-    active ? "var(--color-blue-hover)" : "var(--color-grey-400)"};
+    active ? "var(--color-white)" : "var(--color-grey-400)"};
   cursor: pointer;
 `;
 

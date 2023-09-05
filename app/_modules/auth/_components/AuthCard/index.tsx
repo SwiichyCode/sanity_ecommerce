@@ -9,7 +9,7 @@ export default function AuthCard({ children }: Props) {
   return (
     <AuthCardWrapper>
       <AuthCardLogoWrapper>
-        <Image src="/logo.svg" width={40} height={40} alt="logo" />
+        <Image src="/Alt_1.svg" width={82} height={82} alt="logo" />
       </AuthCardLogoWrapper>
       {children}
     </AuthCardWrapper>

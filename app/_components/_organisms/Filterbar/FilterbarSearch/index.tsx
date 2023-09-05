@@ -32,7 +32,7 @@ export default function FilterbarSearch({
     <S.SearchBarWrapper>
       <S.SearchIcon />
       <S.SearchBar
-        placeholder="Search"
+        placeholder="Rechercher"
         value={searchQuery}
         onChange={(e) => handleSearchChange(e.target.value)}
       />

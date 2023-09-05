@@ -44,6 +44,7 @@ export default function ProductFeature({
                   stars={product.stars}
                   stock={product.stock}
                   price={product.price}
+                  category={product.category.category}
                 />
               ))}
           </S.ProductFeatureList>

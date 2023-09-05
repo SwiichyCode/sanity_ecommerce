@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
 import ProductCardStock from "./ProductCardStock";
@@ -16,6 +15,7 @@ type Props = {
   stars: number;
   stock: number;
   price: number;
+  category: string;
 };
 
 export default function ProductCard({
@@ -27,6 +27,7 @@ export default function ProductCard({
   stars,
   stock,
   price,
+  category,
 }: Props) {
   const { addToCart } = useCartStore();
 
@@ -43,11 +44,13 @@ export default function ProductCard({
     );
   };
 
+  console.log(category);
+
   return (
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
-        <S.ProductCardImage imageURL={imageURL} className="a" />
-        <S.ProductCardAction>
+        <S.ProductCardImage imageURL={imageURL} />
+        {/* <S.ProductCardAction>
           <S.ProductCardActionButton>
             <S.ProductCartActionIcon
               src="/heart_2.svg"
@@ -72,15 +75,15 @@ export default function ProductCard({
               alt=""
             />
           </S.ProductCardActionButton>
-        </S.ProductCardAction>
+        </S.ProductCardAction> */}
       </S.ProductCardHeader>
       <S.ProductCardBody>
         <S.ProductCardTitleWrapper>
           <S.ProductCardTitle>{name}</S.ProductCardTitle>
-          <S.ProductCardStars>
+          {/* <S.ProductCardStars>
             <Image src="/star.svg" width={16} height={16} alt="" />
             <span>{stars}</span>
-          </S.ProductCardStars>
+          </S.ProductCardStars> */}
         </S.ProductCardTitleWrapper>
 
         <S.ProductCardDescription>{description}</S.ProductCardDescription>
@@ -89,9 +92,24 @@ export default function ProductCard({
 
         <S.ProductCardPrice>${price}</S.ProductCardPrice>
 
-        <Button>
-          <Link href={`/boutique/${slug.current}`}>View Product</Link>
-        </Button>
+        <S.ProductCardFooter>
+          <Button>
+            <Link href={`/boutique/${slug && slug.current}`}>
+              Voir le produit
+            </Link>
+          </Button>
+
+          {category !== "poisson" && (
+            <S.ProductCardActionButton onClick={handleAddToCart}>
+              <S.ProductCartActionIcon
+                src="/cart.svg"
+                width={24}
+                height={24}
+                alt=""
+              />
+            </S.ProductCardActionButton>
+          )}
+        </S.ProductCardFooter>
       </S.ProductCardBody>
     </S.ProductCardWrapper>
   );
