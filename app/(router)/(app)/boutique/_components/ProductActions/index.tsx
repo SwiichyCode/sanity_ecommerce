@@ -6,16 +6,26 @@ import ProductQuantity from "../ProductQuantity";
 import * as S from "./styles";
 
 type Props = {
-  product: any;
   sizes: any;
-  quantity?: number;
+  setErrorSize: (error: string | null) => void;
+  product: any;
 };
 
-export default function ProductActions({ product, sizes }: Props) {
+export default function ProductActions({
+  sizes,
+
+  setErrorSize,
+  product,
+}: Props) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCartStore();
 
   const handleAddToCart = () => {
+    if (product.category.category === "poisson" && !sizes.size) {
+      setErrorSize("Veuillez sélectionner une taille");
+      return;
+    }
+
     addToCart(
       {
         name: product.name,
@@ -26,6 +36,8 @@ export default function ProductActions({ product, sizes }: Props) {
       },
       quantity
     );
+
+    setErrorSize(null);
   };
   return (
     <>

@@ -3,10 +3,11 @@ import * as S from "./styles";
 
 type Props = {
   sizes: Array<any>;
+  errorSize: string | null;
   onSizeSelect: (size: any) => void;
 };
 
-export default function ProductSize({ sizes, onSizeSelect }: Props) {
+export default function ProductSize({ sizes, errorSize, onSizeSelect }: Props) {
   const [selectedSize, setSelectedSize] = useState(null);
 
   const handleSizeSelect = (size: any) => {
@@ -30,6 +31,7 @@ export default function ProductSize({ sizes, onSizeSelect }: Props) {
           </S.ProductSizeLabel>
         ))}
       </S.ProductSizeList>
+      <S.ErrorMessage>{errorSize}</S.ErrorMessage>
     </S.ProductSizeWrapper>
   );
 }

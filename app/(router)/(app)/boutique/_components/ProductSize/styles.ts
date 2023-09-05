@@ -16,8 +16,15 @@ export const ProductSizeList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
+  margin-bottom: 0.8rem;
 `;
 
 export const ProductSizeLabel = styled.label`
   font-size: 1.6rem;
+`;
+
+export const ErrorMessage = styled.p`
+  color: var(--color-red);
+  font-size: 1.4rem;
+  font-weight: 500;
 `;

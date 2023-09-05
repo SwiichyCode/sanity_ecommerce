@@ -10,6 +10,7 @@ type Props = {
 
 export default function ProductPreviewInformations({ product }: Props) {
   const [sizes, setSizes] = useState<any>([]);
+  const [errorSize, setErrorSize] = useState<string | null>(null);
 
   const handleSizeSelect = (selectedSize: any) => {
     setSizes(selectedSize);
@@ -24,9 +25,17 @@ export default function ProductPreviewInformations({ product }: Props) {
       <ProductStars stars={product.stars} />
       <S.ProductDescription>{product.description}</S.ProductDescription>
       {product.sizes && (
-        <ProductSize sizes={product.sizes} onSizeSelect={handleSizeSelect} />
+        <ProductSize
+          sizes={product.sizes}
+          errorSize={errorSize}
+          onSizeSelect={handleSizeSelect}
+        />
       )}
-      <ProductActions sizes={sizes} product={product} />
+      <ProductActions
+        sizes={sizes}
+        setErrorSize={setErrorSize}
+        product={product}
+      />
     </S.ProductPreviewInformationsWrapper>
   );
 }

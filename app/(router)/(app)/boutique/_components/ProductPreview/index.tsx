@@ -1,8 +1,8 @@
 "use client";
 import { urlForImage } from "@/sanity/lib/image";
 import ProductPreviewImage from "../ProductPreviewImage";
-import * as S from "./styles";
 import ProductPreviewInformations from "../ProductPreviewInformations";
+import * as S from "./styles";
 
 type Props = {
   product: any;
