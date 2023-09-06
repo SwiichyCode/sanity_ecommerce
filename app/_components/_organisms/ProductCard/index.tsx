@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
+import { urlForImage } from "@/sanity/lib/image";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
 import ProductCardStock from "./ProductCardStock";
 import Button from "@/app/_components/_atoms/Button";
-import { v4 as uuidv4 } from "uuid";
 import * as S from "./styles";
 
 type Props = {
@@ -46,12 +47,10 @@ export default function ProductCard({
     );
   };
 
-  console.log(category);
-
   return (
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
-        <S.ProductCardImage imageURL={imageURL} />
+        <S.ProductCardImage imageURL={urlForImage(imageURL[0] as any)} />
         {/* <S.ProductCardAction>
           <S.ProductCardActionButton>
             <S.ProductCartActionIcon

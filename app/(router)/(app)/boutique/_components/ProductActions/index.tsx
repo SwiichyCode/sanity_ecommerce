@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Button from "@/app/_components/_atoms/Button";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
-import { urlForImage } from "@/sanity/lib/image";
 import ProductQuantity from "../ProductQuantity";
 import { v4 as uuidv4 } from "uuid";
 import * as S from "./styles";
-import { el } from "@faker-js/faker";
 
 type Props = {
   sizes: any;
@@ -33,7 +31,7 @@ export default function ProductActions({
       id: product.id,
       productId: uuidv4(),
       cost: sizes.price ? sizes.price : product.price,
-      images: urlForImage(product.images[0]) as any,
+      images: product.images as any,
       sizes: sizes.size,
       category: product.category.category,
     };

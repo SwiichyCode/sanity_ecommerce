@@ -1,7 +1,6 @@
 "use client";
 import { useFilterBarStore } from "../Filterbar/useFilterBarStore";
 import { usePaginationStore } from "../Pagination/usePaginationStore";
-import { urlForImage } from "@/sanity/lib/image";
 import ProductCard from "@/app/_components/_organisms/ProductCard";
 import Pagination from "../Pagination";
 import * as S from "./styles";
@@ -42,14 +41,10 @@ export default function ProductsList({ products }: Props) {
   return (
     <S.ProductsListWrapper className="responsive-padding">
       {renderList({
-        children: currentProducts.map((product: any, index: number) => (
+        children: currentProducts.map((product: any) => (
           <ProductCard
             key={product.id}
-            imageURL={urlForImage(product.images[0])
-              .auto("format")
-              .fit("max")
-              .url()}
-            // imageURL={product.images}
+            imageURL={product.images}
             id={product.id}
             name={product.name}
             slug={product.slug}

@@ -94,7 +94,7 @@ export const ProductCardPrice = styled.span`
 
 export const ProductCardImage = styled.div.withConfig({
   shouldForwardProp: (prop) => !["imageURL"].includes(prop),
-})<{ imageURL: string }>`
+})<{ imageURL: any }>`
   position: relative;
   width: 100%;
   height: 249px;

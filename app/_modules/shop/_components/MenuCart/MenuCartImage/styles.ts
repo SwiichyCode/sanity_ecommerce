@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MenuCartImage = styled.div.withConfig({
   shouldForwardProp: (prop) => !["imageURL"].includes(prop),
-})<{ imageURL?: string }>`
+})<{ imageURL?: any }>`
   width: 6.4rem;
   height: 6.4rem;
   background-image: url(${(props) => props.imageURL});

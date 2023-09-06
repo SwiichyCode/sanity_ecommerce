@@ -17,7 +17,6 @@ export default function MenuCartList({
   removeFromCart,
   totalCost,
 }: Props) {
-  console.log("cart", cart);
   return (
     <S.MenuCartList cartLength={cart.length}>
       {cart.map((product: any) => (
