@@ -1,5 +1,6 @@
 "use client";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
+import { urlForImage } from "@/sanity/lib/image";
 import MenuCartImage from "@/app/_modules/shop/_components/MenuCart/MenuCartImage";
 import MenuCartInformations from "@/app/_modules/shop/_components/MenuCart/MenuCartInformations";
 import MenuCartTotalPrice from "@/app/_modules/shop/_components/MenuCart/MenuCartTotalPrice";

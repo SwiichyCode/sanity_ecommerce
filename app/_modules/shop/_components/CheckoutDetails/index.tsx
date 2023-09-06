@@ -11,7 +11,7 @@ import {
 import CheckoutDetailForm from "./Form";
 import Summary from "@/app/_modules/shop/_components/Summary";
 import * as S from "./styles";
-
+import { urlForImage } from "@/sanity/lib/image";
 type Inputs = Partial<ProfileType>;
 
 type Props = {
@@ -47,9 +47,10 @@ export default function CheckoutDetails({ user }: Props) {
               name: name,
               description: description,
               images: [images],
-              size: sizes && sizes.size,
+              // size: sizes && sizes.size,
               metadata: {
                 productId: id,
+                size: sizes && sizes.size,
               },
             },
             currency: "eur",

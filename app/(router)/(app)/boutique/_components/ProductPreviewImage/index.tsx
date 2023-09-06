@@ -5,5 +5,6 @@ type Props = {
 };
 
 export default function ProductPreviewImage({ imageURL }: Props) {
+  console.log(imageURL);
   return <S.ProductPreviewImageWrapper imageURL={imageURL} />;
 }

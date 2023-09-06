@@ -25,6 +25,8 @@ export default function MenuCart() {
     setOpenCart(false);
   };
 
+  console.log("cart", cart);
+
   return (
     <S.MenuCartWrapper>
       <MenuCartButton

@@ -6,5 +6,6 @@ type Props = {
 };
 
 export default function MenuCartImage({ imageURL }: Props) {
-  return <S.MenuCartImage imageURL={urlForImage(imageURL[0] as any)} />;
+  console.log(imageURL);
+  return <S.MenuCartImage imageURL={imageURL} />;
 }

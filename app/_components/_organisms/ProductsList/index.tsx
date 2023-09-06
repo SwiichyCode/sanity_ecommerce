@@ -4,6 +4,7 @@ import { usePaginationStore } from "../Pagination/usePaginationStore";
 import ProductCard from "@/app/_components/_organisms/ProductCard";
 import Pagination from "../Pagination";
 import * as S from "./styles";
+import { urlForImage } from "@/sanity/lib/image";
 
 type Props = {
   products?: any;
@@ -44,7 +45,7 @@ export default function ProductsList({ products }: Props) {
         children: currentProducts.map((product: any) => (
           <ProductCard
             key={product.id}
-            imageURL={product.images}
+            imageURL={urlForImage(product.images[0]).url()}
             id={product.id}
             name={product.name}
             slug={product.slug}

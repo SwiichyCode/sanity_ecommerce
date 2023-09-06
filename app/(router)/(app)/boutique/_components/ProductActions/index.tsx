@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@/app/_components/_atoms/Button";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
 import ProductQuantity from "../ProductQuantity";
+import { urlForImage } from "@/sanity/lib/image";
 import { v4 as uuidv4 } from "uuid";
 import * as S from "./styles";
 
@@ -31,7 +32,7 @@ export default function ProductActions({
       id: product.id,
       productId: uuidv4(),
       cost: sizes.price ? sizes.price : product.price,
-      images: product.images as any,
+      images: urlForImage(product.images[0]).url() as any,
       sizes: sizes.size,
       category: product.category.category,
     };

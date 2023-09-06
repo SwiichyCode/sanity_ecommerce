@@ -50,7 +50,7 @@ export default function ProductCard({
   return (
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
-        <S.ProductCardImage imageURL={urlForImage(imageURL[0] as any)} />
+        <S.ProductCardImage imageURL={imageURL} />
         {/* <S.ProductCardAction>
           <S.ProductCardActionButton>
             <S.ProductCartActionIcon
