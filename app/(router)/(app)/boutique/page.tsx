@@ -8,6 +8,8 @@ import FilterBar from "@/app/_components/_organisms/Filterbar";
 import ProductsList from "../../../_components/_organisms/ProductsList";
 import { generateFakeProducts } from "@/app/_mocks/productsFaker";
 
+export const dynamic = "force-dynamic";
+
 export default async function BoutiquePage() {
   const preview = draftMode().isEnabled
     ? { token: process.env.NEXT_PUBLIC_SANITY_API_READ_TOKEN }
