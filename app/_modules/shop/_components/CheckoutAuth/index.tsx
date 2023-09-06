@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import AuthForm from "@/app/_modules/auth/_components/AuthForm";
-import AuthCard from "../../../_modules/auth/_components/AuthCard";
+import AuthCard from "@/app/_modules/auth/_components/AuthCard";
 type Props = {
   isCheckout?: boolean;
 };

@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { useWindowSize } from "usehooks-ts";
 import Navigation from "@/app/_components/_organisms/Navigation";
-import MenuCart from "../../MenuCart";
+import MenuCart from "@/app/_modules/shop/_components/MenuCart";
 import Logo from "@/app/_components/_atoms/Logo";
 import HeaderLeftSide from "../HeaderLeftSide";
 import HeaderMiddleSide from "../HeaderMiddleSide";

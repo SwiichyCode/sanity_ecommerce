@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import CheckoutDetails from "@/app/_components/_organisms/CheckoutDetails";
-import CheckoutAuth from "@/app/_components/_organisms/CheckoutAuth";
-import Summary from "@/app/_components/_organisms/Summary";
+import CheckoutDetails from "@/app/_modules/shop/_components/CheckoutDetails";
+import CheckoutAuth from "@/app/_modules/shop/_components/CheckoutAuth";
+import Summary from "@/app/_modules/shop/_components/Summary";
 
 export default async function CartPage() {
   const supabase = createServerComponentClient({ cookies });

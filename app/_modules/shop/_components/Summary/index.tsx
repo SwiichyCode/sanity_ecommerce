@@ -1,9 +1,9 @@
 "use client";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
-import MenuCartImage from "@/app/_components/_organisms/MenuCart/MenuCartImage";
-import MenuCartInformations from "@/app/_components/_organisms/MenuCart/MenuCartInformations";
-import MenuCartTotalPrice from "@/app/_components/_organisms/MenuCart/MenuCartTotalPrice";
-import MenuCartEmpty from "@/app/_components/_organisms/MenuCart/MenuCartEmpty";
+import MenuCartImage from "@/app/_modules/shop/_components/MenuCart/MenuCartImage";
+import MenuCartInformations from "@/app/_modules/shop/_components/MenuCart/MenuCartInformations";
+import MenuCartTotalPrice from "@/app/_modules/shop/_components/MenuCart/MenuCartTotalPrice";
+import MenuCartEmpty from "@/app/_modules/shop/_components/MenuCart/MenuCartEmpty";
 import Button from "@/app/_components/_atoms/Button";
 import * as S from "./styles";
 

@@ -16,6 +16,13 @@ export const MenuCartName = styled.h4`
   max-width: 15rem;
 `;
 
+export const MenuCartSize = styled.span`
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.4rem;
+  color: var(--color-grey-600);
+`;
+
 export const MenuCartPriceWrapper = styled.div`
   display: flex;
   align-items: center;

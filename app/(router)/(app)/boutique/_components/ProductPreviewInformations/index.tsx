@@ -16,6 +16,8 @@ export default function ProductPreviewInformations({ product }: Props) {
     setSizes(selectedSize);
   };
 
+  console.log(product);
+
   return (
     <S.ProductPreviewInformationsWrapper>
       <S.ProductTitle>{product.name}</S.ProductTitle>

@@ -10,6 +10,7 @@ interface Store {
   cart: Product[];
   setCart: (cart: Product[]) => void;
   addToCart: (product: Product, quantity: number) => void;
+  addFishToCart: (product: Product, quantity: number) => void;
   updateQuantity: (id: string, quantity: number) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
@@ -23,9 +24,20 @@ export const useCartStore = create<Store>()(
         name: "",
         description: "",
         id: "",
+        productId: "",
         cost: 0,
         images: "",
         quantity: 0,
+        sizes: {
+          size: 0,
+          price: 0,
+          fishSpecies: {
+            name: "",
+          },
+        },
+        category: {
+          category: "",
+        },
       },
       setProduct: (product) => set({ product }),
       cart: [],
@@ -43,16 +55,28 @@ export const useCartStore = create<Store>()(
             : [...state.cart, { ...product, quantity: quantity }],
         })),
 
+      addFishToCart: (product, quantity) =>
+        set((state) => ({
+          cart: state.cart.some((item) => item.sizes === product.sizes)
+            ? state.cart.map((item) =>
+                item.productId === product.productId &&
+                item.sizes === product.sizes
+                  ? { ...item, quantity: item.quantity! + quantity }
+                  : item
+              )
+            : [...state.cart, { ...product, quantity: quantity }],
+        })),
+
       updateQuantity: (id, quantity) =>
         set((state) => ({
           cart: state.cart.map((item) =>
-            item.id === id ? { ...item, quantity } : item
+            item.productId === id ? { ...item, quantity } : item
           ),
         })),
 
       removeFromCart: (id) =>
         set((state) => ({
-          cart: state.cart.filter((product) => product.id !== id),
+          cart: state.cart.filter((product) => product.productId !== id),
         })),
 
       totalCost: (cart) =>

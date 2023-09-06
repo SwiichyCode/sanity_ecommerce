@@ -9,7 +9,7 @@ import {
   ProfileFormType,
 } from "@/app/_modules/auth/_types/profile.type";
 import CheckoutDetailForm from "./Form";
-import Summary from "@/app/_components/_organisms/Summary";
+import Summary from "@/app/_modules/shop/_components/Summary";
 import * as S from "./styles";
 
 type Inputs = Partial<ProfileType>;
@@ -41,12 +41,13 @@ export default function CheckoutDetails({ user }: Props) {
       }
 
       const lineItems = cart?.map(
-        ({ cost, quantity, name, description, images, id }) => ({
+        ({ cost, quantity, name, description, images, id, sizes }) => ({
           price_data: {
             product_data: {
               name: name,
               description: description,
-              images: [images],
+              // images: [images],
+              size: sizes.size,
               metadata: {
                 productId: id,
               },

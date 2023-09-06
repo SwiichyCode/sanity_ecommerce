@@ -20,9 +20,9 @@ export default function MenuCartQuantity({
       <S.MenuCartQuantityButton
         onClick={() => {
           setQuantity(quantity - 1);
-          updateQuantity(product.id, quantity - 1);
+          updateQuantity(product.productId, quantity - 1);
           if (quantity === 1) {
-            return removeFromCart(product.id);
+            return removeFromCart(product.productId);
           }
         }}
       >
@@ -32,7 +32,7 @@ export default function MenuCartQuantity({
       <S.MenuCartQuantityButton
         onClick={() => {
           setQuantity(quantity + 1);
-          updateQuantity(product.id, quantity + 1);
+          updateQuantity(product.productId, quantity + 1);
         }}
       >
         +
