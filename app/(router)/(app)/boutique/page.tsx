@@ -17,15 +17,15 @@ export default async function BoutiquePage() {
   // const products = generateFakeProducts(100);
   // console.log(products);
 
-  if (preview && preview.token) {
-    return (
-      <PreviewProvider token={preview.token}>
-        <Banner />
-        <FilterBar />
-        <ProductsList products={products} />
-      </PreviewProvider>
-    );
-  }
+  // if (preview && preview.token) {
+  //   return (
+  //     <PreviewProvider token={preview.token}>
+  //       <Banner />
+  //       <FilterBar />
+  //       <ProductsList products={products} />
+  //     </PreviewProvider>
+  //   );
+  // }
 
   return (
     <div>
