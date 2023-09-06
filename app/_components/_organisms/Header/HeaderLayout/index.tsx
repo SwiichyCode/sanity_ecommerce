@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import * as S from "./styles";
-import MenuCart from "../../MenuCart";
 
 type Props = {
   children: React.ReactNode;

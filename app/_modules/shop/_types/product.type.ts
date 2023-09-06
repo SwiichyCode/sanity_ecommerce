@@ -8,8 +8,8 @@ export interface Product {
   cost: number;
   images: string;
   quantity?: number;
-  sizes: Sizes;
-  category: {
+  sizes?: Sizes;
+  category?: {
     category: string;
   };
 }

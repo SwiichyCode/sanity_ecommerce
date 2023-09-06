@@ -46,8 +46,8 @@ export default function CheckoutDetails({ user }: Props) {
             product_data: {
               name: name,
               description: description,
-              // images: [images],
-              size: sizes.size,
+              images: [images],
+              size: sizes && sizes.size,
               metadata: {
                 productId: id,
               },

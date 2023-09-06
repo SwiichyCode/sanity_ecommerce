@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useCartStore } from "@/app/_modules/shop/cart.store";
 import ProductCardStock from "./ProductCardStock";
 import Button from "@/app/_components/_atoms/Button";
+import { v4 as uuidv4 } from "uuid";
 import * as S from "./styles";
 
 type Props = {
@@ -37,6 +38,7 @@ export default function ProductCard({
         name: name,
         description: description,
         id: id,
+        productId: uuidv4(),
         cost: price,
         images: imageURL as any,
       },
