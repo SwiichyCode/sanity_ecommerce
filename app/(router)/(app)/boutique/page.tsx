@@ -9,6 +9,7 @@ import ProductsList from "../../../_components/_organisms/ProductsList";
 import { generateFakeProducts } from "@/app/_mocks/productsFaker";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 10;
 
 export default async function BoutiquePage() {
   const preview = draftMode().isEnabled
