@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { breakpoints } from "@/app/_styles/breakpoints";
 export const ProductPreviewImageWrapper = styled.div.withConfig({
   shouldForwardProp: (prop) => !["imageURL"].includes(prop),
 })<{ imageURL: string }>`
@@ -13,4 +13,9 @@ export const ProductPreviewImageWrapper = styled.div.withConfig({
   box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.16);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+
+  @media (max-width: ${breakpoints.sm}) {
+    width: 100%;
+    height: 200px;
+  }
 `;
