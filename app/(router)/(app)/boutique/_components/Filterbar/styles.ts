@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { breakpoints } from "@/app/_styles/breakpoints";
 export const FilterBarWrapper = styled.div`
   min-height: 8rem;
   display: flex;
@@ -9,4 +9,8 @@ export const FilterBarWrapper = styled.div`
   background-color: var(--color-blue);
   color: var(--color-white);
   gap: 3.2rem;
+
+  @media (max-width: ${breakpoints.sm}) {
+    display: none;
+  }
 `;
