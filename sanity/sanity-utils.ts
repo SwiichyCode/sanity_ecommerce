@@ -24,15 +24,15 @@ export async function getProducts() {
   return client.fetch(
     groq`*[_type == "product"]{
     ${productFields}
-    }`,
-    {
-      Headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers":
-          "Origin, Content-Type, Accept, Authorization, X-Request-With",
-        "Access-Control-Allow-Credentials": "true",
-      },
-    }
+    }`
   );
 }
+
+export const getProduct = async (slug: string) => {
+  return client.fetch(
+    groq`*[_type == "product" && slug.current == $slug]{
+    ${productFields}
+    }[0]`,
+    { slug }
+  );
+};
