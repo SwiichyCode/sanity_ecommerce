@@ -36,3 +36,11 @@ export const getProduct = async (slug: string) => {
     { slug }
   );
 };
+
+export const getRecentFish = async () => {
+  return client.fetch(
+    groq`*[_type == "product" && category->category == "poisson"] | order(date desc){
+    ${productFields}
+    }[0...3]`
+  );
+};

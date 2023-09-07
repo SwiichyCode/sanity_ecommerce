@@ -1,4 +1,5 @@
 "use client";
+import { urlForImage } from "@/sanity/lib/image";
 import ProductCard from "@/app/_components/_organisms/ProductCard";
 import SectionLayout from "@/app/_components/layouts/SectionLayout";
 import * as S from "./styles";
@@ -32,7 +33,7 @@ export default function ProductFeature({
               productFeature.map((product: any) => (
                 <ProductCard
                   key={product.id}
-                  imageURL={product.images}
+                  imageURL={urlForImage(product.images[0]).url()}
                   id={product.id}
                   name={product.name}
                   slug={product.slug}
@@ -45,7 +46,6 @@ export default function ProductFeature({
               ))}
           </S.ProductFeatureList>
         </S.ProductFeatureContent>
-        {/* <S.ProductFeatureImage /> */}
       </S.ProductFeatureWrapper>
     </SectionLayout>
   );
