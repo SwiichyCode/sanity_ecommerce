@@ -14,23 +14,6 @@ type Props = {
 export default function MenuMobile({ user }: Props) {
   const { isMenuOpen, closeMenu } = useMenuMobileStore();
   const { width } = useWindowSize();
-  const ref = useRef(null);
-  useOnClickOutside(ref, (e) => handleClickOutside(e));
-
-  const handleClickOutside = (e: any) => {
-    const target = e.target;
-
-    if (
-      target.className &&
-      typeof target.className.includes !== "undefined" &&
-      target.className.includes("hamburger")
-    ) {
-      return;
-    }
-
-    document.body.classList.remove("no-scroll");
-    closeMenu();
-  };
 
   useEffect(() => {
     if (width >= 1024) {
@@ -41,7 +24,7 @@ export default function MenuMobile({ user }: Props) {
   return (
     <>
       <Backdrop isMenuOpen={isMenuOpen} />
-      <MenuMobileWrapper ref={ref} isMenuOpen={isMenuOpen}>
+      <MenuMobileWrapper isMenuOpen={isMenuOpen}>
         <p>Panier</p>
         <Navigation />
         <Navigation isAuth user={user} />

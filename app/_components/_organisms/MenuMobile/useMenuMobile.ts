@@ -8,6 +8,14 @@ interface IMenuMobileStore {
 
 export const useMenuMobileStore = create<IMenuMobileStore>((set) => ({
   isMenuOpen: false,
-  toggleMenu: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
-  closeMenu: () => set({ isMenuOpen: false }),
+
+  toggleMenu: () => {
+    set((state) => ({ isMenuOpen: !state.isMenuOpen }));
+    document.body.classList.toggle("no-scroll");
+  },
+
+  closeMenu: () => {
+    set({ isMenuOpen: false });
+    document.body.classList.remove("no-scroll");
+  },
 }));

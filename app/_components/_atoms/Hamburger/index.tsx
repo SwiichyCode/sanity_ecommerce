@@ -6,9 +6,8 @@ import IconHamburger from "@/public/hamburger.svg";
 
 export default function Hamburger() {
   const { toggleMenu } = useMenuMobileStore();
-  const handleOpenMenu = () => {
-    document.body.classList.toggle("no-scroll");
 
+  const handleOpenMenu = () => {
     toggleMenu();
   };
 
