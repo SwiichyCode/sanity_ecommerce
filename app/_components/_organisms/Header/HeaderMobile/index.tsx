@@ -1,7 +1,7 @@
 "use client";
 import { useWindowSize } from "usehooks-ts";
 import Hamburger from "@/app/_components/_atoms/Hamburger";
-import MenuCart from "@/app/_modules/shop/_components/MenuCart";
+import MenuCart from "@/app/(router)/(app)/cart/_components/MenuCart";
 import MenuMobile from "@/app/_components/_organisms/MenuMobile";
 import Logo from "@/app/_components/_atoms/Logo";
 

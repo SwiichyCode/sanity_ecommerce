@@ -1,7 +1,7 @@
-import Features from "../../../_components/_organisms/Features";
-import Hero from "../../../_components/_organisms/Hero";
-import ProductFeature from "../../../_components/_organisms/ProductFeature";
-import { getRecentFish } from "@/sanity/sanity-utils";
+import Features from "./_components/Features";
+import Hero from "./_components/Hero";
+import ProductFeature from "./_components/ProductFeature";
+import { getRecentFish } from "@/sanity/query/product-query";
 
 export const revalidate = 10;
 

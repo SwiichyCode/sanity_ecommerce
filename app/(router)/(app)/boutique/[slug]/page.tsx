@@ -1,13 +1,11 @@
-import { productPathsQuery } from "@/sanity/lib/queries";
-import { client } from "@/sanity/lib/client";
-import ProductPreview from "../_components/ProductPreview";
-import { getProduct } from "@/sanity/sanity-utils";
+import { getProduct, getProductSlug } from "@/sanity/query/product-query";
+import ProductPreview from "./_components/ProductPreview";
 
 export const revalidate = 10;
 
 export async function generateStaticParams() {
-  const products = await client.fetch(productPathsQuery);
-  return products;
+  const slug = await getProductSlug();
+  return slug;
 }
 
 export default async function ProductPage({ params }: any) {

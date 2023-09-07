@@ -1,10 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import OrderService from "@/app/_modules/shop/order.service";
-import { useCartStore } from "@/app/_modules/shop/cart.store";
-import { getProductById } from "@/sanity/lib/getProductById";
-import Image from "next/image";
-import { urlForImage } from "@/sanity/lib/image";
+import OrderService from "@/app/(router)/(app)/cart/_services/order.service";
+import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
+import { getProductById } from "@/sanity/utils/getProductById";
 import OrderCard from "../OrderCard";
 
 export default function OrderDetail() {

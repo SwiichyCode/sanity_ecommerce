@@ -1,9 +1,7 @@
-// "use client";
-
-import Banner from "../../../_components/_organisms/Banner";
-import FilterBar from "@/app/_components/_organisms/Filterbar";
-import ProductsList from "../../../_components/_organisms/ProductsList";
-import { getProducts } from "@/sanity/sanity-utils";
+import { getProducts } from "@/sanity/query/product-query";
+import Banner from "./_components/Banner";
+import FilterBar from "./_components/Filterbar";
+import ProductsList from "./_components/ProductsList";
 
 export const revalidate = 10;
 

@@ -1,9 +1,7 @@
-import { updateProductStock } from "@/sanity/lib/updateProductStock";
+import { updateProductStock } from "@/sanity/utils/updateProductStock";
 
 export async function handlePaymentSuccessWebhook(event: any) {
   const paymentIntent = event.data.object;
-
-  console.log("Paiement réussi:", paymentIntent.succeeded);
 
   if (paymentIntent.status === "succeeded") {
     // Récupérer les informations nécessaires pour la mise à jour du stock

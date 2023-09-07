@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { Stripe } from "stripe";
 import stripe from "@/app/_lib/stripe/client";
-import { updateProductStock } from "@/sanity/lib/updateProductStock";
-import OrderService from "@/app/_modules/shop/order.service";
+import { updateProductStock } from "@/sanity/utils/updateProductStock";
+import OrderService from "@/app/(router)/(app)/cart/_services/order.service";
 
 const webhookSecret = process.env.NEXT_PUBLIC_STRIPE_WEBHOOK_SECRET!;
 
