@@ -8,12 +8,12 @@ type CreateOrder = {
 };
 
 async function createOrder({ profile_id, product }: CreateOrder) {
-  const { error } = await supabaseClient.from("order").insert({
+  const { data, error } = await supabaseClient.from("order").insert({
     profile_id,
     product,
   });
 
-  return { error };
+  return { data, error };
 }
 
 async function getLastOrder(profile_id: string) {

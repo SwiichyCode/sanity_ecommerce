@@ -42,7 +42,7 @@ export default function ProductCard({
         description: description,
         id: id,
         productId: uuidv4(),
-        cost: price,
+        price: price,
         images: imageURL as any,
       },
       1

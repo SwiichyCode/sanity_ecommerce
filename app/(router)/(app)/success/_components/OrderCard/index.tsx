@@ -1,13 +1,14 @@
-import { useProfileStore } from "@/app/_modules/auth/profile.store";
 import * as S from "./styles";
-
+import MenuCartImage from "../../../cart/_components/MenuCart/MenuCartImage";
+import { urlForImage } from "@/sanity/utils/imageBuilder";
+import MenuCartInformations from "../../../cart/_components/MenuCart/MenuCartInformations";
 type Props = {
-  order: any;
+  productDetail: any;
+  profile: any;
 };
 
-export default function OrderCard({ order }: Props) {
-  const { profile } = useProfileStore();
-
+export default function OrderCard({ productDetail, profile }: Props) {
+  console.log("productDetail", productDetail);
   return (
     <S.OrderCardWrapper>
       <S.OrderCardHeader>
@@ -17,6 +18,17 @@ export default function OrderCard({ order }: Props) {
           <span>{profile?.email}</span>
         </S.OrderCardSubtitle>
       </S.OrderCardHeader>
+      {productDetail &&
+        productDetail.map((orderProducts: any, index: number) => (
+          <S.OrderProductList key={index}>
+            {orderProducts.map((item: any, productIndex: number) => (
+              <S.OrderProductWrapper key={productIndex}>
+                <MenuCartImage imageURL={urlForImage(item.images[0]).url()} />
+                <MenuCartInformations product={item} isOrderDetail={true} />
+              </S.OrderProductWrapper>
+            ))}
+          </S.OrderProductList>
+        ))}
     </S.OrderCardWrapper>
   );
 }

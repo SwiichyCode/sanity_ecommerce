@@ -22,12 +22,10 @@ export async function POST(req: any) {
         JSON.parse(paymentIntent.metadata.product)
       );
 
-      const { error } = await OrderService.createOrder({
+      const { data, error } = await OrderService.createOrder({
         profile_id: paymentIntent.metadata.userId,
         product: JSON.parse(paymentIntent.metadata.product),
       });
-
-      console.log("OrderService.createOrder", error);
 
       if (!result) {
         throw new Error(
@@ -48,5 +46,6 @@ export async function POST(req: any) {
       return NextResponse.json({ message: err.message }, { status: 400 });
     }
   }
+
   return NextResponse.json({ received: true });
 }

@@ -6,14 +6,18 @@ export const MenuCartInfo = styled.div`
   gap: 0.8rem;
 `;
 
-export const MenuCartName = styled.h4`
+export const MenuCartName = styled.h4.withConfig({
+  shouldForwardProp: (prop) => !["isOrderDetail"].includes(prop),
+})<{ isOrderDetail: boolean | undefined }>`
+  width: 100%;
+  max-width: ${(props) => (props.isOrderDetail ? "initial" : "15rem")};
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.6rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-overflow: ${(props) => (props.isOrderDetail ? "initial" : "ellipsis")};
+
+  white-space: ${(props) => (props.isOrderDetail ? "initial" : "nowrap")};
   overflow: hidden;
-  max-width: 15rem;
 `;
 
 export const MenuCartSize = styled.span`

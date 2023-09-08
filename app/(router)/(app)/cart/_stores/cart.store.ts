@@ -25,7 +25,7 @@ export const useCartStore = create<Store>()(
         description: "",
         id: "",
         productId: "",
-        cost: 0,
+        price: 0,
         images: "",
         quantity: 0,
         sizes: {
@@ -80,7 +80,10 @@ export const useCartStore = create<Store>()(
         })),
 
       totalCost: (cart) =>
-        cart.reduce((acc, { cost, quantity = 0 }) => acc + cost * quantity, 0),
+        cart.reduce(
+          (acc, { price, quantity = 0 }) => acc + price * quantity,
+          0
+        ),
 
       clearCart: () => set({ cart: [] }),
     }),

@@ -31,7 +31,7 @@ export default function ProductActions({
       description: product.description,
       id: product.id,
       productId: uuidv4(),
-      cost: sizes.price ? sizes.price : product.price,
+      price: sizes.price ? sizes.price : product.price,
       images: urlForImage(product.images[0]).url() as any,
       sizes: sizes.size,
       category: product.category.category,

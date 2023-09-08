@@ -12,6 +12,7 @@ export const OrderCardHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  margin-bottom: 4.8rem;
 `;
 
 export const OrderCardTitle = styled.h2`
@@ -29,4 +30,16 @@ export const OrderCardSubtitle = styled.p`
   span {
     font-weight: 700;
   }
+`;
+
+export const OrderProductList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`;
+
+export const OrderProductWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 2.4rem;
 `;

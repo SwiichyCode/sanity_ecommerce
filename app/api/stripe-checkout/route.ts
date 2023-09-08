@@ -15,7 +15,8 @@ export async function POST(req: any) {
 
   try {
     const session = await stripe.checkout.sessions.create({
-      success_url: "http://localhost:3000/success",
+      success_url:
+        "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "http://localhost:3000/cart",
       line_items: body.lineItems,
 
@@ -28,6 +29,7 @@ export async function POST(req: any) {
           body.lineItems.map((item: any) => {
             return {
               id: item.price_data.product_data.metadata.productId,
+              size: item.price_data.product_data.metadata.size,
               quantity: item.quantity,
             };
           })
