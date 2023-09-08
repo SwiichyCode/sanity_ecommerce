@@ -5,6 +5,8 @@ import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
 import ProductCardStock from "./ProductCardStock";
 import Button from "@/app/_components/_atoms/Button";
 import * as S from "./styles";
+import ProductCardAction from "./ProductCardAction";
+import ProductCardStars from "./ProductCardStars";
 
 type Props = {
   imageURL: string;
@@ -51,40 +53,11 @@ export default function ProductCard({
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
         <S.ProductCardImage imageURL={imageURL} />
-        {/* <S.ProductCardAction>
-          <S.ProductCardActionButton>
-            <S.ProductCartActionIcon
-              src="/heart_2.svg"
-              width={24}
-              height={24}
-              alt=""
-            />
-          </S.ProductCardActionButton>
-          <S.ProductCardActionButton onClick={handleAddToCart}>
-            <S.ProductCartActionIcon
-              src="/cart.svg"
-              width={24}
-              height={24}
-              alt=""
-            />
-          </S.ProductCardActionButton>
-          <S.ProductCardActionButton>
-            <S.ProductCartActionIcon
-              src="/eyes.svg"
-              width={24}
-              height={24}
-              alt=""
-            />
-          </S.ProductCardActionButton>
-        </S.ProductCardAction> */}
       </S.ProductCardHeader>
       <S.ProductCardBody>
         <S.ProductCardTitleWrapper>
           <S.ProductCardTitle>{name}</S.ProductCardTitle>
-          {/* <S.ProductCardStars>
-            <Image src="/star.svg" width={16} height={16} alt="" />
-            <span>{stars}</span>
-          </S.ProductCardStars> */}
+          {/* <ProductCardStars stars={stars} /> */}
         </S.ProductCardTitleWrapper>
 
         <S.ProductCardDescription>{description}</S.ProductCardDescription>
@@ -100,16 +73,10 @@ export default function ProductCard({
             </Link>
           </Button>
 
-          {category !== "poisson" && (
-            <S.ProductCardActionButton onClick={handleAddToCart}>
-              <S.ProductCartActionIcon
-                src="/cart.svg"
-                width={24}
-                height={24}
-                alt=""
-              />
-            </S.ProductCardActionButton>
-          )}
+          <ProductCardAction
+            category={category}
+            handleAddToCart={handleAddToCart}
+          />
         </S.ProductCardFooter>
       </S.ProductCardBody>
     </S.ProductCardWrapper>

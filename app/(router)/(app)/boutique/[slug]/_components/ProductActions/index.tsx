@@ -44,11 +44,31 @@ export default function ProductActions({
     }
     setErrorSize(null);
   };
+
+  const handleReturnToShop = () => {
+    window.history.back();
+  };
+
+  const handleCheckout = () => {
+    window.location.href = "/cart";
+  };
+
   return (
     <>
       <S.ProductActionsWrapper>
-        <ProductQuantity quantity={quantity} setQuantity={setQuantity} />
-        <Button text="Ajouter au panier" onClick={handleAddToCart} />
+        <S.CartAction>
+          <ProductQuantity quantity={quantity} setQuantity={setQuantity} />
+          <Button text="Ajouter au panier" onClick={handleAddToCart} />
+          {/* <S.LocationAction onClick={handleCheckout}>
+            Passer la commande
+          </S.LocationAction> */}
+        </S.CartAction>
+        <S.LocationAction>
+          <Button text="Passer la commande" onClick={handleCheckout} />
+          <S.SpanLink onClick={handleReturnToShop}>
+            Retour à la boutique
+          </S.SpanLink>
+        </S.LocationAction>
       </S.ProductActionsWrapper>
     </>
   );
