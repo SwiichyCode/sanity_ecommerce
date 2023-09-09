@@ -10,8 +10,7 @@ const productFields = `
       name
     }
   },
-  category -> { category, 
-  }
+  category
 `;
 
 export async function getProducts() {

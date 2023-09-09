@@ -17,7 +17,7 @@ export default function ProductsList({ products }: Props) {
 
   const filteredProducts = products.filter((product: any) => {
     const isMatchingCategory =
-      selectedCategory === "" || product.category.category === selectedCategory;
+      selectedCategory === "" || product.category === selectedCategory;
 
     const isMatchingSearch = product.name
       .toLowerCase()
@@ -53,7 +53,7 @@ export default function ProductsList({ products }: Props) {
             stars={product.stars}
             stock={product.stock}
             price={product.price}
-            category={product.category.category}
+            category={product.category}
           />
         )),
       })}

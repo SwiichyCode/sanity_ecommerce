@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
 import { v4 as uuidv4 } from "uuid";
+import { getCategoryName } from "../utils/getCategoryName";
 
 export default defineType({
   name: "product",
@@ -43,11 +44,18 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "weight",
+      title: "Poids du produit (en grammes ou kilogrammes)",
+      type: "number",
+      hidden: ({ parent }) => parent?.category === "poisson",
+    }),
+    defineField({
       name: "sizes",
       title: "Tailles disponibles",
       type: "array",
       of: [{ type: "reference", to: [{ type: "fishSize" }] }],
       description: "Select the sizes available for this product.",
+      hidden: ({ parent }) => parent?.category !== "poisson",
     }),
     defineField({
       name: "images",
@@ -59,10 +67,17 @@ export default defineType({
     defineField({
       name: "category",
       title: "Category du produit",
-      type: "reference",
-      to: [{ type: "category" }],
+      type: "string",
+      options: {
+        layout: "radio",
+        list: [
+          { title: "Poisson", value: "poisson" },
+          { title: "Matériel", value: "matériel" },
+        ],
+      },
       validation: (Rule) => Rule.required(),
     }),
+
     defineField({
       name: "stars",
       title: "Stars",

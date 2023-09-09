@@ -18,6 +18,11 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "weight",
+      title: "Poids (en grammes ou kilogrammes)",
+      type: "number",
+    }),
+    defineField({
       name: "price",
       title: "Prix en fonction de la taille (en euros)",
       type: "number",
