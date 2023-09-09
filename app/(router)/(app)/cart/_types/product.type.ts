@@ -9,6 +9,7 @@ export interface Product {
   images: string;
   quantity?: number;
   sizes?: Sizes;
+  weight?: number;
   category?: {
     category: string;
   };

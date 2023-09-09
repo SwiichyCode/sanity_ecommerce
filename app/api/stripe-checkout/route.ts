@@ -39,7 +39,7 @@ export async function POST(req: any) {
 
       shipping_options: [
         {
-          shipping_rate: "shr_1NcWgbJSkUmCv6RblV8PrBLR",
+          shipping_rate: body.shippingOptions,
         },
       ],
     });

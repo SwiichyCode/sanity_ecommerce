@@ -11,7 +11,8 @@ import {
 import CheckoutDetailForm from "./Form";
 import Summary from "@/app/(router)/(app)/cart/_components/Summary";
 import * as S from "./styles";
-
+import { orderTotalWeight } from "@/app/_utils/orderWeight";
+import { calculateBestShippingOption } from "@/app/_lib/stripe/shippingOptions";
 type Inputs = Partial<ProfileType>;
 
 type Props = {
@@ -28,6 +29,13 @@ export default function CheckoutDetails({ user }: Props) {
   useEffect(() => {
     reset(profile);
   }, [profile]);
+
+  console.log("cartweight", orderTotalWeight(cart));
+
+  console.log(
+    "bestShippingOptions",
+    calculateBestShippingOption(orderTotalWeight(cart))
+  );
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -53,11 +61,17 @@ export default function CheckoutDetails({ user }: Props) {
                 size: sizes ? `${sizes}cm` : null,
               },
             },
+
             currency: "eur",
             unit_amount: price * 100,
           },
+
           quantity: quantity,
         })
+      );
+
+      const shippingOptions = calculateBestShippingOption(
+        orderTotalWeight(cart)
       );
 
       const res = await fetch("/api/stripe-checkout", {
@@ -65,7 +79,7 @@ export default function CheckoutDetails({ user }: Props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ lineItems, userId: User?.id }),
+        body: JSON.stringify({ lineItems, shippingOptions, userId: User?.id }),
       });
 
       const checkoutSession = await res.json();

@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export default defineType({
   name: "fishSize",
-  title: "Tailles de poisson",
+  title: "Information du discus (taille, poids, prix)",
   type: "document",
   fields: [
     defineField({

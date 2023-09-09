@@ -5,11 +5,13 @@ const productFields = `
   id, name, slug, description, price, images, stars, stock, 
   "sizes": sizes[]-> {
     size,
+    weight,
     price,
     "fishSpecies": fishSpecies-> {
       name
     }
   },
+  weight,
   category
 `;
 

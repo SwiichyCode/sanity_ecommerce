@@ -34,7 +34,8 @@ export default function ProductActions({
       price: sizes.price ? sizes.price : product.price,
       images: urlForImage(product.images[0]).url() as any,
       sizes: sizes.size,
-      category: product.category.category,
+      weight: sizes ? sizes.weight : product.weight,
+      category: product.category,
     };
 
     if (product.category.category === "poisson") {

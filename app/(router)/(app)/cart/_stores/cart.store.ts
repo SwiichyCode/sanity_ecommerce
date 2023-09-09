@@ -30,11 +30,13 @@ export const useCartStore = create<Store>()(
         quantity: 0,
         sizes: {
           size: 0,
+          weight: 0,
           price: 0,
           fishSpecies: {
             name: "",
           },
         },
+        weight: 0,
         category: {
           category: "",
         },
