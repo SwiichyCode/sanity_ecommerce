@@ -54,6 +54,8 @@ export default function ProductsList({ products }: Props) {
             stock={product.stock}
             price={product.price}
             category={product.category}
+            weight={product.weight}
+            sizes={product.sizes}
           />
         )),
       })}

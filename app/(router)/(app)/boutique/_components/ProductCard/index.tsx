@@ -1,26 +1,11 @@
 import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
-import { urlForImage } from "@/sanity/utils/imageBuilder";
 import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
 import ProductCardStock from "./ProductCardStock";
 import Button from "@/app/_components/_atoms/Button";
-import * as S from "./styles";
 import ProductCardAction from "./ProductCardAction";
-import ProductCardStars from "./ProductCardStars";
-
-type Props = {
-  imageURL: string;
-  id: string;
-  name: string;
-  slug: {
-    current: string;
-  };
-  description: string;
-  stars: number;
-  stock: number;
-  price: number;
-  category: string;
-};
+import { ProductCardProps } from "./types";
+import * as S from "./styles";
 
 export default function ProductCard({
   imageURL,
@@ -28,11 +13,11 @@ export default function ProductCard({
   name,
   slug,
   description,
-  stars,
   stock,
   price,
   category,
-}: Props) {
+  weight,
+}: ProductCardProps) {
   const { addToCart } = useCartStore();
 
   const handleAddToCart = () => {
@@ -44,6 +29,8 @@ export default function ProductCard({
         productId: uuidv4(),
         price: price,
         images: imageURL as any,
+        category: category,
+        weight: weight,
       },
       1
     );
