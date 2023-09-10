@@ -21,7 +21,7 @@ export default function ProductActions({
   const { addToCart, addFishToCart } = useCartStore();
 
   const handleAddToCart = () => {
-    if (product.category.category === "poisson" && !sizes.size) {
+    if (product.category === "poisson" && !sizes.size) {
       setErrorSize("Veuillez sélectionner une taille");
       return;
     }
@@ -38,7 +38,7 @@ export default function ProductActions({
       category: product.category,
     };
 
-    if (product.category.category === "poisson") {
+    if (product.category === "poisson") {
       addFishToCart(item, quantity);
     } else {
       addToCart(item, quantity);
