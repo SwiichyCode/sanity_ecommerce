@@ -57,7 +57,6 @@ export default function ProductCard({
       <S.ProductCardBody>
         <S.ProductCardTitleWrapper>
           <S.ProductCardTitle>{name}</S.ProductCardTitle>
-          {/* <ProductCardStars stars={stars} /> */}
         </S.ProductCardTitleWrapper>
 
         <S.ProductCardDescription>{description}</S.ProductCardDescription>

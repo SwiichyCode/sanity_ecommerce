@@ -42,7 +42,7 @@ export const getProductSlug = async () => {
 
 export const getRecentFish = async () => {
   return client.fetch(
-    groq`*[_type == "product" && category->category == "poisson"] | order(date desc){
+    groq`*[_type == "product" && category == "poisson"] | order(date desc){
     ${productFields}
     }[0...3]`
   );
