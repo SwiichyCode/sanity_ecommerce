@@ -37,9 +37,7 @@ export const useCartStore = create<Store>()(
           },
         },
         weight: 0,
-        category: {
-          category: "",
-        },
+        category: "",
       },
       setProduct: (product) => set({ product }),
       cart: [],

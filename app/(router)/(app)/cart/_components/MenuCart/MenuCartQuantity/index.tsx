@@ -3,7 +3,6 @@ import * as S from "./styles";
 
 type Props = {
   product: any;
-
   updateQuantity: (id: string, quantity: number) => void;
   removeFromCart: (id: string) => void;
 };
@@ -13,7 +12,10 @@ export default function MenuCartQuantity({
   updateQuantity,
   removeFromCart,
 }: Props) {
+  // Fix this state problem occurring when te user remove a product from the cart
   const [quantity, setQuantity] = useState(product.quantity);
+
+  console.log("quantity", quantity);
 
   return (
     <S.MenuCartQuantityHandler>

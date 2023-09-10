@@ -29,7 +29,10 @@ const findBestPrice = (
   return bestPriceID;
 };
 
-export const calculateBestShippingOption = (weight: number): string | null => {
+export const calculateBestShippingOption = (
+  weight: number,
+  hasLiveFish: boolean
+): string | null => {
   const shippingOptions: ShippingOption[] = [
     {
       ID: "shr_1NoRCRJSkUmCv6RbO63qJSID",
@@ -53,10 +56,26 @@ export const calculateBestShippingOption = (weight: number): string | null => {
       amount: 14.5,
       weight: 5,
     },
+    {
+      ID: "shr_1Nok1fJSkUmCv6RbgLr290Iv",
+      description: "France express - 20kg",
+      delay: {
+        description: "Le lendemain avant 13h",
+        min: 1,
+        max: 1,
+      },
+      amount: 76,
+      weight: 20,
+    },
     // ... autres options d'expédition ...
   ];
 
-  const bestPriceID = findBestPrice(shippingOptions, weight);
-
-  return bestPriceID;
+  if (hasLiveFish) {
+    // Si un produit de la catégorie "poisson" est présent dans le panier,
+    // utiliser l'option de livraison spécifique.
+    return "shr_1Nok1fJSkUmCv6RbgLr290Iv";
+  } else {
+    // Sinon, utiliser la fonction de calcul précédente.
+    return findBestPrice(shippingOptions, weight);
+  }
 };

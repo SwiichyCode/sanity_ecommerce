@@ -10,7 +10,5 @@ export interface Product {
   quantity?: number;
   sizes?: Sizes;
   weight?: number;
-  category?: {
-    category: string;
-  };
+  category: string;
 }

@@ -4,6 +4,8 @@ import CheckoutDetails from "./_components/CheckoutDetails";
 import CheckoutAuth from "./_components/CheckoutAuth";
 import Summary from "@/app/(router)/(app)/cart/_components/Summary";
 
+export const revalidate = 10;
+
 export default async function CartPage() {
   const supabase = createServerComponentClient({ cookies });
   const { data: user } = await supabase.auth.getUser();

@@ -30,12 +30,7 @@ export default function CheckoutDetails({ user }: Props) {
     reset(profile);
   }, [profile]);
 
-  console.log("cartweight", orderTotalWeight(cart));
-
-  console.log(
-    "bestShippingOptions",
-    calculateBestShippingOption(orderTotalWeight(cart))
-  );
+  console.log("cartWeight", orderTotalWeight(cart));
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -70,8 +65,11 @@ export default function CheckoutDetails({ user }: Props) {
         })
       );
 
+      const hasLiveFish = cart?.some((item) => item?.category === "poisson");
+
       const shippingOptions = calculateBestShippingOption(
-        orderTotalWeight(cart)
+        orderTotalWeight(cart),
+        hasLiveFish
       );
 
       const res = await fetch("/api/stripe-checkout", {
