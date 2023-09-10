@@ -42,6 +42,7 @@ export default function ProductFeature({
                   stock={product.stock}
                   price={product.price}
                   category={product.category}
+                  weight={product.weight}
                 />
               ))}
           </S.ProductFeatureList>
