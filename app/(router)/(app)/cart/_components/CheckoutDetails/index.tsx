@@ -4,15 +4,16 @@ import { useRouter } from "next/navigation";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
 import { useProfile } from "@/app/_modules/auth/useProfile";
+import { orderTotalWeight } from "@/app/_utils/orderWeight";
+import { calculateBestShippingOption } from "@/app/_lib/stripe/shippingOptions";
+import CheckoutDetailForm from "./Form";
+import Summary from "@/app/(router)/(app)/cart/_components/Summary";
 import {
   ProfileType,
   ProfileFormType,
 } from "@/app/_modules/auth/_types/profile.type";
-import CheckoutDetailForm from "./Form";
-import Summary from "@/app/(router)/(app)/cart/_components/Summary";
 import * as S from "./styles";
-import { orderTotalWeight } from "@/app/_utils/orderWeight";
-import { calculateBestShippingOption } from "@/app/_lib/stripe/shippingOptions";
+
 type Inputs = Partial<ProfileType>;
 
 type Props = {
@@ -29,8 +30,6 @@ export default function CheckoutDetails({ user }: Props) {
   useEffect(() => {
     reset(profile);
   }, [profile]);
-
-  console.log("cartWeight", orderTotalWeight(cart));
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -67,7 +66,7 @@ export default function CheckoutDetails({ user }: Props) {
 
       const hasLiveFish = cart?.some((item) => item?.category === "poisson");
 
-      const shippingOptions = calculateBestShippingOption(
+      const shippingOptions = await calculateBestShippingOption(
         orderTotalWeight(cart),
         hasLiveFish
       );
