@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 export const OrderCardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 54rem;
   padding: 4.8rem;
   border-radius: var(--rounded-lg);
   background-color: var(--color-white);
+  gap: 4.8rem;
 `;
 
 export const OrderCardHeader = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  margin-bottom: 4.8rem;
 `;
 
 export const OrderCardTitle = styled.h2`

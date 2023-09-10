@@ -4,6 +4,7 @@ import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
 import ProductQuantity from "../ProductQuantity";
 import { urlForImage } from "@/sanity/utils/imageBuilder";
 import { v4 as uuidv4 } from "uuid";
+import { windowLocation } from "@/app/_utils/windowLocation";
 import * as S from "./styles";
 
 type Props = {
@@ -46,27 +47,19 @@ export default function ProductActions({
     setErrorSize(null);
   };
 
-  const handleReturnToShop = () => {
-    window.history.back();
-  };
-
-  const handleCheckout = () => {
-    window.location.href = "/cart";
-  };
-
   return (
     <>
       <S.ProductActionsWrapper>
         <S.CartAction>
           <ProductQuantity quantity={quantity} setQuantity={setQuantity} />
           <Button text="Ajouter au panier" onClick={handleAddToCart} />
-          {/* <S.LocationAction onClick={handleCheckout}>
-            Passer la commande
-          </S.LocationAction> */}
         </S.CartAction>
         <S.LocationAction>
-          <Button text="Passer la commande" onClick={handleCheckout} />
-          <S.SpanLink onClick={handleReturnToShop}>
+          <Button
+            text="Passer la commande"
+            onClick={() => windowLocation("/cart")}
+          />
+          <S.SpanLink onClick={() => windowLocation("/boutique")}>
             Retour à la boutique
           </S.SpanLink>
         </S.LocationAction>

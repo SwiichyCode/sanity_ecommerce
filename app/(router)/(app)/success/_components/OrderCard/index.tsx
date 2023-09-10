@@ -1,14 +1,16 @@
-import * as S from "./styles";
 import MenuCartImage from "../../../cart/_components/MenuCart/MenuCartImage";
 import { urlForImage } from "@/sanity/utils/imageBuilder";
 import MenuCartInformations from "../../../cart/_components/MenuCart/MenuCartInformations";
+import Button from "@/app/_components/_atoms/Button";
+import { windowLocation } from "@/app/_utils/windowLocation";
+import * as S from "./styles";
+
 type Props = {
   productDetail: any;
   profile: any;
 };
 
 export default function OrderCard({ productDetail, profile }: Props) {
-  console.log("productDetail", productDetail);
   return (
     <S.OrderCardWrapper>
       <S.OrderCardHeader>
@@ -29,6 +31,10 @@ export default function OrderCard({ productDetail, profile }: Props) {
             ))}
           </S.OrderProductList>
         ))}
+
+      <Button onClick={() => windowLocation("/boutique")}>
+        Retour à la boutique
+      </Button>
     </S.OrderCardWrapper>
   );
 }
