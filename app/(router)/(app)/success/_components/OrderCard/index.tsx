@@ -21,14 +21,17 @@ export default function OrderCard({ productDetail, profile }: Props) {
         </S.OrderCardSubtitle>
       </S.OrderCardHeader>
       {productDetail &&
-        productDetail.map((orderProducts: any, index: number) => (
+        productDetail.map((orderProduct: any, index: number) => (
           <S.OrderProductList key={index}>
-            {orderProducts.map((item: any, productIndex: number) => (
-              <S.OrderProductWrapper key={productIndex}>
-                <MenuCartImage imageURL={urlForImage(item.images[0]).url()} />
-                <MenuCartInformations product={item} isOrderDetail={true} />
-              </S.OrderProductWrapper>
-            ))}
+            <S.OrderProductWrapper key={index}>
+              <MenuCartImage
+                imageURL={urlForImage(orderProduct.images[0]).url()}
+              />
+              <MenuCartInformations
+                product={orderProduct}
+                isOrderDetail={true}
+              />
+            </S.OrderProductWrapper>
           </S.OrderProductList>
         ))}
 

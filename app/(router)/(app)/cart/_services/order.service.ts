@@ -27,9 +27,20 @@ async function getLastOrder(profile_id: string) {
   return { data, error };
 }
 
+async function getOrders(profile_id: string) {
+  const { data, error } = await supabaseClient
+    .from("order")
+    .select("*")
+    .eq("profile_id", profile_id)
+    .order("created_at", { ascending: false });
+
+  return { data, error };
+}
+
 const OrderService = {
   createOrder,
   getLastOrder,
+  getOrders,
 };
 
 export default OrderService;
