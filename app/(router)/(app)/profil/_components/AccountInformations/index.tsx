@@ -6,7 +6,7 @@ type Props = {
 };
 
 export default function AccountInformations({ profile }: Props) {
-  const { email, phone } = profile;
+  const { email } = profile;
 
   const profileData = [
     {
@@ -19,11 +19,6 @@ export default function AccountInformations({ profile }: Props) {
       value: "************",
       actionLabel: "Modifier le mot de passe",
     },
-    {
-      label: "Téléphone:",
-      value: `+33 ${phone}`,
-      actionLabel: "Modifier le numéro de téléphone",
-    },
   ];
 
   return (
@@ -32,7 +27,11 @@ export default function AccountInformations({ profile }: Props) {
         <S.ProfilItem key={index}>
           <S.ProfilItemWrapper>
             <S.ProfilItemLabel>{item.label}</S.ProfilItemLabel>
-            <S.ProfilItemValue>{item.value}</S.ProfilItemValue>
+            <S.ProfilItemValue
+              defaultValue={item.value}
+              size={item.value.length + 8}
+              readOnly
+            />
           </S.ProfilItemWrapper>
           <S.ProfilItemAction>{item.actionLabel}</S.ProfilItemAction>
         </S.ProfilItem>

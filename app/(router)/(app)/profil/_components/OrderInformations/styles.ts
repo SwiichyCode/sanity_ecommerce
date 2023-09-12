@@ -1,9 +1,14 @@
 import styled from "styled-components";
+import { breakpoints } from "@/app/_styles/breakpoints";
 
 export const OrderTable = styled.div`
   width: 100%;
   display: flex;
   gap: 4.8rem;
+
+  @media screen and (max-width: ${breakpoints.md}) {
+    flex-direction: column;
+  }
 `;
 
 export const OrderTableColumn = styled.div`

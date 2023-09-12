@@ -2,7 +2,7 @@
 import { useProfileStore } from "@/app/_modules/auth/profile.store";
 import ProfileHeader from "./_components/ProfileHeader";
 import AccountInformations from "./_components/AccountInformations";
-import ProfileInformations from "./_components/ProfileInformations";
+import ProfileInformationsForm from "./_components/ProfileInformations/ProfileInformationsForm";
 import OrderInformations from "./_components/OrderInformations";
 import * as S from "./styles";
 
@@ -17,7 +17,7 @@ export default function ProfilPage() {
       <S.Line />
       <ProfileHeader title="Informations de livraison" />
       <S.Line />
-      <ProfileInformations profile={profile} />
+      <ProfileInformationsForm profile={profile} />
       <S.Line />
       <ProfileHeader title="Mes commandes" />
       <S.Line />
