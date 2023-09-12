@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import AuthServices from "./auth.service";
+import AuthServices from "../_services/auth.service";
 
 interface AuthData {
   email: string;

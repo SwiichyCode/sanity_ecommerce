@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
-import { useProfile } from "@/app/_modules/auth/useProfile";
+import { useProfile } from "@/app/_modules/auth/_hooks/useProfile";
 import { orderTotalWeight } from "@/app/_utils/orderWeight";
 import { calculateBestShippingOption } from "@/app/_lib/stripe/shippingOptions";
 import CheckoutDetailForm from "./Form";

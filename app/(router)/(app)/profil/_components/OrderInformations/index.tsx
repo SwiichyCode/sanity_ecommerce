@@ -8,7 +8,10 @@ type Props = {
 
 export default function OrderInformations({ profile }: Props) {
   const isLastOrder = false;
-  const { productDetail, isLoading } = useOrderDetails(profile.id, isLastOrder);
+  const { productDetail, isLoading } = useOrderDetails(
+    profile?.id,
+    isLastOrder
+  );
 
   if (isLoading) {
     return <div>Chargement...</div>;

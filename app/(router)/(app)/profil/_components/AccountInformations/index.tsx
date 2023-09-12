@@ -1,17 +1,13 @@
-import { ProfileType } from "@/app/_modules/auth/_types/profile.type";
+import { useUser } from "@/app/_modules/auth/_hooks/useUser";
 import * as S from "../ProfileInformations/styles";
 
-type Props = {
-  profile: ProfileType;
-};
-
-export default function AccountInformations({ profile }: Props) {
-  const { email } = profile;
+export default function AccountInformations() {
+  const { user } = useUser();
 
   const profileData = [
     {
       label: "Email:",
-      value: `${email}`,
+      value: `${user?.email}`,
       actionLabel: "Modifier l'adresse mail",
     },
     {
@@ -23,19 +19,20 @@ export default function AccountInformations({ profile }: Props) {
 
   return (
     <S.ProfilInformations>
-      {profileData.map((item, index) => (
-        <S.ProfilItem key={index}>
-          <S.ProfilItemWrapper>
-            <S.ProfilItemLabel>{item.label}</S.ProfilItemLabel>
-            <S.ProfilItemValue
-              defaultValue={item.value}
-              size={item.value.length + 8}
-              readOnly
-            />
-          </S.ProfilItemWrapper>
-          <S.ProfilItemAction>{item.actionLabel}</S.ProfilItemAction>
-        </S.ProfilItem>
-      ))}
+      {user &&
+        profileData.map((item, index) => (
+          <S.ProfilItem key={index}>
+            <S.ProfilItemWrapper>
+              <S.ProfilItemLabel>{item.label}</S.ProfilItemLabel>
+              <S.ProfilItemValue
+                defaultValue={item.value}
+                size={item.value.length + 8}
+                readOnly
+              />
+            </S.ProfilItemWrapper>
+            <S.ProfilItemAction>{item.actionLabel}</S.ProfilItemAction>
+          </S.ProfilItem>
+        ))}
     </S.ProfilInformations>
   );
 }

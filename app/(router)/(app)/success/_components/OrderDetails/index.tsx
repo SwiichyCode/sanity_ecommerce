@@ -1,5 +1,5 @@
 "use client";
-import { useProfileStore } from "@/app/_modules/auth/profile.store";
+import { useProfileStore } from "@/app/_modules/auth/_stores/profile.store";
 import useOrderDetails from "@/app/(router)/(app)/cart/_hooks/useOrderDetails";
 import OrderCard from "../OrderCard";
 

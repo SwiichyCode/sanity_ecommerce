@@ -1,5 +1,5 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { ProfileType } from "./_types/profile.type";
+import { ProfileType } from "../_types/profile.type";
 
 const supabaseClient = createClientComponentClient();
 

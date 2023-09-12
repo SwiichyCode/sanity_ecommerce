@@ -1,14 +1,13 @@
-import ProfileService from "./profile.service";
-import { useState, useEffect } from "react";
-import { useFetchUser } from "./useFetchUser.hook";
-import { ProfileType } from "./_types/profile.type";
-import * as C from "./_constants/profile.constant";
-import { useProfileStore } from "./profile.store";
+import ProfileService from "../_services/profile.service";
+import { useEffect } from "react";
+import { ProfileType } from "../_types/profile.type";
+import { useProfileStore } from "../_stores/profile.store";
+import { useUser } from "./useUser";
+import * as C from "../_constants/profile.constant";
 
 export function useProfile() {
-  const { fetchUser } = useFetchUser();
+  const { user } = useUser();
   const { profile, setProfile } = useProfileStore();
-  const [user, setUser] = useState<any>(null);
 
   const createProfile = async (profileData: ProfileType) => {
     try {
@@ -40,16 +39,7 @@ export function useProfile() {
   };
 
   useEffect(() => {
-    const loadUserProfile = async () => {
-      const user = await fetchUser();
-
-      setUser(user);
-      if (user) {
-        await fetchProfile(user.id);
-      }
-    };
-
-    loadUserProfile();
+    fetchProfile(user?.id);
   }, []);
 
   const updateProfile = async (updatedData: Partial<ProfileType>) => {
@@ -78,7 +68,6 @@ export function useProfile() {
     }
   };
   return {
-    user,
     profile,
     createProfile,
     updateProfile,

@@ -1,5 +1,5 @@
 "use client";
-import { useProfileStore } from "@/app/_modules/auth/profile.store";
+import { useProfileStore } from "@/app/_modules/auth/_stores/profile.store";
 import ProfileHeader from "./_components/ProfileHeader";
 import AccountInformations from "./_components/AccountInformations";
 import ProfileInformationsForm from "./_components/ProfileInformations/ProfileInformationsForm";
@@ -13,7 +13,7 @@ export default function ProfilPage() {
     <S.ProfilWrapper>
       <ProfileHeader title="Mon profil" />
       <S.Line />
-      <AccountInformations profile={profile} />
+      <AccountInformations />
       <S.Line />
       <ProfileHeader title="Informations de livraison" />
       <S.Line />

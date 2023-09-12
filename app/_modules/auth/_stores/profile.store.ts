@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { ProfileType } from "./_types/profile.type";
+import { ProfileType } from "../_types/profile.type";
 
 interface Store {
   profile: ProfileType;

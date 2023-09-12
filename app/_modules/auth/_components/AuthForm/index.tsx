@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
-import { useAuth } from "@/app/_modules/auth/useAuth.hook";
+import { useAuth } from "@/app/_modules/auth/_hooks/useAuth";
 import TextField from "@/app/_components/_atoms/TextField";
 import Button from "@/app/_components/_atoms/Button";
 import * as S from "./styles";

@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { useProfile } from "@/app/_modules/auth/useProfile";
+import { useProfile } from "@/app/_modules/auth/_hooks/useProfile";
 import { useSuccessMessageTimeout } from "../../_hooks/useSuccessMessageTimeout";
 import ProfileInformationsFormItems from "./ProfileInformationsFormItem";
 import {
