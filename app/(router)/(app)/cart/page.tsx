@@ -12,7 +12,7 @@ export default async function CartPage() {
   const userIsLoggedIn = user && user.user;
 
   return userIsLoggedIn ? (
-    <CheckoutDetails user={user} />
+    <CheckoutDetails user={user.user} />
   ) : (
     <>
       <CheckoutAuth isCheckout /> <Summary user={userIsLoggedIn} />

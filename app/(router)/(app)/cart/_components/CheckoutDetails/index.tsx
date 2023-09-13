@@ -22,10 +22,12 @@ type Props = {
 
 export default function CheckoutDetails({ user }: Props) {
   const { cart } = useCartStore();
-  const { user: User, profile, createProfile, updateProfile } = useProfile();
+  const { profile, createProfile, updateProfile } = useProfile();
   const methods = useForm<Inputs>();
   const { reset } = methods;
   const router = useRouter();
+
+  console.log("user", user.email);
 
   useEffect(() => {
     reset(profile);
@@ -35,7 +37,7 @@ export default function CheckoutDetails({ user }: Props) {
     try {
       if (!profile?.lastname) {
         createProfile({
-          id: User?.id,
+          id: user?.id,
           ...(data as ProfileFormType),
         });
       } else {
@@ -76,7 +78,7 @@ export default function CheckoutDetails({ user }: Props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ lineItems, shippingOptions, userId: User?.id }),
+        body: JSON.stringify({ lineItems, shippingOptions, userId: user?.id }),
       });
 
       const checkoutSession = await res.json();
@@ -94,7 +96,7 @@ export default function CheckoutDetails({ user }: Props) {
   return (
     <FormProvider {...methods}>
       <S.CheckoutDetailsFormWrapper onSubmit={methods.handleSubmit(onSubmit)}>
-        <CheckoutDetailForm user={User} profile={profile} />
+        <CheckoutDetailForm user={user} profile={profile} />
 
         <Summary user={user} />
       </S.CheckoutDetailsFormWrapper>

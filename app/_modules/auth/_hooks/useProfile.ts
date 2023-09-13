@@ -39,8 +39,10 @@ export function useProfile() {
   };
 
   useEffect(() => {
-    fetchProfile(user?.id);
-  }, []);
+    if (user?.id) {
+      fetchProfile(user?.id);
+    }
+  }, [user]);
 
   const updateProfile = async (updatedData: Partial<ProfileType>) => {
     if (!profile) {

@@ -6,9 +6,7 @@ export function useUser() {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-    if (user) {
-      setUser(user);
-    }
+    setUser(user);
   }, []);
 
   return { user };

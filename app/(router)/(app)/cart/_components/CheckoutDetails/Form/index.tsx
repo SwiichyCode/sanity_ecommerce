@@ -35,7 +35,7 @@ export default function CheckoutDetailForm({ user, profile }: Props) {
         <TextField
           labeltext="Email"
           name="email"
-          defaultValue={user?.email}
+          defaultValue={user.email}
           placeholder="alexei@mail.com"
           rules={{ required: true }}
         />

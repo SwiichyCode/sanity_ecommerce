@@ -38,6 +38,7 @@ async function resetPassword(email: string) {
 async function signOut() {
   await supabase.auth.signOut();
   localStorage.removeItem("user");
+  localStorage.removeItem("profile-store");
 }
 
 const AuthServices = {
