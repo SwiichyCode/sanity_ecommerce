@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   const password = String(formData.get("password"));
   const supabase = createRouteHandlerClient({ cookies });
 
-  await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
@@ -19,7 +19,22 @@ export async function POST(request: Request) {
     },
   });
 
-  return NextResponse.redirect(requestUrl.origin, {
-    status: 301,
-  });
+  if (error) {
+    return NextResponse.redirect(
+      `${requestUrl.origin}/login?error=Impossible d'authentifier l'utilisateur`,
+      {
+        // a 301 status is required to redirect from a POST to a GET route
+        status: 301,
+      }
+    );
+  }
+
+  return NextResponse.redirect(
+    `${requestUrl.origin}/signin?message=
+    Vérifiez vos e-mails pour continuer le processus de connexion`,
+    {
+      // a 301 status is required to redirect from a POST to a GET route
+      status: 301,
+    }
+  );
 }

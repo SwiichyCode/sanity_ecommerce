@@ -1,4 +1,3 @@
-"use client";
 import AuthLayout from "@/app/_components/layouts/AuthLayout";
 
 type Props = {
