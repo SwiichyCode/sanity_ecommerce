@@ -5,6 +5,7 @@ import { useMenuMobileStore } from "@/app/_components/_organisms/MenuMobile/useM
 import { NavigationItems } from "./data";
 import Button from "@/app/_components/_atoms/Button";
 import Link from "next/link";
+import Logout from "@/app/_modules/auth/_components/Logout";
 import * as S from "./styles";
 
 interface Props {
@@ -22,13 +23,6 @@ export default function Navigation({ isAuth = false, user }: Props) {
     }, 400);
   };
 
-  const handleLogout = async () => {
-    await AuthServices.signOut();
-    window.location.reload();
-
-    handleCloseMenu();
-  };
-
   return (
     <S.NavigationWrapper>
       <S.NavigationList isAuth={isAuth}>
@@ -39,8 +33,7 @@ export default function Navigation({ isAuth = false, user }: Props) {
                 <S.NavigationItem isAuth={isAuth}>
                   <S.NavigationLink href="/profil">Mon compte</S.NavigationLink>
                 </S.NavigationItem>
-
-                <Button text="Deconnexion" onClick={handleLogout} />
+                <Logout handleCloseMenu={handleCloseMenu} />
               </>
             ) : (
               <>

@@ -44,7 +44,7 @@ export const NavigationItem = styled.li.withConfig({
     width: 100%;
     border-radius: var(--rounded-md);
     background-color: ${({ isActive }) => isActive && "#2f70af"};
-    text-align: ${({ isAuth }) => isAuth && "center"};
+    text-align: ${({ isAuth }) => isAuth && "left"};
     transition: background-color 0.2s ease-in-out;
     padding: 1.6rem 1.6rem;
   }

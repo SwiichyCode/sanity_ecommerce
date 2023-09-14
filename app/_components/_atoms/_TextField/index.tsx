@@ -1,11 +1,15 @@
+import { FieldValues, DeepMap, FieldError } from "react-hook-form";
 import TextFieldLabel from "../TextFieldLabel";
 import * as S from "./styles";
+
+export type FieldErrors<TFieldValues extends FieldValues = FieldValues> =
+  DeepMap<TFieldValues, FieldError>;
 
 interface Props extends React.HTMLAttributes<HTMLInputElement> {
   labeltext: string;
   name: string;
   register: any;
-  error: string | undefined;
+  error: FieldErrors["message"];
   type?: "text" | "email" | "password" | "number" | "tel" | "url";
 }
 

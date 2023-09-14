@@ -4,10 +4,13 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const HeaderLeftSideWrapper = styled.div`
+export const HeaderRightSideWrapper = styled.div`
   float: right;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
 `;
 
 export default function HeaderRightSide({ children }: Props) {
-  return <HeaderLeftSideWrapper>{children}</HeaderLeftSideWrapper>;
+  return <HeaderRightSideWrapper>{children}</HeaderRightSideWrapper>;
 }
