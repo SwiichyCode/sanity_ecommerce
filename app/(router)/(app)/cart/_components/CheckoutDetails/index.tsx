@@ -73,7 +73,7 @@ export default function CheckoutDetails({ user }: Props) {
         hasLiveFish
       );
 
-      const res = await fetch("/api/stripe-checkout", {
+      const res = await fetch("/api/stripe/stripe-checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
