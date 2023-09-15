@@ -5,12 +5,12 @@ export const CheckoutDetailsFormWrapper = styled.form`
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 5.4rem;
+  gap: 3.375rem;
 
   @media (max-width: ${breakpoints.lg}) {
-    max-width: 55.4rem;
+    max-width: 34.625rem;
     flex-direction: column;
     align-items: center;
-    gap: 4.4rem;
+    gap: 2.75rem;
   }
 `;

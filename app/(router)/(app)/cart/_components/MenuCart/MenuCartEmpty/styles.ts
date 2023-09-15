@@ -5,10 +5,10 @@ export const MenuCartQuantityWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.4rem;
+  gap: 1.5rem;
 
   p {
-    font-size: 1.8rem;
+    font-size: 1.125rem;
     font-weight: 700;
   }
 `;

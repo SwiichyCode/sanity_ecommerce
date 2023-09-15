@@ -19,6 +19,7 @@
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "clsx": "^2.0.0",
     "cookie": "^0.5.0",
     "encoding": "^0.1.13",
     "eslint": "8.47.0",
@@ -46,6 +47,9 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "@types/cookie": "^0.5.2",
-    "stripe-cli": "^0.1.0"
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.29",
+    "stripe-cli": "^0.1.0",
+    "tailwindcss": "^3.3.3"
   }
 }

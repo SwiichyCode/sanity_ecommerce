@@ -12,17 +12,17 @@ export const NavigationList = styled.ul.withConfig({
   align-items: center;
   flex-direction: row;
 
-  gap: ${({ isAuth }) => (isAuth ? "2.4rem" : "4.8rem")};
+  gap: ${({ isAuth }) => (isAuth ? "1.5rem" : "3rem")};
 
   @media screen and (max-width: ${breakpoints.xl}) {
     /* flex-direction: row-reverse; */
-    gap: 2.4rem;
+    gap: 1.5rem;
   }
 
   @media screen and (max-width: ${breakpoints.lg}) {
     flex-direction: column;
     align-items: flex-start;
-    padding: 2.4rem;
+    padding: 1.5rem;
     gap: 0;
 
     & > button {
@@ -32,7 +32,7 @@ export const NavigationList = styled.ul.withConfig({
 
   @media screen and (max-width: ${breakpoints.md}) {
     & > button {
-      max-width: 25.2rem;
+      max-width: 15.75rem;
     }
   }
 `;
@@ -46,18 +46,18 @@ export const NavigationItem = styled.li.withConfig({
     background-color: ${({ isActive }) => isActive && "#2f70af"};
     text-align: ${({ isAuth }) => isAuth && "left"};
     transition: background-color 0.2s ease-in-out;
-    padding: 1.6rem 1.6rem;
+    padding: 1rem;
   }
 
   @media screen and (max-width: ${breakpoints.md}) {
-    max-width: 25.2rem;
+    max-width: 15.75rem;
   }
 `;
 
 export const NavigationLink = styled(Link).withConfig({
   shouldForwardProp: (prop) => !["isActive"].includes(prop),
 })<{ isActive?: boolean }>`
-  font-size: 1.6rem;
+  font-size: 1rem;
   text-decoration: none;
   color: ${({ isActive }) =>
     isActive ? "var(--color-white)" : "var(--color-grey-400)"};
@@ -73,7 +73,7 @@ export const NavigationLink = styled(Link).withConfig({
 `;
 
 const NavigationIcon = css`
-  font-size: 2.6rem;
+  font-size: 1.625rem;
   transition: color 0.2s ease-in-out;
   cursor: pointer;
 

@@ -8,7 +8,7 @@ export const HeaderRightSideWrapper = styled.div`
   float: right;
   display: flex;
   align-items: center;
-  gap: 2.4rem;
+  gap: 1.5rem;
 `;
 
 export default function HeaderRightSide({ children }: Props) {

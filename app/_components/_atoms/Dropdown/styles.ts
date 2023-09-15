@@ -3,18 +3,18 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export const DropdownWrapper = styled.div`
   width: 100%;
-  max-width: 16.6rem;
+  max-width: 10.375rem;
   position: relative;
 `;
 
 export const DropdownResult = styled.div`
-  min-height: 4.5rem;
+  min-height: 2.813rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.6rem;
-  letter-spacing: -0.1rem;
-  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  letter-spacing: -0.1px;
+  padding: 0.5rem 1rem;
   background-color: var(--color-white);
   color: var(--color-text);
   text-transform: capitalize;
@@ -22,7 +22,7 @@ export const DropdownResult = styled.div`
   border-radius: var(--rounded-lg);
   border: 1px solid var(--color-grey-200);
   user-select: none;
-  gap: 0.8rem;
+  gap: 0.5rem;
   cursor: pointer;
 
   & > span {
@@ -35,10 +35,9 @@ export const DropdownList = styled.ul.withConfig({
 })<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   position: absolute;
-  top: calc(100% + 0.8rem);
+  top: calc(100% + 0.5rem);
   left: 0;
   width: 100%;
-  /* height: 200px; */
   border-radius: var(--rounded-lg);
   border: 1px solid var(--color-grey-200);
   background-color: white;
@@ -47,9 +46,9 @@ export const DropdownList = styled.ul.withConfig({
 `;
 
 export const DropdownItem = styled.li`
-  padding: 0.8rem 1.6rem;
-  font-size: 1.6rem;
-  letter-spacing: -0.1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  letter-spacing: -0.1px;
   color: var(--color-text);
   text-transform: capitalize;
   font-weight: 500;

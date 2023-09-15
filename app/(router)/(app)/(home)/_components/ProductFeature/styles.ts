@@ -4,16 +4,16 @@ import { breakpoints } from "@/app/_styles/breakpoints";
 export const ProductFeatureWrapper = styled.section`
   display: flex;
   justify-content: center;
-  padding: 9rem 0;
+  padding: 5.625rem 0;
 
   @media (max-width: ${breakpoints.lg}) {
-    padding: 4.8rem 0;
+    padding: 3rem 0;
   }
 `;
 
 export const ProductFeatureImage = styled.div`
   width: 100%;
-  max-width: 723px;
+  max-width: 45.188rem;
   background-image: url("/home_featured.jpg");
   background-size: cover;
 `;
@@ -25,32 +25,32 @@ export const ProductFeatureHeader = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 14.6rem;
+  margin-bottom: 7.125rem;
 
   @media (max-width: ${breakpoints.lg}) {
-    margin-bottom: 7.3rem;
+    margin-bottom: 4.563rem;
   }
 `;
 
 export const ProductFeatureTitle = styled.h2`
-  font-size: 3.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  line-height: 3.6rem;
+  line-height: 2.25rem;
   letter-spacing: -0.72px;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.5rem;
 `;
 
 export const ProductFeatureDescription = styled.p`
-  max-width: 80rem;
+  max-width: 50rem;
   text-align: center;
-  font-size: 1.8rem;
-  line-height: 2.5rem;
+  font-size: 1.125rem;
+  line-height: 1.563rem;
 `;
 
 export const ProductFeatureList = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 4.8rem;
+  gap: 3rem;
 
   @media (max-width: ${breakpoints.lg}) {
     flex-direction: column;

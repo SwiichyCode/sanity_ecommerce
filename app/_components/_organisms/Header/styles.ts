@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header.withConfig({
   position: ${({ pathname }) => (pathname === "/" ? "fixed" : "initial")};
   z-index: 9999;
   width: 100%;
-  height: 8rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,5 +19,5 @@ export const HeaderWrapper = styled.header.withConfig({
 export const RightSide = styled.div`
   display: flex;
   align-items: center;
-  gap: 2.4rem;
+  gap: 1.5rem;
 `;

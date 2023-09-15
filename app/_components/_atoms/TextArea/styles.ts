@@ -4,15 +4,15 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.375rem;
 `;
 
 export const TextAreaWrapper = styled.textarea`
-  min-height: 22rem;
-  font-size: 1.6rem;
+  min-height: 13.75rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
   border: 1px solid var(--color-grey-200);
-  padding: 1rem 1.4rem;
+  padding: 0.625rem 0.875rem;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   border-radius: var(--rounded-lg);
   resize: none;

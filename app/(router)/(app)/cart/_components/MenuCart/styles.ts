@@ -7,22 +7,22 @@ export const MenuCartWrapper = styled.div`
 
 export const MenuCartContainer = styled.div`
   position: absolute;
-  top: 10.4rem;
-  right: 2.4rem;
+  top: 6.5rem;
+  right: 1.5rem;
   width: 100%;
-  max-width: 40rem;
-  min-height: 40rem;
+  max-width: 25rem;
+  min-height: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: var(--color-text);
   background-color: var(--color-white);
-  padding: 2.4rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-xl);
   border-radius: var(--rounded-lg);
 
   @media (max-width: ${breakpoints.sm}) {
-    top: 8rem;
+    top: 5rem;
     right: 0;
     border-radius: 0;
     max-width: 100%;

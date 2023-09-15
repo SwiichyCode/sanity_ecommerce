@@ -7,13 +7,13 @@ export const MenuCartTotalWrapper = styled.div`
 `;
 
 export const MenuCartTotalTitle = styled.h4`
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  line-height: 1.6rem;
+  line-height: 1rem;
 `;
 
 export const MenuCartTotalPrice = styled.span`
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  line-height: 1.6rem;
+  line-height: 1rem;
 `;

@@ -6,7 +6,7 @@ export const HamburgerWrapper = styled.button`
   border: none;
   background-color: #00457e;
   border-radius: var(--rounded-md);
-  padding: 0.6rem 0.6rem 0.4rem 0.6rem;
+  padding: 0.375rem;
   transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 

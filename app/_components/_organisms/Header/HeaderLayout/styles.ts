@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header.withConfig({
   position: ${({ pathname }) => (pathname === "/" ? "fixed" : "relative")};
   z-index: 9999;
   width: 100%;
-  height: 8rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -5,7 +5,7 @@ export const ProductCardStars = styled.div`
   align-items: center;
   color: var(--color-white);
   background-color: #252b42;
-  padding: 0.8rem 1.6rem;
-  border-radius: 0.8rem;
-  gap: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
 `;

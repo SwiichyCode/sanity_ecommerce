@@ -5,18 +5,18 @@ export const MenuMobileWrapper = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isMenuOpen"].includes(prop),
 })<{ isMenuOpen: boolean }>`
   position: fixed;
-  top: 80px;
+  top: 5rem;
   left: 0;
   z-index: 9999;
-  width: ${({ isMenuOpen }) => (isMenuOpen ? "30rem" : "0")};
-  height: calc(100vh - 80px);
+  width: ${({ isMenuOpen }) => (isMenuOpen ? "18.75rem" : "0")};
+  height: calc(100vh - 5rem);
   display: none;
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--color-blue);
   transition: width 0.3s ease-in;
   overflow: hidden;
-  padding: 2.4rem 0;
+  padding: 1.5rem 0;
 
   @media (max-width: ${breakpoints.xl}) {
     display: flex;
@@ -24,12 +24,12 @@ export const MenuMobileWrapper = styled.div.withConfig({
 
   @media (max-width: ${breakpoints.sm}) {
     width: ${({ isMenuOpen }) => (isMenuOpen ? "100%" : "0")};
-    padding: 4.8rem 0;
+    padding: 3rem 0;
   }
 `;
 
 export const NavigationWrapper = styled.div`
-  padding: 2.4rem;
+  padding: 1.5rem;
 `;
 
 export const Backdrop = styled.div<{ isMenuOpen: boolean }>`

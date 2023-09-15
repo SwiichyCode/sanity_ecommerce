@@ -8,15 +8,15 @@ export const FooterWrapper = styled.footer`
   background-color: var(--color-blue);
   color: var(--color-white);
   margin-top: auto;
-  padding: 8.8rem 8.8rem;
-  gap: 4.8rem;
+  padding: 5.5rem 5.5rem;
+  gap: 3rem;
 
   @media (max-width: ${breakpoints.xl}) {
-    padding: 4.8rem 4.8rem;
+    padding: 3rem 3rem;
   }
 
   @media (max-width: ${breakpoints.lg}) {
-    padding: 4.8rem 2.4rem;
+    padding: 3rem 1.5rem;
   }
 `;
 
@@ -29,7 +29,7 @@ export const FooterTopSide = styled.div`
   @media (max-width: ${breakpoints.lg}) {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2.4rem;
+    gap: 1.5rem;
   }
 `;
 
@@ -42,20 +42,20 @@ export const FooterBottomSide = styled(FooterTopSide)``;
 export const SocialWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.5rem;
 `;
 
 export const Paragraph = styled.p`
   width: 100%;
-  max-width: 57.6rem;
-  font-size: 1.6rem;
-  line-height: 2.8rem;
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.75rem;
 
   @media (max-width: ${breakpoints.xl}) {
-    max-width: 47.6rem;
+    max-width: 29.75rem;
   }
 `;
 
 export const LegalMention = styled.p`
-  font-size: 1.2rem;
+  font-size: 0.75rem;
 `;

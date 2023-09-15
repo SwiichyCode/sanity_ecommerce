@@ -1,26 +1,25 @@
+"use client";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useProfile } from "@/app/_modules/auth/_hooks/useProfile";
-import { useSuccessMessageTimeout } from "../../_hooks/useSuccessMessageTimeout";
-import ProfileInformationsFormItems from "./ProfileInformationsFormItem";
+import { useSuccessMessageTimeout } from "../../../_hooks/useSuccessMessageTimeout";
+import ProfileFormItem from "../view/ProfileFormItem";
 import {
   ProfileFormType,
   ProfileType,
 } from "@/app/_modules/auth/_types/profile.type";
-import { generateProfileData } from "./data";
-import * as S from "./styles";
-
-type Props = {
-  profile: ProfileType;
-};
+import { generateProfileData } from "../../data/profileData";
+import ProfileFormWrapper from "../../container/FormContainer";
+import FormTitle from "../../UI/FormTitle";
 
 type Inputs = Partial<ProfileFormType>;
 
-export default function ProfileInformationsForm({ profile }: Props) {
+export default function ProfileForm() {
   const [editableItem, setEditableItem] = useState<string | null>(null);
   const { successMessage, setSuccessMessage } =
     useSuccessMessageTimeout(setEditableItem);
-  const { updateProfile } = useProfile();
+  const { profile, updateProfile } = useProfile();
   const { register, handleSubmit, reset, setFocus } = useForm<Inputs>();
 
   const profileData = generateProfileData(profile);
@@ -53,9 +52,10 @@ export default function ProfileInformationsForm({ profile }: Props) {
   };
 
   return (
-    <S.ProfilInformations onSubmit={handleSubmit(onSubmit)}>
+    <ProfileFormWrapper onSubmit={handleSubmit(onSubmit)}>
+      <FormTitle title="Informations de livraison" lineTop lineBottom />
       {profileData.map((item, index) => (
-        <ProfileInformationsFormItems
+        <ProfileFormItem
           key={index}
           item={item}
           editableItem={editableItem}
@@ -65,6 +65,6 @@ export default function ProfileInformationsForm({ profile }: Props) {
           register={register}
         />
       ))}
-    </S.ProfilInformations>
+    </ProfileFormWrapper>
   );
 }

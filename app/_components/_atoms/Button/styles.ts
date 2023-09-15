@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   width: max-content;
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--color-white);
   font-family: Poppins;
@@ -10,7 +10,7 @@ export const Button = styled.button`
   border-radius: var(--rounded-md);
   box-shadow: 0px 1px 2px 0px rgba(105, 81, 255, 0.05);
   border: none;
-  padding: 1.2rem 1.8rem;
+  padding: 1.125rem 1.125rem;
   transition: background-color 0.2s ease-in-out;
   white-space: nowrap;
   cursor: pointer;

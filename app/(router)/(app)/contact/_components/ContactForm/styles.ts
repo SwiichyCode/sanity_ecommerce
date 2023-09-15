@@ -2,20 +2,20 @@ import styled from "styled-components";
 
 export const ContactFormWrapper = styled.form`
   width: 100%;
-  max-width: 55.4rem;
+  max-width: 34.625rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.5rem;
   box-shadow: var(--shadow-xl);
   background-color: var(--color-white);
   border-radius: var(--rounded-lg);
-  padding: 3.2rem 4.8rem;
+  padding: 2rem 3rem;
 
   & > button {
     width: 100%;
   }
 
   & > textarea {
-    min-height: 47.4rem;
+    min-height: 29.625rem;
   }
 `;

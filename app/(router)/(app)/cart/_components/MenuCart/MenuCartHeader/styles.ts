@@ -5,19 +5,19 @@ export const MenuCartHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-grey-200);
-  padding-bottom: 1.6rem;
+  padding-bottom: 1rem;
 `;
 
 export const MenuCartTitle = styled.h3`
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  line-height: 2.4rem;
+  line-height: 1.5rem;
 `;
 
 export const MenuCartClose = styled.button`
   background: none;
   border: none;
   font-family: inherit;
-  line-height: 1.6rem;
+  line-height: 1rem;
   cursor: pointer;
 `;

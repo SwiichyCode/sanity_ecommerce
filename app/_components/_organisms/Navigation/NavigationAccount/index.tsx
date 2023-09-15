@@ -5,7 +5,7 @@ import { useWindowSize } from "usehooks-ts";
 import { FiUser } from "react-icons/fi";
 
 const NavigationAccountLink = styled(FiUser)`
-  font-size: 2.8rem;
+  font-size: 1.75rem;
 `;
 
 export default function NavigationAccount() {

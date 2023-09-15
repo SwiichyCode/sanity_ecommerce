@@ -5,7 +5,6 @@ export const ContactBodyWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
   align-items: center;
-  gap: 4.8rem;
+  gap: 3rem;
 `;

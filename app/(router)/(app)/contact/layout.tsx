@@ -10,7 +10,7 @@ const ContactLayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 8.8rem 0;
+  margin: 5.5rem 0;
 `;
 
 export default function ContactLayout({ children }: Props) {

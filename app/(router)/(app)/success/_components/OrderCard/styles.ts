@@ -4,30 +4,30 @@ export const OrderCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 54rem;
-  padding: 4.8rem;
+  max-width: 33.75rem;
+  padding: 3rem;
   border-radius: var(--rounded-lg);
   background-color: var(--color-white);
-  gap: 4.8rem;
+  gap: 3rem;
 `;
 
 export const OrderCardHeader = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.5rem;
 `;
 
 export const OrderCardTitle = styled.h2`
   text-transform: uppercase;
-  font-size: 3.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  line-height: 3.6rem;
+  line-height: 2.25rem;
 `;
 
 export const OrderCardSubtitle = styled.p`
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.9rem;
+  line-height: 1.188rem;
 
   span {
     font-weight: 700;
@@ -37,11 +37,11 @@ export const OrderCardSubtitle = styled.p`
 export const OrderProductList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.5rem;
 `;
 
 export const OrderProductWrapper = styled.div`
   width: 100%;
   display: flex;
-  gap: 2.4rem;
+  gap: 1.5rem;
 `;

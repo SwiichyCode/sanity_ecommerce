@@ -9,10 +9,10 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    html {
+    /* html {
         font-size: .625em; 
         font-size: calc(1em * .625); 
-    }
+    } */
 
     html,body {
         height: 100%;
@@ -36,10 +36,10 @@ const GlobalStyle = createGlobalStyle`
         --color-grey-200: #D5DAE1;
         --color-grey-400: #8896AB;
         --color-grey-900: #2A3342;
-        --rounded-md: 0.6rem;
-        --rounded-lg: 0.8rem;
-        --rounded-xl: 1.2rem;
-        --rounded-2xl: 1.6rem;
+        --rounded-md: 0.375rem;
+        --rounded-lg: 0.5rem;
+        --rounded-xl: 0.75rem;
+        --rounded-2xl: 1rem;
         --shadow: 0px 32px 64px -12px rgba(85, 105, 135, 0.08);
         --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         --bg-radial: radial-gradient(
@@ -52,14 +52,14 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .responsive-padding {
-        padding: 0 8.8rem;
+        padding: 0 5.5rem;
 
         @media (max-width: ${breakpoints.xl}) {
-        padding: 0 4.8rem;
+        padding: 0 3rem;
         }
 
         @media (max-width: ${breakpoints.lg}) {
-        padding: 0 2.4rem;
+        padding: 0 1.5rem;
         }
     }
         

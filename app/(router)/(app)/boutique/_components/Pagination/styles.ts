@@ -4,20 +4,20 @@ export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4rem 0;
-  gap: 1.6rem;
+  margin: 2.5rem 0;
+  gap: 1rem;
 `;
 
 export const PaginationButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1rem;
 `;
 
 const ButtonBase = styled.button`
   border: none;
   border-radius: var(--rounded-lg);
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
   color: var(--color-white);
   transition: background-color 0.2s ease-in-out;
@@ -27,8 +27,8 @@ const ButtonBase = styled.button`
 export const PaginationButton = styled(ButtonBase).withConfig({
   shouldForwardProp: (prop) => !["index", "page"].includes(prop),
 })<{ index: number; page: number }>`
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 3rem;
+  height: 3rem;
   background-color: ${({ index, page }) =>
     index === page ? "var(--color-blue-hover)" : "var(--color-blue)"};
 
@@ -40,8 +40,8 @@ export const PaginationButton = styled(ButtonBase).withConfig({
 export const PaginationArrow = styled(ButtonBase).withConfig({
   shouldForwardProp: (prop) => !["disabled"].includes(prop),
 })<{ disabled: boolean }>`
-  height: 4.8rem;
-  padding: 0 1.6rem;
+  height: 3rem;
+  padding: 0 1rem;
   background-color: ${({ disabled }) =>
     disabled ? "#b3b3b3" : "var(--color-blue)"};
 
