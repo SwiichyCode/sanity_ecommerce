@@ -15,7 +15,7 @@ export default async function CartPage() {
     <CheckoutDetails user={user.user} />
   ) : (
     <>
-      <CheckoutAuth isCheckout /> <Summary user={userIsLoggedIn} />
+      <CheckoutAuth isCheckout={true} /> <Summary user={userIsLoggedIn} />
     </>
   );
 }

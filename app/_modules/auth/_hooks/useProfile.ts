@@ -2,11 +2,9 @@ import ProfileService from "../_services/profile.service";
 import { useEffect } from "react";
 import { ProfileType } from "../_types/profile.type";
 import { useProfileStore } from "../_stores/profile.store";
-import { useUser } from "./useUser";
 import * as C from "../_constants/profile.constant";
 
-export function useProfile() {
-  const { user } = useUser();
+export function useProfile(user: any) {
   const { profile, setProfile } = useProfileStore();
 
   const createProfile = async (profileData: ProfileType) => {
@@ -39,7 +37,7 @@ export function useProfile() {
   };
 
   useEffect(() => {
-    if (user?.id) {
+    if (user) {
       fetchProfile(user?.id);
     }
   }, [user]);

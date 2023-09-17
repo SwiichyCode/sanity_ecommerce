@@ -33,7 +33,11 @@ export default function AuthForm({ isSignUp, isCheckout, setIsSignUp }: Props) {
 
   const onSubmit = handleSubmit((data) => {
     startTransition(() => {
-      authAction("http://localhost:3000", data, isSignUp);
+      authAction({
+        formData: data,
+        isSignUp,
+        isCheckout,
+      });
     });
   });
 

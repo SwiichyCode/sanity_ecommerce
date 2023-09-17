@@ -1,24 +1,23 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
+"use client";
 import FormContainer from "../../container/FormContainer";
 import FormItemWrapper from "../../container/FormItemWrapper";
 import ButtonAction from "../../UI/ButtonAction";
 import TextField from "../../UI/TextField";
 import FormTitle from "../../UI/FormTitle";
 
-import { Form } from "react-hook-form";
+import AuthServices from "@/app/_modules/auth/_services/auth.service";
 
-export default async function AccountForm() {
-  const supabase = createServerComponentClient({ cookies });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+type Props = {
+  user: any;
+};
 
+export default function AccountForm({ user }: Props) {
   const profileData = [
     {
       label: "Email:",
       value: `${user?.email}`,
       actionLabel: "Modifier l'adresse mail",
+      action: "",
     },
     {
       label: "Mot de passe:",
@@ -27,8 +26,15 @@ export default async function AccountForm() {
     },
   ];
 
+  const resetPassword = async (e: any) => {
+    e.preventDefault();
+    const { error } = await AuthServices.resetPassword(user?.email);
+
+    console.log(error);
+  };
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={(e: any) => resetPassword(e)}>
       <FormTitle title="Informations utilisateur" lineBottom />
       {profileData.map((item, index) => (
         <FormItemWrapper key={index}>

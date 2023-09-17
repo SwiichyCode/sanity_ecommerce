@@ -13,20 +13,23 @@ export type FormData = {
 
 type Inputs = z.infer<typeof FormDataSchema>;
 
-export async function authAction(
-  request: string,
-  data: Inputs,
-  isSignup: boolean
-) {
-  const requestUrl = new URL(request);
+type Props = {
+  formData: Inputs;
+  isSignUp: boolean;
+  isCheckout: boolean | undefined;
+};
+
+export async function authAction({ formData, isSignUp, isCheckout }: Props) {
+  const url = "http://localhost:3000";
+  const requestUrl = new URL(url);
   const supabase = createRouteHandlerClient({ cookies });
 
-  const result = isSignup
-    ? FormDataSchema.safeParse(data)
-    : SigninDataSchema.safeParse(data);
+  const result = isSignUp
+    ? FormDataSchema.safeParse(formData)
+    : SigninDataSchema.safeParse(formData);
 
   if (result.success) {
-    const { error } = isSignup
+    const { error } = isSignUp
       ? await supabase.auth.signUp({
           email: result.data.email,
           password: result.data.password,
@@ -45,10 +48,12 @@ export async function authAction(
       );
     }
 
-    return isSignup
+    return isSignUp
       ? redirect(
           `${requestUrl.origin}/signin?message=Verifiez vos e-mails pour continuer le processus de connexion`
         )
+      : isCheckout
+      ? redirect(`${requestUrl.origin}/cart`)
       : redirect(requestUrl.origin);
   }
 

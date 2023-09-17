@@ -3,10 +3,6 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { Product } from "../_types/product.type";
 
 interface Store {
-  //Product
-  product: Product;
-  setProduct: (product: Product) => void;
-  //Cart
   cart: Product[];
   setCart: (cart: Product[]) => void;
   addToCart: (product: Product, quantity: number) => void;
@@ -20,26 +16,6 @@ interface Store {
 export const useCartStore = create<Store>()(
   persist(
     (set) => ({
-      product: {
-        name: "",
-        description: "",
-        id: "",
-        productId: "",
-        price: 0,
-        images: "",
-        quantity: 0,
-        sizes: {
-          size: 0,
-          weight: 0,
-          price: 0,
-          fishSpecies: {
-            name: "",
-          },
-        },
-        weight: 0,
-        category: "",
-      },
-      setProduct: (product) => set({ product }),
       cart: [],
 
       setCart: (cart) => set({ cart }),
@@ -89,7 +65,7 @@ export const useCartStore = create<Store>()(
     }),
 
     {
-      name: "store",
+      name: "cart-store",
       storage: createJSONStorage(() => localStorage),
     }
   )

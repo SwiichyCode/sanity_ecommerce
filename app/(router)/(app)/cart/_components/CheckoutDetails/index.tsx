@@ -22,12 +22,10 @@ type Props = {
 
 export default function CheckoutDetails({ user }: Props) {
   const { cart } = useCartStore();
-  const { profile, createProfile, updateProfile } = useProfile();
+  const { profile, createProfile, updateProfile } = useProfile(user);
   const methods = useForm<Inputs>();
   const { reset } = methods;
   const router = useRouter();
-
-  console.log("user", user.email);
 
   useEffect(() => {
     reset(profile);

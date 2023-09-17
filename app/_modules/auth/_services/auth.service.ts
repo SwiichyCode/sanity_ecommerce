@@ -4,7 +4,15 @@ const supabase = createClientComponentClient();
 
 async function resetPassword(email: string) {
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${location.origin}/reset}`,
+    redirectTo: `http://localhost:3000/reset-password`,
+  });
+
+  return { error };
+}
+
+async function updatePassword(password: string) {
+  const { error } = await supabase.auth.updateUser({
+    password: password,
   });
 
   return { error };
@@ -12,6 +20,7 @@ async function resetPassword(email: string) {
 
 const AuthServices = {
   resetPassword,
+  updatePassword,
 };
 
 export default AuthServices;

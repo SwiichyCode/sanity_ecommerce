@@ -15,11 +15,15 @@ import FormTitle from "../../UI/FormTitle";
 
 type Inputs = Partial<ProfileFormType>;
 
-export default function ProfileForm() {
+type Props = {
+  user: any;
+};
+
+export default function ProfileForm({ user }: Props) {
   const [editableItem, setEditableItem] = useState<string | null>(null);
   const { successMessage, setSuccessMessage } =
     useSuccessMessageTimeout(setEditableItem);
-  const { profile, updateProfile } = useProfile();
+  const { profile, updateProfile } = useProfile(user);
   const { register, handleSubmit, reset, setFocus } = useForm<Inputs>();
 
   const profileData = generateProfileData(profile);
