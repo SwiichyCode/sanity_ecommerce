@@ -38,6 +38,7 @@ export const ContactTitle = styled.h3`
 `;
 
 export const ContactDescription = styled.p`
+  text-align: center;
   font-size: 1.25rem;
   font-weight: 500;
   line-height: 1.875rem;

@@ -1,7 +1,15 @@
 import { NavigationSocialItems } from "@/app/_components/_organisms/Navigation/data";
 import * as S from "./styles";
 
-export default function ContactGrid() {
+import { ContactType } from "@/sanity/types/contact-type";
+
+type Props = {
+  contact: ContactType;
+};
+
+export default function ContactGrid({ contact }: Props) {
+  const { email, phone, address, city, zip } = contact;
+
   return (
     <S.ContactGridWrapper>
       <S.ContactItem>
@@ -9,14 +17,14 @@ export default function ContactGrid() {
           <S.ContactIcon src="/mail.svg" width={24} height={24} alt="mail" />
         </S.ContactIconWrapper>
         <S.ContactTitle>Email</S.ContactTitle>
-        <S.ContactDescription>contact@flex.co</S.ContactDescription>
+        <S.ContactDescription>{email}</S.ContactDescription>
       </S.ContactItem>
       <S.ContactItem>
         <S.ContactIconWrapper>
           <S.ContactIcon src="/phone.svg" width={24} height={24} alt="mail" />
         </S.ContactIconWrapper>
         <S.ContactTitle>Téléphone</S.ContactTitle>
-        <S.ContactDescription>+7-843-672-431</S.ContactDescription>
+        <S.ContactDescription>{phone}</S.ContactDescription>
       </S.ContactItem>
       <S.ContactItem>
         <S.ContactIconWrapper>
@@ -28,8 +36,10 @@ export default function ContactGrid() {
           />
         </S.ContactIconWrapper>
         <S.ContactTitle>Boutique</S.ContactTitle>
-        <S.ContactDescription>1686, Geraldine Lane</S.ContactDescription>
-        <S.ContactDescription>New York, NY 10013</S.ContactDescription>
+        <S.ContactDescription>{address}</S.ContactDescription>
+        <S.ContactDescription>
+          {city}, {zip}
+        </S.ContactDescription>
       </S.ContactItem>
       <S.ContactItem>
         <S.ContactIconWrapper>

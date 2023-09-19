@@ -1,22 +1,15 @@
-"use client";
-
-import styled from "styled-components";
+import clsx from "clsx";
 
 type Props = {
   children: React.ReactNode;
 };
 
-const ContactLayoutWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5.5rem 0;
-`;
-
 export default function ContactLayout({ children }: Props) {
   return (
-    <ContactLayoutWrapper className="responsive-padding">
+    <div
+      className={clsx("flex flex-col items-center my-14 responsive-padding")}
+    >
       {children}
-    </ContactLayoutWrapper>
+    </div>
   );
 }

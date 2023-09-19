@@ -1,6 +1,5 @@
 import { defineField, defineType } from "sanity";
 import { v4 as uuidv4 } from "uuid";
-import { getCategoryName } from "../utils/getCategoryName";
 
 export default defineType({
   name: "product",
@@ -12,7 +11,6 @@ export default defineType({
       title: "ID",
       type: "string",
       readOnly: true,
-      // hidden: true,
       initialValue: uuidv4(),
     }),
 

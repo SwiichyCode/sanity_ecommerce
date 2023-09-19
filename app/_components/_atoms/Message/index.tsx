@@ -1,4 +1,3 @@
-import { AuthError } from "@supabase/supabase-js";
 import clsx from "clsx";
 
 type Props = {
