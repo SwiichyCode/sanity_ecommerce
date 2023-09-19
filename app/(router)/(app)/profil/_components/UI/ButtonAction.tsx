@@ -22,7 +22,7 @@ export default function ButtonAction({ text, type, onClick, variants }: Props) {
 
   return (
     <button
-      className={clsx("text-base font-semibold", handleVariants(variants))}
+      className={clsx("text-xs font-semibold", handleVariants(variants))}
       type={type}
       onClick={onClick}
     >

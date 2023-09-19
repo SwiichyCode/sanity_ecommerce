@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
-  width: max-content;
+export const Button = styled.button.withConfig({
+  shouldForwardProp: (prop) => !["width"].includes(prop),
+})<{ width: "full" | "auto" | undefined }>`
+  width: ${(props) => (props.width === "full" ? "100%" : "max-content")};
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-white);

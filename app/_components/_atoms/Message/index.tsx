@@ -1,8 +1,9 @@
+import { AuthError } from "@supabase/supabase-js";
 import clsx from "clsx";
 
 type Props = {
-  message: string | null | undefined;
-  type: "success" | "error" | undefined;
+  message: any;
+  type?: "success" | "error" | undefined;
 };
 
 export default function Message({ message, type }: Props) {
