@@ -20,7 +20,8 @@ type Props = {
 };
 
 export async function authAction({ formData, isSignUp, isCheckout }: Props) {
-  const url = "http://localhost:3000";
+  const url = process.env.NEXT_PUBLIC_SITE_URL!;
+
   const requestUrl = new URL(url);
   const supabase = createRouteHandlerClient({ cookies });
 
