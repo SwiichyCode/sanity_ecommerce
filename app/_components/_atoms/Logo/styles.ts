@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { breakpoints } from "@/app/_styles/breakpoints";
+import Link from "next/link";
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled(Link)`
   display: flex;
   align-items: center;
   gap: 1rem;
