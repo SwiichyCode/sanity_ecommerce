@@ -5,12 +5,7 @@ type Props = {
   method?: any;
 };
 
-export default function FormContainer({
-  onSubmit,
-  action,
-  method,
-  children,
-}: Props) {
+export default function FormContainer({ onSubmit, children }: Props) {
   return (
     <form className="w-full flex flex-col gap-8" onSubmit={onSubmit}>
       {children}

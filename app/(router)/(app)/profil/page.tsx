@@ -15,7 +15,7 @@ export default async function ProfilPage() {
     <ProfileContainer>
       <AccountForm user={user} />
       <ProfileForm user={user} />
-
+      <OrderInformations user={user} />
       {/* <OrderInformations profile={profile} /> */}
     </ProfileContainer>
   );

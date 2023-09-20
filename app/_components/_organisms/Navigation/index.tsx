@@ -1,5 +1,4 @@
 "use client";
-import AuthServices from "@/app/_modules/auth/_services/auth.service";
 import { usePathname } from "next/navigation";
 import { useMenuMobileStore } from "@/app/_components/_organisms/MenuMobile/useMenuMobile";
 import { NavigationItems } from "./data";

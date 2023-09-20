@@ -1,6 +1,3 @@
-// "use client";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import HeaderLayout from "./HeaderLayout";
 import HeaderDesktop from "./HeaderDesktop";
 import HeaderMobile from "./HeaderMobile";
@@ -12,13 +9,13 @@ export const dynamic = "force-dynamic";
 export default async function Header() {
   const supabase = createServerComponentClient({ cookies });
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
 
   return (
     <HeaderLayout className="responsive-padding">
-      <HeaderMobile user={user} />
-      <HeaderDesktop user={user} />
+      <HeaderMobile user={session} />
+      <HeaderDesktop user={session} />
     </HeaderLayout>
   );
 }

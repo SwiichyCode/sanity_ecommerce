@@ -1,6 +1,9 @@
 "use server";
 
-import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import {
+  createRouteHandlerClient,
+  createServerActionClient,
+} from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { FormDataSchema, SigninDataSchema } from "../_schema/schema";
@@ -23,7 +26,7 @@ export async function authAction({ formData, isSignUp, isCheckout }: Props) {
   const url = process.env.NEXT_PUBLIC_SITE_URL!;
 
   const requestUrl = new URL(url);
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = createServerActionClient({ cookies });
 
   const result = isSignUp
     ? FormDataSchema.safeParse(formData)

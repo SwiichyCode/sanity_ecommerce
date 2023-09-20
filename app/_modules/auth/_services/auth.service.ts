@@ -18,9 +18,18 @@ async function updatePassword(password: string) {
   return { error };
 }
 
+async function updateEmail(email: string) {
+  const { error } = await supabase.auth.updateUser({
+    email: email,
+  });
+
+  return { error };
+}
+
 const AuthServices = {
   resetPassword,
   updatePassword,
+  updateEmail,
 };
 
 export default AuthServices;
