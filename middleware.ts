@@ -6,7 +6,7 @@ export async function middleware(req: NextRequest) {
   // PUBLIC_ROUTES
   const res = NextResponse.next();
   const supabase = createMiddlewareClient({ req, res });
-  // await supabase.auth.getSession();
+  await supabase.auth.getSession();
 
   // PRIVATE_ROUTES
   if (req.nextUrl.pathname.startsWith("/profil")) {
