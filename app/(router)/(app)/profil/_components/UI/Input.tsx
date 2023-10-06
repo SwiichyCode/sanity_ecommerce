@@ -15,7 +15,7 @@ export default function Input({
     <input
       className="text-base font-medium focus:outline-none"
       defaultValue={value}
-      size={value.length + 8}
+      size={value?.length + 8}
       readOnly={readOnly}
       {...register?.(registerValue)}
     />
