@@ -1,10 +1,11 @@
 "use client";
+import Link from "next/link";
+import Logout from "@/app/_modules/auth/_components/Logout";
 import { usePathname } from "next/navigation";
 import { useMenuMobileStore } from "@/app/_components/_organisms/MenuMobile/useMenuMobile";
 import { NavigationItems } from "./data";
 import Button from "@/app/_components/_atoms/Button";
-import Link from "next/link";
-import Logout from "@/app/_modules/auth/_components/Logout";
+import { URL_CONSTANT } from "@/app/_constants/url.constant";
 import * as S from "./styles";
 
 interface Props {
@@ -30,7 +31,9 @@ export default function Navigation({ isAuth = false, user }: Props) {
             {user && user ? (
               <>
                 <S.NavigationItem isAuth={isAuth}>
-                  <S.NavigationLink href="/profil">Mon compte</S.NavigationLink>
+                  <S.NavigationLink href={URL_CONSTANT.PROFIL}>
+                    Mon compte
+                  </S.NavigationLink>
                 </S.NavigationItem>
                 <Logout handleCloseMenu={handleCloseMenu} />
               </>
@@ -38,15 +41,15 @@ export default function Navigation({ isAuth = false, user }: Props) {
               <>
                 <S.NavigationItem isAuth={isAuth} onClick={handleCloseMenu}>
                   <S.NavigationLink
-                    href={"/signin"}
-                    isActive={pathname === "/signin" ? true : false}
+                    href={URL_CONSTANT.SIGNIN}
+                    isActive={pathname === URL_CONSTANT.SIGNIN ? true : false}
                   >
                     Connexion
                   </S.NavigationLink>
                 </S.NavigationItem>
 
                 <Button onClick={handleCloseMenu}>
-                  <Link href="/signup">S&apos;inscrire</Link>
+                  <Link href={URL_CONSTANT.SIGNUP}>S&apos;inscrire</Link>
                 </Button>
               </>
             )}

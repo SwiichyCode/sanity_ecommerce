@@ -1,25 +1,21 @@
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+import { URL_CONSTANT } from "@/app/_constants/url.constant";
 
 export const NavigationItems = [
   {
     id: 1,
     name: "Accueil",
-    path: "/",
+    path: URL_CONSTANT.HOME,
   },
   {
     id: 2,
     name: "Boutique",
-    path: "/boutique",
+    path: URL_CONSTANT.BOUTIQUE,
   },
-  // {
-  //   id: 3,
-  //   name: "Blog",
-  //   path: "/blog",
-  // },
   {
     id: 4,
     name: "Contact",
-    path: "/contact",
+    path: URL_CONSTANT.CONTACT,
   },
 ];
 
