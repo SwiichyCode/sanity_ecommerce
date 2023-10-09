@@ -1,5 +1,6 @@
 "use client";
 import { z } from "zod";
+import Link from "next/link";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,6 +12,7 @@ import AuthFormMessage from "../AuthFormMessage";
 import _TextField from "@/app/_components/_atoms/_TextField";
 import Button from "@/app/_components/_atoms/Button";
 import * as S from "./styles";
+import { FormFooterLink } from "../AuthFormFooter/styles";
 
 type Input = z.infer<typeof FormDataSchema>;
 
@@ -51,13 +53,20 @@ export default function AuthForm({ isSignUp, isCheckout, setIsSignUp }: Props) {
           register={register}
           error={errors.email?.message}
         />
-        <_TextField
-          labeltext="Mot de passe"
-          name="password"
-          type="password"
-          register={register}
-          error={errors.password?.message}
-        />
+        <div className="flex flex-col gap-3">
+          <_TextField
+            labeltext="Mot de passe"
+            name="password"
+            type="password"
+            register={register}
+            error={errors.password?.message}
+          />
+          {!isSignUp && (
+            <FormFooterLink>
+              <Link href="/recovery">Mot de passe oublié ?</Link>
+            </FormFooterLink>
+          )}
+        </div>
 
         {isSignUp && (
           <_TextField

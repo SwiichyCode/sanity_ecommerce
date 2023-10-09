@@ -1,6 +1,7 @@
 export const URL_CONSTANT = {
   SIGNIN: "/signin",
   SIGNUP: "/signup",
+  RECOVERY: "/recovery",
   HOME: "/",
   PROFIL: "/profil",
   BOUTIQUE: "/boutique",

@@ -77,7 +77,7 @@ export default function AccountForm({ user }: Props) {
             readOnly={editableItem !== "email"}
           />
 
-          {editableItem === "email" ? (
+          {/* {editableItem === "email" ? (
             <EditItem successMessage={successMessage} onCancel={onCancel} />
           ) : (
             <ButtonAction
@@ -85,14 +85,14 @@ export default function AccountForm({ user }: Props) {
               variants="edit"
               onClick={() => onEdit("email")}
             />
-          )}
+          )} */}
         </FormItemWrapper>
       </form>
 
       <FormItemWrapper>
         <TextField label="Mot de passe:" value="************" readOnly={true} />
 
-        {informationMessage ? (
+        {/* {informationMessage ? (
           <Message message={informationMessage} />
         ) : (
           <ButtonAction
@@ -100,7 +100,7 @@ export default function AccountForm({ user }: Props) {
             variants="edit"
             onClick={resetPassword}
           />
-        )}
+        )} */}
       </FormItemWrapper>
     </div>
   );

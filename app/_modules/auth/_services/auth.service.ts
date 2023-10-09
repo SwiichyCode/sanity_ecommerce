@@ -1,10 +1,16 @@
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-const supabase = createClientComponentClient();
+const supabase = createServerActionClient({ cookies });
+
+async function signout() {
+  const { error } = await supabase.auth.signOut();
+  return { error };
+}
 
 async function resetPassword(email: string) {
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `/reset-password`,
+    redirectTo: `http://localhost:3000/api/auth/callback?next=/reset-password`,
   });
 
   return { error };
@@ -14,22 +20,13 @@ async function updatePassword(password: string) {
   const { error } = await supabase.auth.updateUser({
     password: password,
   });
-
-  return { error };
-}
-
-async function updateEmail(email: string) {
-  const { error } = await supabase.auth.updateUser({
-    email: email,
-  });
-
   return { error };
 }
 
 const AuthServices = {
   resetPassword,
   updatePassword,
-  updateEmail,
+  signout,
 };
 
 export default AuthServices;

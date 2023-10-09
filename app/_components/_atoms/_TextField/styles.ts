@@ -22,7 +22,6 @@ export const TextField = styled.input`
 
   &:focus {
     outline: none;
-
     border: 1px solid var(--color-blue);
   }
 `;

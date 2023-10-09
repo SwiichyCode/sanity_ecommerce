@@ -1,19 +1,19 @@
 "use client";
-import AuthServices from "@/app/_modules/auth/_services/auth.service";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+
+import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthError } from "@supabase/supabase-js";
 import { ResetPasswordDataSchema } from "@/app/_modules/auth/_schema/schema";
+import { ResetPasswordAction } from "@/app/_modules/auth/_actions/reset_password_action";
 import _TextField from "@/app/_components/_atoms/_TextField";
 import Button from "@/app/_components/_atoms/Button";
-import Message from "@/app/_components/_atoms/Message";
+import AuthFormMessage from "@/app/_modules/auth/_components/AuthFormMessage";
 
 type Input = z.infer<typeof ResetPasswordDataSchema>;
 
 export default function ResetPage() {
+  const [isPending, startTransition] = useTransition();
   const {
     register,
     handleSubmit,
@@ -21,31 +21,13 @@ export default function ResetPage() {
   } = useForm<Input>({
     resolver: zodResolver(ResetPasswordDataSchema),
   });
-  const [errorMessage, setErrorMessage] = useState<string>();
-  const [successMessage, setSuccessMessage] = useState<string>();
-  const [hash, setHash] = useState("");
-  const router = useRouter();
 
-  useEffect(() => {
-    setHash(window.location.hash);
-  }, []);
-
-  const onSubmit = handleSubmit(async (data) => {
-    try {
-      const { password } = data;
-      const { error } = await AuthServices.updatePassword(password);
-
-      if (error) throw error;
-
-      setSuccessMessage("Votre mot de passe a été modifié avec succès");
-
-      setTimeout(() => {
-        router.push("/profil");
-      }, 3000);
-    } catch (error) {
-      const { message } = error as AuthError;
-      setErrorMessage(message);
-    }
+  const onSubmit = handleSubmit((data) => {
+    startTransition(() => {
+      ResetPasswordAction({
+        formData: data,
+      });
+    });
   });
 
   return (
@@ -70,12 +52,11 @@ export default function ResetPage() {
           register={register}
           error={errors.confirm?.message}
         />
-
-        {errorMessage && <Message message={errorMessage} type="error" />}
-        {successMessage && <Message message={successMessage} type="success" />}
       </div>
 
       <Button text="Confirmer" type="submit" width="full" />
+
+      <AuthFormMessage />
     </form>
   );
 }

@@ -25,3 +25,7 @@ export const ResetPasswordDataSchema = z
     message: "Les mots de passe ne correspondent pas",
     path: ["confirm"],
   });
+
+export const RecoveryDataSchema = z.object({
+  email: z.string().email("Veuillez entrer une adresse email valide"),
+});

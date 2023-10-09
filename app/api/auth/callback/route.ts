@@ -10,10 +10,17 @@ export async function GET(request: Request) {
   // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#managing-sign-in-with-code-exchange
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
+  const next = requestUrl.searchParams.get("next");
 
   if (code) {
     const supabase = createRouteHandlerClient({ cookies });
     await supabase.auth.exchangeCodeForSession(code);
+  }
+
+  if (next) {
+    return NextResponse.redirect(
+      "http://localhost:3000/reset-password?code=" + code
+    );
   }
 
   // URL to redirect to after sign in process completes

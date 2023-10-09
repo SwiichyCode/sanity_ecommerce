@@ -15,6 +15,7 @@ export const FormFooterText = styled.p`
 `;
 
 export const FormFooterLink = styled.button`
+  width: fit-content;
   color: var(--color-blue);
   font-size: 0.875rem;
   font-weight: 700;
