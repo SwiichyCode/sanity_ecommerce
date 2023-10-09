@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { usePaginationStore } from "./usePaginationStore";
 import * as S from "./styles";
 
@@ -29,7 +30,7 @@ export default function Pagination({ filteredProducts }: Props) {
   return (
     <S.PaginationWrapper>
       <S.PaginationArrow onClick={handlePreviousPage} disabled={page === 1}>
-        Précédent
+        <Image src="/left_arrow.svg" alt="arrow-left" width={32} height={32} />
       </S.PaginationArrow>
       <S.PaginationButtonContainer>
         {Array.from({ length: endPage - startPage + 1 }, (_, index) => (
@@ -47,7 +48,7 @@ export default function Pagination({ filteredProducts }: Props) {
         onClick={handleNextPage}
         disabled={page === pageNumbers}
       >
-        Suivant
+        <Image src="/right_arrow.svg" alt="arrow-left" width={32} height={32} />
       </S.PaginationArrow>
     </S.PaginationWrapper>
   );

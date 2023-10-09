@@ -23,7 +23,7 @@ export const CartAction = styled.div`
 export const LocationAction = styled.div`
   max-width: max-content;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   gap: 1.125rem;
 `;

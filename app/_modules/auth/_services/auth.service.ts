@@ -4,7 +4,7 @@ const supabase = createClientComponentClient();
 
 async function resetPassword(email: string) {
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    redirectTo: `/reset-password`,
   });
 
   return { error };

@@ -52,7 +52,6 @@ export default function AccountForm({ user }: Props) {
 
   const resetPassword = async () => {
     const { error } = await AuthServices.resetPassword(user?.email);
-
     if (!error) setInformationMessage("Un email vous a été envoyé");
   };
 

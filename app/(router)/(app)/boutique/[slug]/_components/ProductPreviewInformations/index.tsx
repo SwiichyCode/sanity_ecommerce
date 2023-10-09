@@ -22,7 +22,6 @@ export default function ProductPreviewInformations({ product }: Props) {
       <S.ProductPrice>
         {sizes.price ? sizes.price : product.price}€
       </S.ProductPrice>
-      <ProductStars stars={product.stars} />
       <S.ProductDescription>{product.description}</S.ProductDescription>
       {product.sizes && (
         <ProductSize
