@@ -36,6 +36,8 @@ export default function ProductCard({
     );
   };
 
+  if (stock <= 0) return null;
+
   return (
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
@@ -62,6 +64,7 @@ export default function ProductCard({
           <ProductCardAction
             category={category}
             handleAddToCart={handleAddToCart}
+            stock={stock}
           />
         </S.ProductCardFooter>
       </S.ProductCardBody>

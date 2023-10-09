@@ -3,11 +3,13 @@ import * as S from "./styles";
 type Props = {
   category: string;
   handleAddToCart: () => void;
+  stock: number;
 };
 
 export default function ProductCardAction({
   category,
   handleAddToCart,
+  stock,
 }: Props) {
   return (
     category !== "poisson" && (
