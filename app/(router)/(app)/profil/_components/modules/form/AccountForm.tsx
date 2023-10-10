@@ -4,7 +4,7 @@ import FormItemWrapper from "../../container/FormItemWrapper";
 import ButtonAction from "../../UI/ButtonAction";
 import TextField from "../../UI/TextField";
 import FormTitle from "../../UI/FormTitle";
-import AuthServices from "@/app/_modules/auth/_services/auth.service";
+// import AuthServices from "@/app/_modules/auth/_services/auth.service";
 import Message from "@/app/_components/_atoms/Message";
 
 import { useForm } from "react-hook-form";
@@ -35,24 +35,22 @@ export default function AccountForm({ user }: Props) {
   }, [user]);
 
   const onSubmit = handleSubmit(async (data) => {
-    if (!editableItem) {
-      return;
-    }
-
-    try {
-      const { error } = await AuthServices.updateEmail(data.email);
-      setSuccessMessage("Votre email a été modifié");
-
-      if (error) throw error;
-    } catch (error) {
-      const { message } = error as AuthError;
-      console.log(message);
-    }
+    // if (!editableItem) {
+    //   return;
+    // }
+    // try {
+    //   const { error } = await AuthServices.updateEmail(data.email);
+    //   setSuccessMessage("Votre email a été modifié");
+    //   if (error) throw error;
+    // } catch (error) {
+    //   const { message } = error as AuthError;
+    //   console.log(message);
+    // }
   });
 
   const resetPassword = async () => {
-    const { error } = await AuthServices.resetPassword(user?.email);
-    if (!error) setInformationMessage("Un email vous a été envoyé");
+    // const { error } = await AuthServices.resetPassword(user?.email);
+    // if (!error) setInformationMessage("Un email vous a été envoyé");
   };
 
   const onEdit = (item: string) => {
