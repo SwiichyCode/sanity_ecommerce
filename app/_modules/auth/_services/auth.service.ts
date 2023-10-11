@@ -10,7 +10,7 @@ async function signout() {
 
 async function resetPassword(email: string) {
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `http://localhost:3000/api/auth/callback?next=/reset-password`,
+    redirectTo: `${location.origin}/api/auth/callback?next=/reset-password`,
   });
 
   return { error };
