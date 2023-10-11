@@ -19,7 +19,7 @@ export async function GET(request: Request) {
 
   if (next) {
     return NextResponse.redirect(
-      "http://localhost:3000/reset-password?code=" + code
+      `${process.env.NEXT_PUBLIC_SITE_URL}/reset-password?code=` + code
     );
   }
 
