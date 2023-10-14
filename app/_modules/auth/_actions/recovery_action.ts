@@ -30,7 +30,7 @@ export const RecoveryAction = async ({ formData }: Props) => {
     }
 
     return redirect(
-      process.env.NEXT_PUBLIC_SITE_URL +
+      requestUrl.origin +
         URL_CONSTANT.RECOVERY +
         MESSAGE_CONSTANT.RECOVERY_SUCCESS
     );
