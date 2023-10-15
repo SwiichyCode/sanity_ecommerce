@@ -52,7 +52,7 @@ export default function ProductCard({
 
         <ProductCardStock stock={stock} />
 
-        <S.ProductCardPrice>${price}</S.ProductCardPrice>
+        <S.ProductCardPrice>€{price}</S.ProductCardPrice>
 
         <S.ProductCardFooter>
           <Button>
