@@ -60,6 +60,7 @@ export default function AuthForm({ isSignUp, isCheckout, setIsSignUp }: Props) {
             type="password"
             register={register}
             error={errors.password?.message}
+            isPassword
           />
           {!isSignUp && (
             <FormFooterLink>

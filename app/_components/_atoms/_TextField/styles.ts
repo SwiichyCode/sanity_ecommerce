@@ -30,3 +30,18 @@ export const TextFieldError = styled.span`
   font-size: 0.875rem;
   color: var(--color-red);
 `;
+
+export const ShowPasswordButton = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--color-grey-400);
+`;
