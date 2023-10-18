@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 import { FieldValues, DeepMap, FieldError } from "react-hook-form";
 import TextFieldLabel from "../TextFieldLabel";
@@ -18,12 +18,34 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
 }
 
 export default function _TextField(props: Props) {
-  const { labeltext, name, register, error, isPassword, ...rest } = props;
+  const { labeltext, name, register, error, type, isPassword, ...rest } = props;
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <S.TextFieldWrapper>
       <TextFieldLabel labeltext={labeltext} name={name} />
-      <S.TextField {...register(name, { required: true })} {...rest} />
+
+      <S.TextFieldContainer>
+        <S.TextField
+          {...register(name, { required: true })}
+          type={isPassword ? (showPassword ? "text" : "password") : type}
+          {...rest}
+        />
+
+        {isPassword && (
+          <S.ShowPasswordButton
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            <Image
+              src={showPassword ? "./icon-hide.svg" : "./icon-show.svg"}
+              width={20}
+              height={20}
+              alt=""
+            />
+          </S.ShowPasswordButton>
+        )}
+      </S.TextFieldContainer>
       {error && <S.TextFieldError>{error}</S.TextFieldError>}
     </S.TextFieldWrapper>
   );

@@ -2,7 +2,8 @@ import stripe from "./client";
 
 export const getShippingRates = async () => {
   const shippingRates = await stripe.shippingRates.list({
-    limit: 3,
+    limit: 15,
+    active: true,
   });
 
   return shippingRates.data;

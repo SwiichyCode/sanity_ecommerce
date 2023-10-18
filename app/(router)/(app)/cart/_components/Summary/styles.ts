@@ -78,3 +78,8 @@ export const SummaryAlert = styled.p`
   line-height: 1rem;
   color: var(--color-red);
 `;
+
+export const SummaryMessage = styled.p`
+  font-size: 0.875rem;
+  padding: 1rem 0;
+`;

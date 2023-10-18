@@ -46,3 +46,8 @@ export const TextFieldWrapper = styled.div`
     flex-direction: column;
   }
 `;
+
+export const FormMessage = styled.p`
+  font-size: 0.875rem;
+  padding: 1rem 0;
+`;

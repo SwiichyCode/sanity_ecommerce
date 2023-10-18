@@ -1,3 +1,4 @@
+import { useCartStore } from "../../../_stores/cart.store";
 import TextField from "@/app/_components/_atoms/TextField";
 import { ProfileType } from "@/app/_modules/auth/_types/profile.type";
 import * as S from "./styles";
@@ -8,6 +9,10 @@ type Props = {
 };
 
 export default function CheckoutDetailForm({ user, profile }: Props) {
+  const { cart } = useCartStore();
+
+  const ifFish = cart.some((product) => product.category === "poisson");
+
   return (
     <S.CheckoutDetailsWrapper>
       <S.CheckoutDetailsTitle>Informations de paiement</S.CheckoutDetailsTitle>
@@ -83,6 +88,16 @@ export default function CheckoutDetailForm({ user, profile }: Props) {
           rules={{ required: true }}
         />
       </S.CheckoutDetailsFormGroup>
+
+      {ifFish && (
+        <S.FormMessage>
+          Notre société garantit la bonne santé des poissons que nous expédions.
+          Chaque poisson passe par une période de quarantaine dans nos bacs
+          après son importation. Ils ne sont mis en vente que lorsque nous
+          sommes certains de leur parfaite santé. C'est pourquoi, nous déclinons
+          toute responsabilité au-delà des premiers jours suivant votre achat.
+        </S.FormMessage>
+      )}
     </S.CheckoutDetailsWrapper>
   );
 }

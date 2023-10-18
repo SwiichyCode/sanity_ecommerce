@@ -76,6 +76,7 @@ export default function AuthForm({ isSignUp, isCheckout, setIsSignUp }: Props) {
             type="password"
             register={register}
             error={errors.confirm?.message}
+            isPassword
           />
         )}
 

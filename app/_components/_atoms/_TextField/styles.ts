@@ -13,6 +13,7 @@ export const TextFieldLabel = styled.label`
 `;
 
 export const TextField = styled.input`
+  width: 100%;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   border: 1px solid var(--color-grey-200);
@@ -44,4 +45,10 @@ export const ShowPasswordButton = styled.button`
   gap: 0.375rem;
   font-size: 0.875rem;
   color: var(--color-grey-400);
+`;
+
+export const TextFieldContainer = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
 `;

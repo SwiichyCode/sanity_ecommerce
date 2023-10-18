@@ -43,6 +43,7 @@ export const ResetPasswordForm = () => {
           type="password"
           register={register}
           error={errors.password?.message}
+          isPassword
         />
 
         <_TextField
@@ -51,6 +52,7 @@ export const ResetPasswordForm = () => {
           type="password"
           register={register}
           error={errors.confirm?.message}
+          isPassword
         />
       </div>
 

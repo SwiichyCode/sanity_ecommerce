@@ -14,6 +14,10 @@ type Props = {
 export default function Summary({ user }: Props) {
   const { cart, totalCost } = useCartStore();
 
+  const ifFish = cart.some((product) => product.category === "poisson");
+
+  console.log("cart", ifFish);
+
   return (
     <S.SummaryWrapper>
       <S.SummaryHeader>
