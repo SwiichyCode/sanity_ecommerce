@@ -34,7 +34,7 @@ export const calculateBestShippingOption = async (
   const shippingOptions = await getShippingRates();
 
   if (hasLiveFish) {
-    return "shr_1Nok1fJSkUmCv6RbgLr290Iv";
+    return "shr_1O28VbJSkUmCv6RbGPKH21ab";
   } else {
     return findBestPrice(shippingOptions, weight);
   }

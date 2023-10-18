@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { useOnClickOutside } from "usehooks-ts";
+import { useEffect } from "react";
 import { useWindowSize } from "usehooks-ts";
 import { Backdrop, MenuMobileWrapper } from "./styles";
 import { useMenuMobileStore } from "@/app/_components/_organisms/MenuMobile/useMenuMobile";
