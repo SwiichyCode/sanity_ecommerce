@@ -94,8 +94,9 @@ export default function CheckoutDetailForm({ user, profile }: Props) {
           Notre société garantit la bonne santé des poissons que nous expédions.
           Chaque poisson passe par une période de quarantaine dans nos bacs
           après son importation. Ils ne sont mis en vente que lorsque nous
-          sommes certains de leur parfaite santé. C'est pourquoi, nous déclinons
-          toute responsabilité au-delà des premiers jours suivant votre achat.
+          sommes certains de leur parfaite santé. C&apos;est pourquoi, nous
+          déclinons toute responsabilité au-delà des premiers jours suivant
+          votre achat.
         </S.FormMessage>
       )}
     </S.CheckoutDetailsWrapper>

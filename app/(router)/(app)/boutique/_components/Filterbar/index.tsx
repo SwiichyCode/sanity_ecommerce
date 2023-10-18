@@ -20,7 +20,7 @@ export default function FilterBar() {
   return (
     <S.FilterBarWrapper className="responsive-padding">
       <FilterbarHeader />
-      <FilterbarPosition position={position} setPosition={setPosition} />
+      {/* <FilterbarPosition position={position} setPosition={setPosition} /> */}
       <FilterbarSearch
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
