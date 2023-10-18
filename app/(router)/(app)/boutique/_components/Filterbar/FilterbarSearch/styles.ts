@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 
 export const SearchBarWrapper = styled.div`
+  /* width: 100%; */
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -25,7 +25,7 @@ export default function MenuMobile({ user }: Props) {
     <>
       <Backdrop isMenuOpen={isMenuOpen} />
       <MenuMobileWrapper isMenuOpen={isMenuOpen}>
-        <p>Panier</p>
+        <p></p>
         <Navigation />
         <Navigation isAuth user={user} />
       </MenuMobileWrapper>

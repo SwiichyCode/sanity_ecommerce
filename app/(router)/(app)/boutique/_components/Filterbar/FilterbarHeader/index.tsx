@@ -5,7 +5,7 @@ export default function FilterbarHeader() {
   return (
     <S.FilterBarHeaderWrapper>
       <IoOptionsOutline />
-      <S.FilterBarTitle>Filtre</S.FilterBarTitle>
+      {/* <S.FilterBarTitle>Filtre</S.FilterBarTitle> */}
     </S.FilterBarHeaderWrapper>
   );
 }
