@@ -4,7 +4,6 @@ import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
 import ProductQuantity from "../ProductQuantity";
 import { urlForImage } from "@/sanity/utils/imageBuilder";
 import { v4 as uuidv4 } from "uuid";
-import { windowLocation } from "@/app/_utils/windowLocation";
 import * as S from "./styles";
 
 type Props = {
@@ -20,8 +19,6 @@ export default function ProductActions({
 }: Props) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart, addFishToCart } = useCartStore();
-
-  console.log(product.stock);
 
   const handleAddToCart = () => {
     if (product.category === "poisson" && !sizes.size) {
@@ -58,15 +55,6 @@ export default function ProductActions({
           <ProductQuantity quantity={quantity} setQuantity={setQuantity} />
           <Button text="Ajouter au panier" onClick={handleAddToCart} />
         </S.CartAction>
-        <S.LocationAction>
-          <Button
-            text="Passer la commande"
-            onClick={() => windowLocation("/cart")}
-          />
-          <S.SpanLink onClick={() => windowLocation("/boutique")}>
-            Retour à la boutique
-          </S.SpanLink>
-        </S.LocationAction>
       </S.ProductActionsWrapper>
     </>
   );

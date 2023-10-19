@@ -59,7 +59,11 @@ export default defineType({
       name: "images",
       title: "Images du produit",
       type: "array",
-      of: [{ type: "image" }],
+      of: [{ type: "image", options: { hotspot: true } }],
+      options: {
+        layout: "grid",
+      },
+
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -71,6 +75,7 @@ export default defineType({
         list: [
           { title: "Poisson", value: "poisson" },
           { title: "Matériel", value: "matériel" },
+          { title: "Nourriture", value: "nourriture" },
         ],
       },
       validation: (Rule) => Rule.required(),
@@ -87,6 +92,13 @@ export default defineType({
       title: "Quantité en stock",
       type: "number",
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: "portabletext",
+      title: "Portable text",
+      type: "array",
+      of: [{ type: "block" }],
+      // validation: (Rule) => Rule.required(),
     }),
   ],
 });

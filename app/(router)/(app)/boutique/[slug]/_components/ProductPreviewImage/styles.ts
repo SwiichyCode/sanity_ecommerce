@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { breakpoints } from "@/app/_styles/breakpoints";
+
 export const ProductPreviewImageWrapper = styled.div.withConfig({
   shouldForwardProp: (prop) => !["imageURL"].includes(prop),
 })<{ imageURL: string }>`
   width: 31.25rem;
   height: 31.25rem;
   background-image: url(${({ imageURL }) => imageURL});
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0.5rem;

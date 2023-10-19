@@ -12,7 +12,8 @@ const productFields = `
     }
   },
   weight,
-  category
+  category,
+  portabletext,
 `;
 
 export async function getProducts() {
