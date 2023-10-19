@@ -8,7 +8,11 @@ type Props = {
 
 export default function Pagination({ filteredProducts }: Props) {
   const { page, productsPerPage, setPage } = usePaginationStore();
-  const pageNumbers = Math.ceil(filteredProducts.length / productsPerPage);
+  const filteredProductStock = filteredProducts.filter(
+    (product: any) => product.stock > 0
+  );
+
+  const pageNumbers = Math.ceil(filteredProductStock.length / productsPerPage);
 
   const maxDisplayedButtons = 3; // Nombre maximal de boutons affichés
   const halfDisplayedButtons = Math.floor(maxDisplayedButtons / 2);
@@ -26,6 +30,8 @@ export default function Pagination({ filteredProducts }: Props) {
     if (page === pageNumbers) return;
     setPage(page + 1);
   };
+
+  if (filteredProductStock.length === 0) return null;
 
   return (
     <S.PaginationWrapper>
