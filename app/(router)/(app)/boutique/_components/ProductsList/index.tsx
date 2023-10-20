@@ -15,7 +15,11 @@ export default function ProductsList({ products }: Props) {
   const { page, indexOfFirstProduct, indexOfLastProduct } =
     usePaginationStore();
 
-  const filteredProducts = products.filter((product: any) => {
+  const filteredProductStock = products.filter(
+    (product: any) => product.stock > 0
+  );
+
+  const filteredProducts = filteredProductStock.filter((product: any) => {
     const isMatchingCategory =
       selectedCategory === "" || product.category === selectedCategory;
 
@@ -30,6 +34,8 @@ export default function ProductsList({ products }: Props) {
     indexOfFirstProduct(page),
     indexOfLastProduct(page)
   );
+
+  console.log(currentProducts);
 
   const renderList = ({ children }: { children: React.ReactNode }) => {
     return position === "grid" ? (

@@ -14,12 +14,21 @@ export default function Pagination({ filteredProducts }: Props) {
 
   const pageNumbers = Math.ceil(filteredProductStock.length / productsPerPage);
 
-  const maxDisplayedButtons = 3; // Nombre maximal de boutons affichés
+  const maxDisplayedButtons = 3;
   const halfDisplayedButtons = Math.floor(maxDisplayedButtons / 2);
 
-  let startPage = Math.max(1, page - halfDisplayedButtons);
-  let endPage = Math.min(pageNumbers, startPage + maxDisplayedButtons - 1);
-  startPage = Math.max(1, endPage - maxDisplayedButtons + 1);
+  let startPage = page - halfDisplayedButtons;
+  let endPage = page + halfDisplayedButtons;
+
+  if (startPage < 1) {
+    startPage = 1;
+    endPage = Math.min(pageNumbers, maxDisplayedButtons);
+  }
+
+  if (endPage > pageNumbers) {
+    endPage = pageNumbers;
+    startPage = Math.max(1, endPage - maxDisplayedButtons + 1);
+  }
 
   const handlePreviousPage = () => {
     if (page === 1) return;
