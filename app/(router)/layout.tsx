@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import AppLayout from "../_components/providers/AppProvider";
 import "../_styles/index.css";
 import "../_styles/globals.css";
@@ -17,7 +18,10 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body>
-        <AppLayout>{children}</AppLayout>
+        <AppLayout>
+          {children}
+          <Analytics />
+        </AppLayout>
       </body>
     </html>
   );
