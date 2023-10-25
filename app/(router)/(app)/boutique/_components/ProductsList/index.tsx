@@ -4,10 +4,11 @@ import { useFilterBarStore } from "../Filterbar/useFilterBarStore";
 import { usePaginationStore } from "../Pagination/usePaginationStore";
 import ProductCard from "../ProductCard";
 import Pagination from "../Pagination";
+import type { ProductType } from "@/sanity/types/product-type";
 import * as S from "./styles";
 
 type Props = {
-  products?: any;
+  products: ProductType[];
 };
 
 export default function ProductsList({ products }: Props) {
@@ -16,7 +17,9 @@ export default function ProductsList({ products }: Props) {
     usePaginationStore();
 
   const filteredProductStock = products.filter(
-    (product: any) => product.stock > 0
+    (product) =>
+      product.variants.map((variant) => variant.stock).reduce((a, b) => a + b) >
+      0
   );
 
   const filteredProducts = filteredProductStock.filter((product: any) => {
@@ -35,36 +38,26 @@ export default function ProductsList({ products }: Props) {
     indexOfLastProduct(page)
   );
 
-  console.log(currentProducts);
-
-  const renderList = ({ children }: { children: React.ReactNode }) => {
-    return position === "grid" ? (
-      <S.ProductsListGrid products={products}>{children}</S.ProductsListGrid>
-    ) : (
-      <S.ProductsListColumn>{children}</S.ProductsListColumn>
-    );
-  };
-
   return (
     <S.ProductsListWrapper className="responsive-padding">
-      {renderList({
-        children: currentProducts.map((product: any) => (
+      <S.ProductsListGrid>
+        {currentProducts.map((product) => (
           <ProductCard
             key={product.id}
-            imageURL={urlForImage(product.images[0]).url()}
             id={product.id}
-            name={product.name}
             slug={product.slug}
+            name={product.name}
             description={product.description}
-            stars={product.stars}
-            stock={product.stock}
-            price={product.price}
+            images={urlForImage(product.images[0]).url()}
+            price={product.variants[0].price}
+            stock={product.variants
+              .map((variant) => variant.stock)
+              .reduce((a, b) => a + b)}
             category={product.category}
-            weight={product.weight}
-            sizes={product.sizes}
           />
-        )),
-      })}
+        ))}
+      </S.ProductsListGrid>
+
       <Pagination filteredProducts={filteredProducts} />
     </S.ProductsListWrapper>
   );

@@ -1,47 +1,23 @@
 import Link from "next/link";
-import { v4 as uuidv4 } from "uuid";
-import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
 import ProductCardStock from "./ProductCardStock";
 import Button from "@/app/_components/_atoms/Button";
-import ProductCardAction from "./ProductCardAction";
-import { ProductCardProps } from "./types";
+import { ProductCardProps } from "@/sanity/types/product-type";
 import * as S from "./styles";
 
 export default function ProductCard({
-  imageURL,
-  id,
-  name,
   slug,
+  name,
   description,
-  stock,
+  images,
   price,
-  category,
-  weight,
+  stock,
 }: ProductCardProps) {
-  const { addToCart } = useCartStore();
-
-  const handleAddToCart = () => {
-    addToCart(
-      {
-        name: name,
-        description: description,
-        id: id,
-        productId: uuidv4(),
-        price: price,
-        images: imageURL as any,
-        category: category,
-        weight: weight,
-      },
-      1
-    );
-  };
-
   if (stock <= 0) return null;
 
   return (
     <S.ProductCardWrapper>
       <S.ProductCardHeader>
-        <S.ProductCardImage imageURL={imageURL} />
+        <S.ProductCardImage imageURL={images} />
       </S.ProductCardHeader>
       <S.ProductCardBody>
         <S.ProductCardTitleWrapper>
@@ -52,7 +28,7 @@ export default function ProductCard({
 
         <ProductCardStock stock={stock} />
 
-        <S.ProductCardPrice>€{price}</S.ProductCardPrice>
+        <S.ProductCardPrice>{price.toFixed(2)}€</S.ProductCardPrice>
 
         <S.ProductCardFooter>
           <Button>
@@ -60,12 +36,6 @@ export default function ProductCard({
               Voir le produit
             </Link>
           </Button>
-
-          <ProductCardAction
-            category={category}
-            handleAddToCart={handleAddToCart}
-            stock={stock}
-          />
         </S.ProductCardFooter>
       </S.ProductCardBody>
     </S.ProductCardWrapper>
