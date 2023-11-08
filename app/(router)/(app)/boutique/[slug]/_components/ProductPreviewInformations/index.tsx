@@ -12,6 +12,7 @@ type Props = {
 };
 
 export default function ProductPreviewInformations({ product }: Props) {
+  const [quantity, setQuantity] = useState(1);
   const [productPrice, setProductPrice] = useState<number>(
     product.variants[0].price
   );
@@ -58,11 +59,15 @@ export default function ProductPreviewInformations({ product }: Props) {
       />
       <S.Container>
         {productPrice !== null ? (
-          <S.ProductPrice>{productPrice}€</S.ProductPrice>
+          <S.ProductPrice>
+            {(productPrice * quantity).toFixed(2)}€
+          </S.ProductPrice>
         ) : (
           <S.ProductPrice>Loading...</S.ProductPrice>
         )}
         <ProductActions
+          quantity={quantity}
+          setQuantity={setQuantity}
           productPrice={productPrice}
           productSize={productSize}
           setErrorSize={setErrorSize}

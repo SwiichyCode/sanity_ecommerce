@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Button from "@/app/_components/_atoms/Button";
 import { useCartStore } from "@/app/(router)/(app)/cart/_stores/cart.store";
 import ProductQuantity from "../ProductQuantity";
@@ -8,6 +7,8 @@ import type { ProductType } from "@/sanity/types/product-type";
 import * as S from "./styles";
 
 type Props = {
+  quantity: number;
+  setQuantity: (quantity: number) => void;
   productPrice: number;
   productSize: number;
   setErrorSize: (error: string | null) => void;
@@ -15,12 +16,13 @@ type Props = {
 };
 
 export default function ProductActions({
+  quantity = 1,
+  setQuantity,
   productPrice,
   productSize,
   setErrorSize,
   product,
 }: Props) {
-  const [quantity, setQuantity] = useState(1);
   const { addToCart, addFishToCart } = useCartStore();
   const { id, name, description, images, variants, category } = product;
 
