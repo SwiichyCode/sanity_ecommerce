@@ -11,14 +11,10 @@ export const ProductFeatureWrapper = styled.section`
   }
 `;
 
-export const ProductFeatureImage = styled.div`
+export const ProductFeatureContent = styled.div`
   width: 100%;
-  max-width: 45.188rem;
-  background-image: url("/home_featured.jpg");
-  background-size: cover;
+  max-width: 69.438rem;
 `;
-
-export const ProductFeatureContent = styled.div``;
 
 export const ProductFeatureHeader = styled.div`
   display: flex;
@@ -48,6 +44,7 @@ export const ProductFeatureDescription = styled.p`
 `;
 
 export const ProductFeatureList = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 3rem;

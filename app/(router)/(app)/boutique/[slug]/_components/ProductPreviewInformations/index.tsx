@@ -1,21 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import ProductSize from "../ProductSize";
 import ProductActions from "../ProductActions";
 import { windowLocation } from "@/app/_utils/windowLocation";
 import Button from "@/app/_components/_atoms/Button";
 import * as S from "./styles";
+import { ProductType } from "@/sanity/types/product-type";
 
 type Props = {
-  product: any;
+  product: ProductType;
 };
 
 export default function ProductPreviewInformations({ product }: Props) {
-  const [sizes, setSizes] = useState<any>([]);
+  const [quantity, setQuantity] = useState(1);
+  const [productPrice, setProductPrice] = useState<number>(
+    product.variants[0].price
+  );
+  const [productSize, setProductSize] = useState<number>(
+    product.variants[0].size
+  );
   const [errorSize, setErrorSize] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (productSize) {
+      const selectedVariant = product.variants.find(
+        (variant) => variant.size === productSize
+      );
+      if (selectedVariant) {
+        setProductPrice(selectedVariant.price);
+      }
+    }
+  }, [productSize]);
+
   const handleSizeSelect = (selectedSize: any) => {
-    setSizes(selectedSize);
+    setProductSize(selectedSize);
   };
 
   const components: PortableTextComponents = {
@@ -33,26 +51,35 @@ export default function ProductPreviewInformations({ product }: Props) {
   return (
     <S.ProductPreviewInformationsWrapper>
       <S.ProductTitle>{product.name}</S.ProductTitle>
+      <ProductSize
+        sizes={product.variants.map(({ size }) => size)}
+        sizesUnit={product.variants.map(({ sizeUnit }) => sizeUnit)}
+        errorSize={errorSize}
+        onSizeSelect={handleSizeSelect}
+      />
       <S.Container>
-        <S.ProductPrice>
-          {sizes.price ? sizes.price : product.price}€
-        </S.ProductPrice>
+        {productPrice !== null ? (
+          <S.ProductPrice>
+            {(productPrice * quantity).toFixed(2)}€
+          </S.ProductPrice>
+        ) : (
+          <S.ProductPrice>Loading...</S.ProductPrice>
+        )}
         <ProductActions
-          sizes={sizes}
+          quantity={quantity}
+          setQuantity={setQuantity}
+          productPrice={productPrice}
+          productSize={productSize}
           setErrorSize={setErrorSize}
           product={product}
         />
       </S.Container>
       <S.ProductDescription>
-        <PortableText value={product.portabletext} components={components} />
-      </S.ProductDescription>
-      {product.sizes && (
-        <ProductSize
-          sizes={product.sizes}
-          errorSize={errorSize}
-          onSizeSelect={handleSizeSelect}
+        <PortableText
+          value={product.portabletext as any}
+          components={components}
         />
-      )}
+      </S.ProductDescription>
 
       <S.LocationAction>
         <Button

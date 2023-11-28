@@ -1,14 +1,12 @@
-import { Sizes } from "./sizes.type";
-
 export interface Product {
-  name: string;
-  description: string;
   id: string;
   productId: string;
+  name: string;
+  description: string;
   price: number;
   images: string;
   quantity?: number;
-  sizes?: Sizes;
+  sizes?: number;
   weight?: number;
   category: string;
 }

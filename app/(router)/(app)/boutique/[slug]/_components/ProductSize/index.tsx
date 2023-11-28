@@ -2,13 +2,19 @@ import { useState } from "react";
 import * as S from "./styles";
 
 type Props = {
-  sizes: Array<any>;
+  sizes: Array<number>;
+  sizesUnit: Array<string>;
   errorSize: string | null;
   onSizeSelect: (size: any) => void;
 };
 
-export default function ProductSize({ sizes, errorSize, onSizeSelect }: Props) {
-  const [selectedSize, setSelectedSize] = useState(null);
+export default function ProductSize({
+  sizes,
+  sizesUnit,
+  errorSize,
+  onSizeSelect,
+}: Props) {
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
   const handleSizeSelect = (size: any) => {
     setSelectedSize(size);
@@ -27,7 +33,8 @@ export default function ProductSize({ sizes, errorSize, onSizeSelect }: Props) {
               checked={selectedSize === size}
               onChange={() => handleSizeSelect(size)}
             />
-            {size.size}cm
+            {size}
+            {sizesUnit[index]}
           </S.ProductSizeLabel>
         ))}
       </S.ProductSizeList>

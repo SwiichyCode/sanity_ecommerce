@@ -2,10 +2,11 @@
 import { urlForImage } from "@/sanity/utils/imageBuilder";
 import ProductCard from "@/app/(router)/(app)/boutique/_components/ProductCard";
 import SectionLayout from "@/app/_components/layouts/SectionLayout";
+import { ProductType } from "@/sanity/types/product-type";
 import * as S from "./styles";
 
 type ProductFeatureProps = {
-  productFeature: any;
+  productFeature: ProductType[];
 };
 
 export default function ProductFeature({
@@ -30,19 +31,19 @@ export default function ProductFeature({
 
           <S.ProductFeatureList>
             {productFeature &&
-              productFeature.map((product: any) => (
+              productFeature.map((product) => (
                 <ProductCard
                   key={product.id}
-                  imageURL={urlForImage(product.images[0]).url()}
                   id={product.id}
-                  name={product.name}
                   slug={product.slug}
+                  name={product.name}
                   description={product.description}
-                  stars={product.stars}
-                  stock={product.stock}
-                  price={product.price}
+                  images={urlForImage(product.images[0]).url()}
+                  price={product.variants[0].price}
+                  stock={product.variants
+                    .map((variant) => variant.stock)
+                    .reduce((a, b) => a + b)}
                   category={product.category}
-                  weight={product.weight}
                 />
               ))}
           </S.ProductFeatureList>
