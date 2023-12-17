@@ -20,7 +20,7 @@ export const getRecentFish = async () => {
   );
 };
 
-export const getNewProducts = async () => {
+export const getProducts = async () => {
   return client.fetch(
     groq`*[_type == "products"]{
     ${productFields}
@@ -28,7 +28,7 @@ export const getNewProducts = async () => {
   );
 };
 
-export const getNewProductSlug = async () => {
+export const getProductSlug = async () => {
   return client.fetch(
     groq`*[_type == "products" && defined(slug.current)][]{
     "params": { "slug": slug.current }
@@ -36,7 +36,7 @@ export const getNewProductSlug = async () => {
   );
 };
 
-export const getNewProduct = async (slug: string) => {
+export const getProduct = async (slug: string) => {
   return client.fetch(
     groq`*[_type == "products" && slug.current == $slug]{
     ${productFields}
