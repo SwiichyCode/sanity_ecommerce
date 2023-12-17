@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ProductSizeWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
 `;
 
 export const ProductSizeTitle = styled.h2`

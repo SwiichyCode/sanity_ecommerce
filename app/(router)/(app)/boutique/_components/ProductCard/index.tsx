@@ -26,7 +26,7 @@ export default function ProductCard({
 
         <S.ProductCardDescription>{description}</S.ProductCardDescription>
 
-        <ProductCardStock stock={stock} />
+        {/* <ProductCardStock stock={stock} /> */}
 
         <S.ProductCardPrice>{price}€</S.ProductCardPrice>
 
