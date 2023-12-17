@@ -7,7 +7,7 @@ export const HeroWrapper = styled.div`
   height: calc(100vh - 5rem);
   display: flex;
   align-items: center;
-  background-image: url("/discus_hero_right.png");
+  background-image: url("/home_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
