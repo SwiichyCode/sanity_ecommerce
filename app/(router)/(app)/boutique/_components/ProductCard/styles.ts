@@ -65,7 +65,7 @@ export const ProductCardImage = styled.div.withConfig({
   height: 15.563rem;
   border-radius: var(--rounded-lg);
   background-image: url(${(props) => props.imageURL});
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: filter 0.3s ease-in-out;

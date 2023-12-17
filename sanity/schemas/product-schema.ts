@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 import { v4 as uuidv4 } from "uuid";
 
 export default defineType({
-  name: "product",
+  name: "products",
   title: "Produits",
   type: "document",
   fields: [
@@ -36,24 +36,10 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "price",
-      title: "Prix du produit",
-      type: "number",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "weight",
-      title: "Poids du produit (en grammes ou kilogrammes)",
-      type: "number",
-      hidden: ({ parent }) => parent?.category === "poisson",
-    }),
-    defineField({
-      name: "sizes",
-      title: "Tailles disponibles",
+      name: "portabletext",
+      title: "Informations complémentaires",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "fishSize" }] }],
-      description: "Select the sizes available for this product.",
-      hidden: ({ parent }) => parent?.category !== "poisson",
+      of: [{ type: "block" }],
     }),
     defineField({
       name: "images",
@@ -63,7 +49,43 @@ export default defineType({
       options: {
         layout: "grid",
       },
-
+    }),
+    defineField({
+      name: "variants",
+      title: "Variantes",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "size",
+              title: "Taille",
+              type: "number",
+            },
+            {
+              name: "sizeUnit",
+              title: "Unité de taille",
+              type: "string",
+            },
+            {
+              name: "price",
+              title: "Prix",
+              type: "number",
+            },
+            {
+              name: "weight",
+              title: "Poids",
+              type: "number",
+            },
+            {
+              name: "stock",
+              title: "Stock",
+              type: "number",
+            },
+          ],
+        },
+      ],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -79,26 +101,6 @@ export default defineType({
         ],
       },
       validation: (Rule) => Rule.required(),
-    }),
-
-    defineField({
-      name: "stars",
-      title: "Stars",
-      type: "number",
-      hidden: true,
-    }),
-    defineField({
-      name: "stock",
-      title: "Quantité en stock",
-      type: "number",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "portabletext",
-      title: "Portable text",
-      type: "array",
-      of: [{ type: "block" }],
-      // validation: (Rule) => Rule.required(),
     }),
   ],
 });

@@ -6,6 +6,7 @@ import { windowLocation } from "@/app/_utils/windowLocation";
 import Button from "@/app/_components/_atoms/Button";
 import * as S from "./styles";
 import { ProductType } from "@/sanity/types/product-type";
+import ProductCardStock from "../../../_components/ProductCard/ProductCardStock";
 
 type Props = {
   product: ProductType;
@@ -19,6 +20,9 @@ export default function ProductPreviewInformations({ product }: Props) {
   const [productSize, setProductSize] = useState<number>(
     product.variants[0].size
   );
+  const [productStock, setProductStock] = useState<number>(
+    product.variants[0].stock
+  );
   const [errorSize, setErrorSize] = useState<string | null>(null);
 
   useEffect(() => {
@@ -28,6 +32,7 @@ export default function ProductPreviewInformations({ product }: Props) {
       );
       if (selectedVariant) {
         setProductPrice(selectedVariant.price);
+        setProductStock(selectedVariant.stock);
       }
     }
   }, [productSize]);
@@ -48,6 +53,8 @@ export default function ProductPreviewInformations({ product }: Props) {
     ),
   };
 
+  console.log(productStock);
+
   return (
     <S.ProductPreviewInformationsWrapper>
       <S.ProductTitle>{product.name}</S.ProductTitle>
@@ -57,6 +64,7 @@ export default function ProductPreviewInformations({ product }: Props) {
         errorSize={errorSize}
         onSizeSelect={handleSizeSelect}
       />
+      <ProductCardStock stock={productStock} />
       <S.Container>
         {productPrice !== null ? (
           <S.ProductPrice>

@@ -7,7 +7,7 @@ export const ProductPreviewImageWrapper = styled.div.withConfig({
   width: 31.25rem;
   height: 31.25rem;
   background-image: url(${({ imageURL }) => imageURL});
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0.5rem;
