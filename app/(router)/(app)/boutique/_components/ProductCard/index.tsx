@@ -24,7 +24,7 @@ export default function ProductCard({
           <S.ProductCardTitle>{name}</S.ProductCardTitle>
         </S.ProductCardTitleWrapper>
 
-        <S.ProductCardDescription>{description}</S.ProductCardDescription>
+        {/* <S.ProductCardDescription>{description}</S.ProductCardDescription> */}
 
         {/* <ProductCardStock stock={stock} /> */}
 

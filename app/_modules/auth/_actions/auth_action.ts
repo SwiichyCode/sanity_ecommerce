@@ -44,14 +44,6 @@ export async function authAction({ formData, isSignUp, isCheckout }: Props) {
           password: result.data.password,
         });
 
-    if (error) {
-      redirect(
-        `${
-          requestUrl.origin + URL_CONSTANT.SIGNIN
-        }?error=Impossible d'authentifier l'utilisateur`
-      );
-    }
-
     return isSignUp
       ? redirect(
           `${

@@ -13,7 +13,12 @@ export default defineType({
       readOnly: true,
       initialValue: uuidv4(),
     }),
-
+    defineField({
+      name: "name",
+      title: "Nom du produit",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: "slug",
       title: "Generation du slug",
@@ -24,16 +29,10 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "name",
-      title: "Nom du produit",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: "description",
       title: "Description du produit",
       type: "text",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "portabletext",
