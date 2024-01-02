@@ -32,7 +32,7 @@ export default defineType({
       name: "description",
       title: "Description du produit",
       type: "text",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "portabletext",
