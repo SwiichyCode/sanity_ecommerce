@@ -59,12 +59,12 @@ export default defineType({
           fields: [
             {
               name: "size",
-              title: "Taille",
-              type: "number",
+              title: "Taille (ex: 10cm)",
+              type: "string",
             },
             {
               name: "sizeUnit",
-              title: "Unité de taille",
+              title: "Unité de taille (ex: cm)",
               type: "string",
             },
             {
@@ -74,7 +74,7 @@ export default defineType({
             },
             {
               name: "weight",
-              title: "Poids",
+              title: "Poids (en grammes)",
               type: "number",
             },
             {
