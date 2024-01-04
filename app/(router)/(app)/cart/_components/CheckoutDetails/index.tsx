@@ -47,7 +47,7 @@ export default function CheckoutDetails({ user }: Props) {
           price_data: {
             product_data: {
               name: sizes ? `${name} (${sizes}cm)` : name,
-              description: description,
+              // description: description,
               images: [images],
 
               metadata: {
